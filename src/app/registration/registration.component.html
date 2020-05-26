@@ -1,0 +1,23 @@
+<form>
+    <div>
+        <label>username:</label>
+        <input type="text" name="username" [(ngModel)]="username">
+
+    </div>
+    <div>
+        <label>password:</label>
+        <input type="password" name="password"  [(ngModel)]="password">
+    </div>
+    <div>
+        <label>forgotPassword:</label>
+        <input type="password" name="confirmPassword"  [(ngModel)]="confirmPassword">
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="mail" name="email"  [(ngModel)]="email">
+    </div>
+    <div>
+        <button type="submit"  (click)="submitRegister()">Submit</button>
+    </div>
+</form>
+
