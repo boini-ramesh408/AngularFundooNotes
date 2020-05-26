@@ -1,23 +1,115 @@
-<form>
-    <div>
-        <label>username:</label>
-        <input type="text" name="username" [(ngModel)]="username">
+<!-- <div class="centre"> 
+    
+    <div className="fundooLogin">
+            <span class='blue'>f</span>
+            <span class="red">u</span>
+            <span class='yellow'>n</span>
+          <span class="blue">d</span>
+            <span class="green">o</span>
+            <span class="red">o</span> 
+            <h2>
+                Register
+              </h2>
+          </div>    
+    
+    <form>
+        <div>
+            <label>username:</label>
+            <input type="text" name="username" [(ngModel)]="username">
 
-    </div>
-    <div>
-        <label>password:</label>
-        <input type="password" name="password"  [(ngModel)]="password">
-    </div>
-    <div>
-        <label>forgotPassword:</label>
-        <input type="password" name="confirmPassword"  [(ngModel)]="confirmPassword">
-    </div>
-    <div>
-        <label>Email:</label>
-        <input type="mail" name="email"  [(ngModel)]="email">
-    </div>
-    <div>
-        <button type="submit"  (click)="submitRegister()">Submit</button>
-    </div>
-</form>
+        </div>
+        <div>
+            <label>password:</label>
+            <input type="password" name="password"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}"id="password" placeholder="Password">
+        </div>
+        <div>
+            <label>confirmPassword:</label>
+            <input type="password" name="confirmPassword"  [(ngModel)]="confirmPassword">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="mail" name="email"  [(ngModel)]="email">
+        </div>
+        <div>
+            <button type="submit" class="button" (click)="submitRegister()">Submit</button>
+        </div>
+        
+    </form>
+</div> -->
 
+<div class="centre">
+    <mat-card class="card">
+      
+      <div className="fundooLogin">
+        <span class='blue'>f</span>
+        <span class="red">u</span>
+        <span class='yellow'>n</span>
+      <span class="blue">d</span>
+        <span class="green">o</span>
+        <span class="red">o</span> 
+      </div> 
+
+      <h2>
+        Sign Up
+      </h2>
+        
+          <mat-card-content>
+            <form action="">
+              <mat-form-field>
+                <input
+                matInput
+                placeholder="username"
+                required
+                name="username"
+            
+                [(ngModel)]="username"
+        
+                />
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <input
+                matInput
+                placeholder="password"
+                required
+                name="password"
+                ngModel
+                type="password"
+                [(ngModel)]="password"
+                />
+              </mat-form-field>
+
+              <br>
+              <mat-form-field>
+                <input
+                matInput
+                placeholder="confirmPassword"
+                required
+                name="confirmPassword"
+                ngModel
+                type="password"
+                [(ngModel)]="confirmPassword"
+                />
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <input
+                matInput
+                placeholder="email"
+                required
+                name="email"
+                ngModel
+                type="email"
+                [(ngModel)]="email"
+                />
+              </mat-form-field>
+              <br>
+              <button type="submit" class="button" (click)="submitRegister()">Submit</button>
+            </form>
+          </mat-card-content>
+    
+     
+    </mat-card>
+    
+    
+    </div>

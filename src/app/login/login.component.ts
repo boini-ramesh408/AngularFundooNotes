@@ -17,12 +17,14 @@ export class LoginComponent implements OnInit {
 
   submitData(){
     console.log("hshs")
-    let data = {"username": this.username, "password":this.password};
+    let dataa = {"username": this.username, "password":this.password};
     // // const headers = new HttpHeaders().set("content-type", "application/json");
 
-    this.http.post('http://localhost:8000/api/login/',data)
+    this.http.post('http://localhost:8000/api/login/',dataa)
     .subscribe((response) => {
       console.log(response)
+      
+      // localStorage.setItem("token",response.data)
     }
     )
    

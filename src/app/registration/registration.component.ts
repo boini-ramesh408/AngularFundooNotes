@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -15,10 +15,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
   submitRegister(){
-    console.log("regstration works")
+    console.log("regstration works",)
     let data = {"username": this.username, "password":this.password,"confirmPassword":this.confirmPassword,"email":this.email};
-    // // const headers = new HttpHeaders().set("content-type", "application/json");
-
+    // const headers = new HttpHeaders().set("content-type", "application/json");
+    
+    console.log(data,"hjgh")
     this.http.post('http://localhost:8000/api/register/',data)
     .subscribe((response) => {
       console.log(response)
