@@ -40,9 +40,9 @@
     <span class="green">o</span>
     <span class="red">o</span> 
   </div> 
-  <h2>
+  <h3>
     Sign in
-  </h2>
+  </h3>
     
       <mat-card-content>
         <form action="">
@@ -63,11 +63,21 @@
             required
             name="password"
             type="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+            title="Enter valid password"
             [(ngModel)]="password"
             />
           </mat-form-field>
           <br>
-          <button type="submit" class="button" (click)="submitData()">Submit</button>
+          <button  
+          mat-raised-button 
+          color="primary"
+          type="submit"
+          class="button" (click)="submitData()">Login</button>
+          <br>
+          <a ng-href="#" type="button" class="register-url" (click)='goRegistration()'>register?</a>
+         
+          <a ng-href="#" type="button" class="forgot-url" (click)='goForgotPassword()'>Forgot?</a>
         </form>
       </mat-card-content>
 

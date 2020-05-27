@@ -49,9 +49,9 @@
         <span class="red">o</span> 
       </div> 
 
-      <h2>
+      <h3>
         Sign Up
-      </h2>
+      </h3>
         
           <mat-card-content>
             <form action="">
@@ -75,6 +75,8 @@
                 name="password"
                 ngModel
                 type="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 [(ngModel)]="password"
                 />
               </mat-form-field>
@@ -88,6 +90,8 @@
                 name="confirmPassword"
                 ngModel
                 type="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 [(ngModel)]="confirmPassword"
                 />
               </mat-form-field>
@@ -104,7 +108,7 @@
                 />
               </mat-form-field>
               <br>
-              <button type="submit" class="button" (click)="submitRegister()">Submit</button>
+              <button  mat-raised-button color="primary" type="submit" class="button" (click)="submitRegister()">Register</button>
             </form>
           </mat-card-content>
     
