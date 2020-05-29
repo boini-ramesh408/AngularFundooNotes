@@ -32,7 +32,7 @@
 <div class="login-page">
 <mat-card class="card">
   
-  <div className="fundooLogin">
+  <div >
     <span class='blue'>f</span>
     <span class="red">u</span>
     <span class='yellow'>n</span>
@@ -46,28 +46,37 @@
     
       <mat-card-content>
         <form action="">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter username</mat-label>
             <input
             matInput
             placeholder="username"
-            required
-            name="username"
-            [(ngModel)]="username"
-            />
+            [formControl]="username"
+            >
+            <mat-error *ngIf="username.invalid" [ngClass] = "'error'">{{errorForUsername()}}</mat-error>
+
           </mat-form-field>
           <br>
-          <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter password</mat-label>
             <input
             matInput
             placeholder="password"
-            required
-            name="password"
+            
+           
             type="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-            title="Enter valid password"
-            [(ngModel)]="password"
-            />
+            
+           
+            [formControl]="password"
+     
+            >
+            <mat-error *ngIf="password.invalid" [ngClass] = "'error'">{{errorForPassword()}}</mat-error>
+            <!-- <mat-error>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</mat-error> -->
+            
           </mat-form-field>
+          
+              
           <br>
           <button  
           mat-raised-button 
