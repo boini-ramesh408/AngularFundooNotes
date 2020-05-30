@@ -52,6 +52,7 @@
             matInput
             placeholder="username"
             [formControl]="username"
+            
             >
             <mat-error *ngIf="username.invalid" [ngClass] = "'error'">{{errorForUsername()}}</mat-error>
 
@@ -62,12 +63,8 @@
             <input
             matInput
             placeholder="password"
-            
-           
             type="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-            
-           
             [formControl]="password"
      
             >

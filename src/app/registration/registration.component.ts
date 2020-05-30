@@ -2,42 +2,66 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
+import { UserServiceService } from '../services/userService/user-service.service';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  username= new FormControl('', [Validators.required,Validators.maxLength(10)]);
-  password=new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" )]);
-  confirmPassword=new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" )]);
+
+  username= new FormControl('', [Validators.required,Validators.maxLength(10),
+
+                  Validators.minLength(4)]);
+
+  password=new FormControl('',[Validators.required,Validators.minLength(7)]);
+
+  confirmPassword=new FormControl('',[Validators.required,Validators.minLength(7)]);
+
   email=new FormControl('', [Validators.required, Validators.email,Validators.maxLength(15),]);
-  constructor(private http: HttpClient,private router: Router) { }
+
+  constructor(private http: HttpClient,private router: Router,private userService:UserServiceService) { }
 
   ngOnInit() {
   }
   submitRegister(){
-    console.log("regstration works",)
-    let dataa = {"username": this.username, "password":this.password,"confirmPassword":this.confirmPassword,"email":this.email};
-    // const headers = new HttpHeaders().set("content-type", "application/json");
     
-    console.log(dataa,"hjgh")
-    this.http.post('http://localhost:8000/api/register/',dataa)
+    console.log("regstration works",this.username.value)
+
+    let data=
+    {"username":this.username.value,
+    "password":this.password.value,
+    "confirmPassword":this.confirmPassword.value,
+    "email":this.email.value
+
+
+  }
+    this.userService.postRegisterData(data)
     .subscribe((response) => {
-      localStorage.setItem('token', response['token']);
-      // console.log(response['data'])
-      // localStorage.setItem('user', response['data']);
-      // localStorage.setItem("token",this.response.data)
       console.log(response)
-      // alert(response['message']);
-      if (response['success'] === true){
-        alert(response['message']);
-      }else{
-        console.log('Unsuccessful')
+      console.log(` response status : ${response['success']}`);
+      try{
+        if (response['success'] === true){
+          localStorage.setItem('token', response['token']);
+          console.log(response['data'])
+          alert(response['message']);
+         
+        }
+        else
+        {
+          console.log('Fail')
+          alert(response['message']);
+         
+        } 
+      }
+      catch(err)
+      {
+        console.log(err)
+          
       }
       
-    }
-    )
+    })
+     
   }
   goLogin(){
     this.router.navigate(['']);
@@ -45,18 +69,27 @@ export class RegistrationComponent implements OnInit {
 
   errorForUsername(){
     return this.username.hasError('required') ? 'username field is required':
-    "";
+        this.username.hasError('minlength') ? 'minimum 4 character are required':
+        this.username.hasError('maxlength') ? 'maximum 12 character are required':
+        
+        this.username;
   }
   errorForPassword(){
     return this.password.hasError('required') ? 'password field is required':
-    "";
+  this.password.hasError('minlength') ? 'you should enter 8-digit password':
+  // this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+  this.password;
   }
   errorForConfirmPassword(){
     return this.confirmPassword.hasError('required') ? 'ConfirmPassword field is required':
-    "";
+   
+    this.confirmPassword.hasError('minlength') ? 'you should enter 8-digit password':
+    // this.confirmPassword.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+    this.confirmPassword;
   }
   errorForEmail(){
     return this.email.hasError('required') ? 'email field is required':
-    "";
+    this.email.hasError('email') ? 'Enter valid email':
+    this.email;
   }
 }

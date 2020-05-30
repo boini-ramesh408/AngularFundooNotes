@@ -1,0 +1,22 @@
+<div>
+    <mat-toolbar class="mat-toolbar">
+      <div class="toolbar-menu-brand">
+        <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <a  style="padding-left: 10px; color:grey;">Fundoo</a>  
+      </div>
+    </mat-toolbar>
+  
+  
+    <mat-sidenav-container class="navSet">
+        <mat-sidenav #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
+          <button class="sidenav-element-button" >Notes</button>
+          <br>
+          <button class="sidenav-element-button" >Reminders</button>
+          <hr>
+        
+          <button class="sidenav-element-button" >Archive</button>
+          <br>
+          <button class="sidenav-element-button">Trash</button>
+        </mat-sidenav>
+      </mat-sidenav-container>
+</div>

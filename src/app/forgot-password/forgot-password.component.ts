@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormControl,Validators} from '@angular/forms'
+import { UserServiceService } from '../services/userService/user-service.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,28 +9,47 @@ import {FormControl,Validators} from '@angular/forms'
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  // email:string;
-  email=new FormControl('', [Validators.required, Validators.email,Validators.maxLength(15),]);
-  constructor(private http: HttpClient) { }
+  email:string;
+  // email=new FormControl('', [Validators.required, Validators.email,Validators.maxLength(15),]);
+  constructor(private http: HttpClient,private userService:UserServiceService) { }
 
   ngOnInit() {
   }
   ForgotPassword(){
   
-    let dataa = {"email": this.email};
+    
+    console.log(this.email)
     // // const headers = new HttpHeaders().set("content-type", "application/json");
-
-    this.http.post('http://localhost:8000/api/reset/',dataa)
+    // this.http.post('http://localhost:8000/api/reset/',dataa)
+    this.userService.postForgotPasswordData(this.email)
     .subscribe((response) => {
       console.log(response)
-      alert(response['message']);
-      // localStorage.setItem("token",response.data)
     
-    }
-    )
+      try{
+        if (response['success'] === true){
+        
+          console.log(response['data'])
+          alert(response['message']);
+         
+        }
+        else
+        {
+          console.log('Fail')
+          alert(response['message']);
+         
+        } 
+      }
+      catch(err)
+      {
+        console.log(err)
+          
+      }
+      
+    })
   }
-abc(){
-  return this.email.hasError('required') ? 'username field is required':
-  "";
-}
+//   errorMessageForForgotPassword(){
+//   return this.email.hasError('required') ? 'email field is required':
+//   this.email.hasError('email') ? 'Enter valid email':
+//   this.email;
+// }
 }

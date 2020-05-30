@@ -11,9 +11,13 @@ import { UserServiceService } from '../services/userService/user-service.service
 export class LoginComponent implements OnInit {
   // username:string;
   // password:string;
-  username= new FormControl('', [Validators.required,Validators.minLength(4),Validators.maxLength(12)]);
-  password=new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" )])
-  constructor(private http: HttpClient,private router: Router,private userService:UserServiceService) { }
+  username= new FormControl('', [Validators.required,Validators.minLength(4),
+    Validators.maxLength(20)]);
+
+  password=new FormControl('',[Validators.required,Validators.minLength(7)])
+
+  constructor(private http: HttpClient,private router: Router,
+    private userService:UserServiceService) { }
 
   ngOnInit() {
 
@@ -22,16 +26,34 @@ export class LoginComponent implements OnInit {
   submitData(){
     
     // let dataa = {"username": this.username, "password":this.password};
-    // // const headers = new HttpHeaders().set("content-type", "application/json");
-    this.userService.postRegisterData(this.username,this.password)
+   console.log(this.username.value)
+    this.userService.postLoginData(this.username.value,this.password.value)
     // this.http.post('http://localhost:8000/api/login/',dataa)
-    // .subscribe((response) => {
-      // console.log(response)
-      // alert(response['message']);
-      // localStorage.setItem("token",response.data)
-    
-    // }
-    // )
+    .subscribe((response) => {  
+      console.log(response)
+      console.log(` response status : ${response['success']}`);
+      try{
+        if (response['status'] === true){
+          // localStorage.setItem('token', response['token']);
+          console.log(response['data'])
+          alert(response['message']);
+          this.router.navigate(['/dashboard']);
+         
+        }
+        else
+        {
+         
+          alert(response['message']);
+         
+        } 
+      }
+      catch(err)
+      {
+        console.log(err)
+          
+      }
+      
+    })
 
  
 }
@@ -47,18 +69,23 @@ goRegistration(){
 goForgotPassword(){
 
   this.router.navigate(['/forgot']);
- 
-  
-  console.log("forgot pasword")
+  console.log("forgot password")
  
 }
 errorForUsername(){
+
   return this.username.hasError('required') ? 'username field is required':
+        this.username.hasError('minlength') ? 'minimum 4 character are required':
+        this.username.hasError('maxlength') ? 'maximum 12 character are required':
+        
+        this.username;
+
   
-  "";
 }
 errorForPassword(){
   return this.password.hasError('required') ? 'password field is required':
-  "";
+  this.password.hasError('minlength') ? 'you should enter 8-digit password':
+  // this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+  this.password;
 }
 }
