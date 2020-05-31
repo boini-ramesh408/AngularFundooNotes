@@ -10,7 +10,8 @@ export class UserServiceService {
 
   constructor(private http: HttpClient, private router: Router,private hs:HttpServicesService) { }
 
-
+  url="register/"
+  loginUrl="login/"
   postLoginData(username,password){
    
    console.log("login inside")
@@ -18,7 +19,7 @@ export class UserServiceService {
     let data = {"username": username, "password":password};
     console.log(data,"dataaa")
     // return this.http.post(this.url+'/login/',data,)
-    return this.http.post('http://localhost:8000/api/login/',data)
+    return this.hs.post(this.loginUrl,data)
    
   }
 
@@ -27,7 +28,8 @@ export class UserServiceService {
     
     // let data = {"username": username, "password":password,"confirmPassword":confirmPassword,"email":email};
     console.log("inside1",data)
-    return this.hs.post(data)
+    // url="register/"
+    return this.hs.post(this.url,data)
     // return this.http.post('http://localhost:8000/api/register/',data)
     // this.http.post(this.url+'/register/',data,)
     

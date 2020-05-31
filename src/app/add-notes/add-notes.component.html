@@ -1,0 +1,27 @@
+<div class="card">
+
+    <div (click)="openCard()" *ngIf="!showCard"> 
+        <mat-card >
+            <mat-card-content>
+                <input class="content-input" placeholder="Take a note" [(ngModel)]="notee">
+           
+        </mat-card-content>
+        </mat-card>
+    </div>
+    <div  *ngIf="showCard" >
+        <mat-card>
+            <mat-card-content>
+                <input class="content-input" placeholder="Title" [(ngModel)]="title">
+           
+        </mat-card-content>
+            <br>
+            <mat-card-content>
+                <input class="content-input" placeholder="Take a note" [(ngModel)]="note">
+           
+        </mat-card-content>
+            <button (click)="closeCard()">close</button>
+        </mat-card>
+    </div>
+    
+</div>
+

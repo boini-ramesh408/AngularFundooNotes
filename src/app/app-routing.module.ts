@@ -5,6 +5,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddNotesComponent } from './add-notes/add-notes.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'forgot', component: ForgotPasswordComponent},
   { path: 'reset', component: ResetPasswordComponent},
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'add', component: AddNotesComponent},
 
 ];
 

@@ -8,7 +8,7 @@
   
   
     <mat-sidenav-container class="navSet">
-        <mat-sidenav #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
+        <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
           <button class="sidenav-element-button" >Notes</button>
           <br>
           <button class="sidenav-element-button" >Reminders</button>
@@ -19,4 +19,8 @@
           <button class="sidenav-element-button">Trash</button>
         </mat-sidenav>
       </mat-sidenav-container>
+</div>
+<div>
+
+  <app-add-notes></app-add-notes>
 </div>
