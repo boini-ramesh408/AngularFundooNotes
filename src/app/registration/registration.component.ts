@@ -9,7 +9,9 @@ import { UserServiceService } from '../services/userService/user-service.service
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+
   patternForPassword="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  
   username= new FormControl('', [Validators.required,Validators.maxLength(10),
 
                   Validators.minLength(4)]);

@@ -12,9 +12,8 @@
   
     <mat-sidenav-container >
         <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
-          <mat-nav-list>
-
-               <button
+         
+            <button
               mat-button
               id="sidenav-button"
               [routerLink]="['/dashboard/notes']"
@@ -30,9 +29,6 @@
           <button class="sidenav-element-button" >Archive</button>
           <br>
           <button class="sidenav-element-button">Trash</button>
-
-          </mat-nav-list>
-           
         </mat-sidenav>
       
       

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { NotesServiceService } from '../services/notesService/notes-service.service';
 @Component({
   selector: 'app-add-notes',
   templateUrl: './add-notes.component.html',
@@ -16,7 +17,7 @@ export class AddNotesComponent implements OnInit {
   note:string;
   
 
-  constructor(private http: HttpClient) {this.showCard = false; }
+  constructor(private http: HttpClient,private notesService:NotesServiceService) {this.showCard = false; }
 
   ngOnInit() {
   }
@@ -35,7 +36,8 @@ export class AddNotesComponent implements OnInit {
     console.log(this.title,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
-      this.http.post('http://127.0.0.1:8000/api/note/',data)
+      this.notesService.createNotes(data)
+      // this.http.post('http://127.0.0.1:8000/api/note/',data)
       .subscribe((response) => { 
         console.log(response,"res")
       }
