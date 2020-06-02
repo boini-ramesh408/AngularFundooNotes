@@ -33,8 +33,8 @@ export class AddNotesComponent implements OnInit {
     }
   }
   closeCard(){
-    let data= {"title":this.title,"note":this.note}
-    console.log(this.title,"titleeeee")
+    let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive}
+    console.log(this.is_archive,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
       this.notesService.createNotes(data)

@@ -11,7 +11,7 @@ export class NotesServiceService {
 
   createNotes(data){
   
-    return this.hs.post(this.url1,data)
+    return this.hs.post(this.url,data)
     
   }
   getAllNotes(){

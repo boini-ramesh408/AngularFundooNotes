@@ -9,27 +9,27 @@ export class ArchiveNotesComponent implements OnInit {
   @Output() sendArchive = new EventEmitter()
   @Input() archivedStatus
 
-  is_archived:boolean;
+  is_archive:boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.is_archived=this.archivedStatus
+    this.is_archive=this.archivedStatus
   }
   goArchive(){
 
   
-  if (this.is_archived === false || this.archivedStatus === false){
+  if (this.is_archive === false || this.archivedStatus === false){
     // console.log('Is _ archived before : ', this.is_archived)
     console.log('archived Status  : ' ,this.archivedStatus)
-  this.is_archived = true
+  this.is_archive = true
   this.archivedStatus = true
   // console.log('Is _ archived after : ', this.is_archived)
   }else{
-    this.is_archived = false;
+    this.is_archive = false;
     this.archivedStatus = true;
   }
-  this.sendArchive.emit(this.is_archived)
+  this.sendArchive.emit(this.is_archive)
  
 }
 }
