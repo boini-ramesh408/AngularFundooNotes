@@ -15,7 +15,7 @@ export class AddNotesComponent implements OnInit {
 
   title:string;
   note:string;
-  
+  color:string;
 
   constructor(private http: HttpClient,private notesService:NotesServiceService) {this.showCard = false; }
 
@@ -43,7 +43,9 @@ export class AddNotesComponent implements OnInit {
       }
       )
       
+      
       return this.showCard = false
     }
   }
+ 
 }
