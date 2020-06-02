@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
+import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.component';
 
 
 const routes: Routes = [
@@ -20,14 +21,20 @@ const routes: Routes = [
     path: "dashboard",
     component: DashboardComponent,
     children: [
+     
       {
         path: "",
         redirectTo: "/dashboard/notes",
         pathMatch: "full",
         
+      },{
+        path: "notes",
+        component: DisplayAllNotesComponent,
+        // canActivate: [AuthGuardService]
       },
     ]
-
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

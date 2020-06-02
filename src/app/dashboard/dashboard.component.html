@@ -10,9 +10,19 @@
     </mat-toolbar>
   
   
-    <mat-sidenav-container class="navSet">
+    <mat-sidenav-container >
         <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
-          <button class="sidenav-element-button" >Notes</button>
+          <mat-nav-list>
+
+               <button
+              mat-button
+              id="sidenav-button"
+              [routerLink]="['/dashboard/notes']"
+            >
+              
+              Notes
+            </button>
+          <!-- <button class="sidenav-element-button" >Notes</button> -->
           <br>
           <button class="sidenav-element-button" >Reminders</button>
           <hr>
@@ -20,15 +30,21 @@
           <button class="sidenav-element-button" >Archive</button>
           <br>
           <button class="sidenav-element-button">Trash</button>
+
+          </mat-nav-list>
+           
         </mat-sidenav>
+      
+      
+
+
       </mat-sidenav-container>
-</div>
-<router-outlet></router-outlet>
-<!-- <div>
+      <app-add-notes></app-add-notes>
+    <router-outlet></router-outlet>
+  
 
-  <app-add-notes></app-add-notes>
 </div>
 
-<div><app-display-all-notes></app-display-all-notes></div> -->
+<!-- <div><app-display-all-notes></app-display-all-notes></div> -->
 
 
