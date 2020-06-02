@@ -8,17 +8,21 @@ import { UserServiceService } from '../services/userService/user-service.service
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-  password=new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" )]);
-  confirmPassword=new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" )]);
+
+
+  password=new FormControl('',[Validators.required,Validators.minLength(7)]);
+
+  confirmPassword=new FormControl('',[Validators.required,Validators.minLength(7)]);
+  
   constructor(private http: HttpClient,private userService:UserServiceService) { }
 
   ngOnInit() {
   }
   submitReset(){
     
-    let dataa = {"password": this.password, "confirmPassword":this.confirmPassword};
+    let data = {"password": this.password.value, "confirmPassword":this.confirmPassword.value};
     // // const headers = new HttpHeaders().set("content-type", "application/json");
-      this.userService.postResetPasswordData(this.password,this.confirmPassword)
+      this.userService.postResetPasswordData(data)
       .subscribe((response) => {
         console.log(response)
       
@@ -50,14 +54,14 @@ export class ResetPasswordComponent implements OnInit {
   errorForPassword(){
     return this.password.hasError('required') ? 'password field is required':
   this.password.hasError('minlength') ? 'you should enter 8-digit password':
-  this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+ 
   this.password;
   }
   errorForConfirmPassword(){
     return this.confirmPassword.hasError('required') ? 'ConfirmPassword field is required':
    
     this.confirmPassword.hasError('minlength') ? 'you should enter 8-digit password':
-    this.confirmPassword.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+    
     this.confirmPassword;
   }
 }

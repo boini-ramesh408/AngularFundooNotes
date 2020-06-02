@@ -1,0 +1,19 @@
+.card_adjust{
+
+    align-items: center;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    float: left;
+    margin-bottom: 23px;
+    margin-left: 10%;
+    margin-top: 1%;
+    padding: 3%;
+   
+    width: 10%;
+    flex-direction: row;
+}
+.card{
+    padding-right: 10%;
+}

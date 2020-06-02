@@ -14,10 +14,20 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent},
   { path: 'forgot', component: ForgotPasswordComponent},
   { path: 'reset', component: ResetPasswordComponent},
-  { path: 'dashboard', component: DashboardComponent},
+  // { path: 'dashboard', component: DashboardComponent},
   { path: 'add', component: AddNotesComponent},
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    children: [
+      {
+        path: "",
+        redirectTo: "/dashboard/notes",
+        pathMatch: "full",
+        
+      },
+    ]
 
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

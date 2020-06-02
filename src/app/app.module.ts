@@ -21,6 +21,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { AddNotesComponent } from './add-notes/add-notes.component';
+import { DisplayNotesComponent } from './notes/display-notes.component';
+import { LogoutComponent } from './logout/logout.component';
+import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,10 @@ import { AddNotesComponent } from './add-notes/add-notes.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    AddNotesComponent
+    AddNotesComponent,
+    DisplayNotesComponent,
+    LogoutComponent,
+    DisplayAllNotesComponent
   ],
   imports: [
     BrowserModule,

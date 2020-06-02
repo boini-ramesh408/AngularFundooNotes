@@ -4,6 +4,9 @@
         <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         <a  style="padding-left: 10px; color:grey;">Fundoo</a>  
       </div>
+      <div>
+        <app-logout></app-logout>
+      </div>
     </mat-toolbar>
   
   
@@ -20,7 +23,12 @@
         </mat-sidenav>
       </mat-sidenav-container>
 </div>
-<div>
+<router-outlet></router-outlet>
+<!-- <div>
 
   <app-add-notes></app-add-notes>
 </div>
+
+<div><app-display-all-notes></app-display-all-notes></div> -->
+
+

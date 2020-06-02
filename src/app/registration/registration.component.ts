@@ -9,18 +9,22 @@ import { UserServiceService } from '../services/userService/user-service.service
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-
+  patternForPassword="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
   username= new FormControl('', [Validators.required,Validators.maxLength(10),
 
                   Validators.minLength(4)]);
 
-  password=new FormControl('',[Validators.required,Validators.minLength(7)]);
+  password=new FormControl('',[Validators.required,Validators.minLength(7),
+    
+    Validators.pattern(this.patternForPassword)]);
 
   confirmPassword=new FormControl('',[Validators.required,Validators.minLength(7)]);
 
   email=new FormControl('', [Validators.required, Validators.email,Validators.maxLength(15),]);
+ 
+  constructor(private http: HttpClient,private router: Router,
 
-  constructor(private http: HttpClient,private router: Router,private userService:UserServiceService) { }
+    private userService:UserServiceService) { }
 
   ngOnInit() {
   }
@@ -41,9 +45,9 @@ export class RegistrationComponent implements OnInit {
       console.log(response)
       console.log(` response status : ${response['success']}`);
       try{
-        if (response['success'] === true){
-          localStorage.setItem('token', response['token']);
-          console.log(response['data'])
+        if (response['status'] === true){
+          localStorage.setItem('token', response['data']);
+          console.log(response['token'],"hhhh")
           alert(response['message']);
          
         }
@@ -77,7 +81,7 @@ export class RegistrationComponent implements OnInit {
   errorForPassword(){
     return this.password.hasError('required') ? 'password field is required':
   this.password.hasError('minlength') ? 'you should enter 8-digit password':
-  // this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+  this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
   this.password;
   }
   errorForConfirmPassword(){

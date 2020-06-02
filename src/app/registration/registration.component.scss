@@ -1,6 +1,12 @@
 .centre{
     text-align: center;
-    
+    overflow: hidden;
+    overflow-y:scroll;
+    position: fixed; 
+    width: 100%;
+    // margin-bottom: 30%;
+    margin-top: -5%;
+
 }
 .button{
     width: 72%;

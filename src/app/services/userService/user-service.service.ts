@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { HttpServicesService } from '../httpServices/http-services.service';
 @Injectable({
@@ -12,6 +12,15 @@ export class UserServiceService {
 
   url="register/"
   loginUrl="login/"
+  forgotUrl="reset/"
+  resetUrl="forgot/"
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+      "content-type": "application/json",
+      token: localStorage.getItem("token")
+    })
+  };
   postLoginData(username,password){
    
    console.log("login inside")
@@ -37,15 +46,17 @@ export class UserServiceService {
   
   postForgotPasswordData(email){
     let data = {"email":email};
-    return this.http.post('http://localhost:8000/api/reset/',data,)
+    return this.hs.post(this.forgotUrl,data)
    
   }
 
 
-  postResetPasswordData(password,confirmPassword){
-    let data = { "password":password,"confirmPassword":confirmPassword};
- 
-    return this.http.post('http://localhost:8000/api/forgot/',data,)
+  postResetPasswordData(data){
+    let token = localStorage.getItem('token') 
+    const headers = new HttpHeaders().set("content-type", "application/json",);
+    // let data = { "password":password,"confirmPassword":confirmPassword};
+    return this.hs.post(this.resetUrl,data)
+    // return this.http.post('http://localhost:8000/api/forgot/',data,)
     
 
   }

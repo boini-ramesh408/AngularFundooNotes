@@ -9,12 +9,17 @@ export class HttpServicesService {
   constructor(private http: HttpClient) { }
 
 
-// post(data){
-//   console.log("inside service")
-//   return this.http.post(`${this.url}register/`,data);
-// }
+
 public post(url1,data) {
   return this.http.post(this.url+url1,data);
 }
-
+public get(url1){
+  return this.http.get(this.url+url1);
+}
+public put(url1,data){
+  return this.http.put(this.url+url1,data);
+}
+public delete(url1,data){
+  return this.http.delete(this.url+url1,data);
+}
 }

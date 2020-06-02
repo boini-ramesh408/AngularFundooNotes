@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         if (response['status'] === true){
           // localStorage.setItem('token', response['token']);
           console.log(response['data'])
-          alert(response['message']);
+         
           this.router.navigate(['/dashboard']);
          
         }
