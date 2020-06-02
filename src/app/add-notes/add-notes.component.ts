@@ -16,6 +16,7 @@ export class AddNotesComponent implements OnInit {
   title:string;
   note:string;
   color:string;
+  is_archive:false;
 
   constructor(private http: HttpClient,private notesService:NotesServiceService) {this.showCard = false; }
 
@@ -47,5 +48,10 @@ export class AddNotesComponent implements OnInit {
       return this.showCard = false
     }
   }
+  setArchive($event){
+    console.log($event)
+    this.is_archive = $event;
+  }
+
  
 }

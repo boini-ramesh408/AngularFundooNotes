@@ -13,17 +13,18 @@
     <mat-sidenav-container >
         <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
          
-            <button
-              mat-button
-              id="sidenav-button"
-              [routerLink]="['/dashboard/notes']"
-            >
+            <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
               
               Notes
             </button>
           <!-- <button class="sidenav-element-button" >Notes</button> -->
           <br>
-          <button class="sidenav-element-button" >Reminders</button>
+          <button mat-button id="sidenav-button" [routerLink]="['/dashboard/archive']" >
+              
+            Reminders
+            
+            </button>
+          <!-- <button class="sidenav-element-button" >Reminders</button> -->
           <hr>
         
           <button class="sidenav-element-button" >Archive</button>

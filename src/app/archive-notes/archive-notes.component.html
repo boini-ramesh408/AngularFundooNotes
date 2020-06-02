@@ -1,1 +1,4 @@
-<p>archive-notes works!</p>
+<button *ngIf="!is_archived; else unArchive" mat-icon-button (click)="goArchive()">
+    <mat-icon>archive</mat-icon>
+</button>
+

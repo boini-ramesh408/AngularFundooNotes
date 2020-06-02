@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
 import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.component';
+import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,11 @@ const routes: Routes = [
       },{
         path: "notes",
         component: DisplayAllNotesComponent,
+        // canActivate: [AuthGuardService]
+      },
+      {
+        path: "archive",
+        component: ArchiveNotesComponent,
         // canActivate: [AuthGuardService]
       },
     ]
