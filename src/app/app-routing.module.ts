@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
 import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.component';
 import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
+import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: "archive",
-        component: ArchiveNotesComponent,
+        component: DisplayArchieveNotesComponent,
         // canActivate: [AuthGuardService]
       },
     ]
