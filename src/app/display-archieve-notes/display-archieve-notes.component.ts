@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesServiceService } from '../services/notesService/notes-service.service';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Component({
   selector: 'app-display-archieve-notes',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayArchieveNotesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ns:NotesServiceService,private http: HttpClient) { }
 
   ngOnInit() {
+    console.log("insid")
+    this.disPlatArchive()
+  }
+  disPlatArchive(){
+    this.http.get('http://127.0.0.1:8000/api/archieve/')
+    .subscribe((response:any) => { 
+
+      // this.notes=response.data
+       // data.push(response)
+     
+      //  console.log(this.notes,"res")
+      console.log("archieve")
+     }
+     )
+  }
   }
 
-}
+
