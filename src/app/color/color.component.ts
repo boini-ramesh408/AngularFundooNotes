@@ -36,11 +36,6 @@ export class ColorComponent implements OnInit {
       // console.log(positionY);
 
 
-      this.state = this.dialogRef.open(ColorPickerDialogComponent,{
-      width: "14.5em",
-      height: "12.25em",
-      position : {left :leftX, top: topY},
-    });
 
     this.state.afterClosed().subscribe(result => {
       this.color = result
@@ -48,19 +43,6 @@ export class ColorComponent implements OnInit {
       // console.log(`Result in color-picker :  ${this.color}`)
     });
   }
-}
-
-//Color Picker Dialog Component
-
-
-
-export class ColorPickerDialogComponent {
-
-  @Output() sendColor = new EventEmitter(false);
-  color: string;
-
-  constructor(public dialogRef: MatDialogRef<ColorPickerDialogComponent>){}
-
   pickColor($event){
     const element = $event.srcElement;
     console.log(element.style.backgroundColor);
@@ -68,5 +50,14 @@ export class ColorPickerDialogComponent {
     console.log(this.color);
     this.dialogRef.close(this.color)
   }
-
 }
+
+//Color Picker Dialog Component
+
+
+
+
+
+
+
+

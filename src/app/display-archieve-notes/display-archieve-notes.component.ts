@@ -16,7 +16,11 @@ export class DisplayArchieveNotesComponent implements OnInit {
     this.disPlatArchive()
   }
   disPlatArchive(){
-    this.http.get('http://127.0.0.1:8000/api/archieve/')
+    let token = localStorage.getItem('token')
+
+    this.http.get('http://127.0.0.1:8000/api/archieve/', {headers : {
+      'token': token,
+    }})
     .subscribe((response:any) => { 
 
       // this.notes=response.data
