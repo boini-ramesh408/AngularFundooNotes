@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Note_data } from "../model/Note_data";
 import { HttpClient } from '@angular/common/http';
+import { NotesServiceService } from '../services/notesService/notes-service.service';
 @Component({
   selector: 'app-display-notes',
   templateUrl: './display-notes.component.html',
@@ -12,7 +13,7 @@ export class DisplayNotesComponent implements OnInit {
 
   @Input() note;
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private notesService:NotesServiceService) { }
 
 
   ngOnInit() {
@@ -21,13 +22,18 @@ export class DisplayNotesComponent implements OnInit {
    
   }
   deleteNote(){
-    this.http.delete('http://127.0.0.1:8000/api/note/')
+    console.log(this.note.id)
+
+    // return this.http.delete(`http://localhost:8000/notes/api/`, {headers:{
+    //   'token': token
+
+    this.notesService.deleteNoteWithId(this.note.id)
     .subscribe((response:any) => { 
 
       
        // data.push(response)
      
-       console.log("deleted noted")
+       console.log(response)
      }
      )
   }

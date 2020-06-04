@@ -9,12 +9,7 @@
     background-color: inherit;
 }
 
-.button{
 
-    margin-left: 80%;
-    margin-top: -12%;
- 
-}
 
 // .color{
 //     margin-top: -13%;
@@ -26,7 +21,7 @@
         background-color: white;
         margin: 0 auto;
         border-radius: 8px;
-        box-shadow: 2px 2px 2px 2px #cec9c9;
+        box-shadow: 1px 1px 10px 1px #cec9c9;
         height: 20px;
         width: 130%;
         top: 20px;
@@ -41,9 +36,9 @@
     background-color: white;
     margin: 0 auto;
     border-radius: 8px;
-    box-shadow: 1px 1px 1px 1px #cec9c9;
+    box-shadow: 1px 1px 10px 1px #cec9c9;
     width: 130%;
-    top: 30px;
+    top: 40px;
     align-items: center;
     justify-content: space-between;
 }
@@ -69,6 +64,16 @@
     margin-left: 46%;
 }
 .more{
-    margin-top: -6%;
+    margin-top: -7%;
     margin-left: 60%;
 }
+.button{
+
+    margin-left: 80%;
+    margin-top: -8.5%;
+ 
+}
+// .image{
+//     margin-left: 200%;
+//     margin-top: 2%;
+// }

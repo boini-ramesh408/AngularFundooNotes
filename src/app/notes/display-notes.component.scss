@@ -27,30 +27,64 @@
    
     outline: 0px;
   }
-  textarea {
-    width: 100%;
-  }
-  // width of a crad of note
-  .matcard{
-    
-    box-shadow: 1px 1px 1px 1px #cec9c9;
-    align-items: center;
-    
-    border: none;
 
-    display: flex;
+  // // width of a crad of note
+  // .matcard{
+    
+  //   box-shadow: 1px 1px 1px 1px #cec9c9;
+  //   align-items: center;
+    
+  //   border: none;
 
-    margin-right: 25px;
-    justify-content: space-between;
-    float: right;
-    // margin-bottom: 0px;
-    // margin-left: 15px;
-    margin-top: 5%;
+  //   display: flex;
+
+  //   margin-right: 25px;
+  //   justify-content: space-between;
+  //   float: right;
+  //   // margin-bottom: 0px;
+  //   // margin-left: 15px;
+  //   margin-top: 5%;
   
-    padding: 3%;
+  //   padding: 3%;
    
-    width: 15%;
+  //   width: 15%;
    
+  // }
+ 
+  .matcard{
+    margin-top: 5%;
+    box-shadow: 1px 1px 10px 1px #cec9c9;
+    width: 20%;
+    justify-content: space-between;
+    float: left;
+   margin-left: 10%;
+
+    
   }
- 
- 
+
+  .moreInfo{
+    margin-left: 80%;
+    margin-top: 13%;
+  }
+
+  .remind{
+    margin-left: 1%;
+    margin-top: -15%;
+  }
+  .colab{
+    margin-left: 15%;
+    margin-top: -15%;
+  }
+
+  .color{
+    margin-left: 30%;
+    margin-top: -15%;
+  }
+  .img{
+    margin-left: 48%;
+    margin-top: -16%;
+  }
+  .archive{
+    margin-left: 65%;
+    margin-top: -16%;
+  }

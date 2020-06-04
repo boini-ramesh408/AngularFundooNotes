@@ -29,9 +29,11 @@ fxLayoutAlign="space-between center"
 <mat-card autocomplete="off"
 role="combobox"
 flex="column"
+
 [ngStyle]="{ 'background-color': note.color }"
 class="matcard">
 <div>
+
 <div   class="pin-unpin-title"
 fxLayout="row"
 fxLayoutAlign="space-between center">
@@ -50,7 +52,7 @@ fxLayoutAlign="space-between center">
 
 </div>
 
-<div>
+<div class="moreInfo">
 
     <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More">
         <mat-icon>more_vert</mat-icon>
@@ -60,6 +62,42 @@ fxLayoutAlign="space-between center">
           Delete Note
         </button>
       </mat-menu>
+</div>
+
+<div class="remind"> 
+  <button mat-icon-button matTooltip="Remind me" type="time">
+    <mat-icon>add_alert</mat-icon>
+  </button>
+</div>
+
+
+
+<div class="colab">
+  <button mat-icon-button>
+    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+  </button>
+</div>
+
+<div class="color">
+  <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
+    <mat-icon>palette</mat-icon>
+  </button>
+</div>
+
+<div class="img">
+  <button mat-icon-button matTooltip="Add Image">
+    <mat-icon>crop_original</mat-icon>
+  </button>
+</div>
+
+<div class="archive">
+  <button mat-icon-button matTooltip="Archive" (click)="archive()">
+    <mat-icon>archive</mat-icon>
+  </button>
+</div>
+
+<div>
+
 </div>
 
 

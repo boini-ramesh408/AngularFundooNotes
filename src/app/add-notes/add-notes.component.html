@@ -3,18 +3,15 @@
     <div (click)="openCard()" *ngIf="!showCard"> 
         <mat-card  class="border" >
             <mat-card-content>
+                
                 <input class="content-input" placeholder="Take a note..." [(ngModel)]="notee">
-                <!-- <div style="padding: 0px 0px">
+                <!-- <div class="box">
                     <button mat-icon-button class="nav-button" matTooltip="New list">
                         <mat-icon>check_box</mat-icon>
                     </button>
-                </div>
-                <div>
-                    <button mat-icon-button class="nav-button" fxHide.xs="true" matTooltip="New note with drawing">
-                        <mat-icon>brush</mat-icon>
-                    </button>
-                </div>
-                <div>
+                </div> -->
+                
+                <!-- <div class="image">
                     <button mat-icon-button class="nav-button" matTooltip="New note with Image" fxHide.xs="true">
                         <mat-icon>image</mat-icon>
                     </button>

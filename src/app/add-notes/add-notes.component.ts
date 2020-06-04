@@ -34,6 +34,7 @@ export class AddNotesComponent implements OnInit {
       console.log("data1")
       return this.showCard = true
     }
+    
     else{
       return this.showCard = false 
     }
