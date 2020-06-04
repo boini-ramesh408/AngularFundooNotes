@@ -1,3 +1,11 @@
+<div>
+<br>
+</div>
+<div> <app-add-notes></app-add-notes></div>
+
 <div *ngFor="let notesData of notes">
     <app-display-notes [note]="notesData"></app-display-notes>
 </div>
+<router-outlet></router-outlet>
+
+

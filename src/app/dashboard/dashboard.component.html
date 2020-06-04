@@ -10,38 +10,35 @@
     </mat-toolbar>
   
   
-    <mat-sidenav-container >
+  <mat-sidenav-container >
         <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
          
             <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
               
               Notes
-            </button>
-          <!-- <button class="sidenav-element-button" >Notes</button> -->
+            </button> 
+          
           <br>
           
           <button class="sidenav-element-button" >Reminders</button>
           <hr>
           <button mat-button id="sidenav-button" [routerLink]="['/dashboard/archive']" >
               
-            ArciveData
+            Arcive
             
             </button>
-          <!-- <button class="sidenav-element-button" >Archive</button> -->
-          <br>
-          <button class="sidenav-element-button">Trash</button>
-        </mat-sidenav>
+    
+        <br>
+         
+         </mat-sidenav>
       
       
+      <router-outlet></router-outlet> 
 
-
-      </mat-sidenav-container>
-      <app-add-notes></app-add-notes>
-    <router-outlet></router-outlet>
-  
-
+      </mat-sidenav-container> 
+     
 </div>
 
-<!-- <div><app-display-all-notes></app-display-all-notes></div> -->
+<!-- <div><app-display-all-notes></app-display-all-notes></div>  -->
 
 

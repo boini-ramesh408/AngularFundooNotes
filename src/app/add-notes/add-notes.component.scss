@@ -10,5 +10,47 @@
 }
 
 .button{
+
+    margin-left: 80%;
+    margin-top: -12%;
+ 
+}
+.archive{
+    margin-top: -13%;
     margin-left: 40%;
 }
+.color{
+    margin-top: -13%;
+    margin-left: 20%;
+}
+
+.border{
+    
+        background-color: white;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 2px 2px 2px 2px #cec9c9;
+        height: 20px;
+        width: 130%;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+      
+      
+}
+.card-view{
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px #cec9c9;
+    width: 130%;
+    top: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+// .nav-button {
+//     width: 20px;
+//     padding: 0px 0px;
+//   }

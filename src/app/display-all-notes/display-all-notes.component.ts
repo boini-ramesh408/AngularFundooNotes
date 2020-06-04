@@ -31,7 +31,7 @@ export class DisplayAllNotesComponent implements OnInit {
       this.notes=response.data
        // data.push(response)
      
-       console.log(this.notes,"res")
+      //  console.log(this.notes,"res")
      }
      )
   }

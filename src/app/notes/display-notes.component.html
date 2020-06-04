@@ -1,11 +1,12 @@
-<div class="card">
+<!-- <div class="card">
 
 
 <mat-card class="card_adjust"  autocomplete="off"
 role="combobox"
 flex="column">
 <div fxLayout="row"
-fxLayoutAlign="space-between center">
+fxLayoutAlign="space-between center"
+[ngStyle]="{ 'background-color': note.color }">
     <mat-card-content  >
         {{note.title}}
        
@@ -21,4 +22,48 @@ fxLayoutAlign="space-between center">
    
   
 </mat-card>
+</div> -->
+
+
+
+<mat-card autocomplete="off"
+role="combobox"
+flex="column"
+[ngStyle]="{ 'background-color': note.color }"
+class="matcard">
+<div>
+<div   class="pin-unpin-title"
+fxLayout="row"
+fxLayoutAlign="space-between center">
+<mat-card-content class="content" >
+    
+    
+      {{note.title}}
+    
+    </mat-card-content>
+
+    <mat-card-content  class="content"> 
+        
+        {{note.note}}
+      
+    </mat-card-content>
+
 </div>
+
+<div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deleteNote()">
+          Delete Note
+        </button>
+      </mat-menu>
+</div>
+
+
+
+</div>
+
+</mat-card>

@@ -1,22 +1,56 @@
-.card_adjust{
+// .card_adjust{
 
+//     align-items: center;
+    
+//     border: none;
+
+//     display: flex;
+
+    
+//     justify-content: space-between;
+//     float: left;
+//     margin-bottom: 23px;
+//     margin-left: 15%;
+//     margin-top: 1%;
+//     padding: 3%;
+   
+//     width: 10%;
+//     flex-direction: row;
+// }
+// .card{
+//     padding-right: 10%;
+// }
+
+  .content {
+    border: none;
+    margin-bottom: 0px;
+   
+    outline: 0px;
+  }
+  textarea {
+    width: 100%;
+  }
+  // width of a crad of note
+  .matcard{
+    
+    box-shadow: 1px 1px 1px 1px #cec9c9;
     align-items: center;
     
     border: none;
 
     display: flex;
 
-    
+    margin-right: 25px;
     justify-content: space-between;
-    float: left;
-    margin-bottom: 23px;
-    margin-left: 15%;
-    margin-top: 1%;
+    float: right;
+    // margin-bottom: 0px;
+    // margin-left: 15px;
+    margin-top: 5%;
+  
     padding: 3%;
    
-    width: 10%;
-    flex-direction: row;
-}
-.card{
-    padding-right: 10%;
-}
+    width: 15%;
+   
+  }
+ 
+ 

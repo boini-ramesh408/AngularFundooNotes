@@ -1,15 +1,29 @@
 <div class="card">
 
     <div (click)="openCard()" *ngIf="!showCard"> 
-        <mat-card >
+        <mat-card  class="border" >
             <mat-card-content>
-                <input class="content-input" placeholder="Take a note" [(ngModel)]="notee">
-           
+                <input class="content-input" placeholder="Take a note..." [(ngModel)]="notee">
+                <!-- <div style="padding: 0px 0px">
+                    <button mat-icon-button class="nav-button" matTooltip="New list">
+                        <mat-icon>check_box</mat-icon>
+                    </button>
+                </div>
+                <div>
+                    <button mat-icon-button class="nav-button" fxHide.xs="true" matTooltip="New note with drawing">
+                        <mat-icon>brush</mat-icon>
+                    </button>
+                </div>
+                <div>
+                    <button mat-icon-button class="nav-button" matTooltip="New note with Image" fxHide.xs="true">
+                        <mat-icon>image</mat-icon>
+                    </button>
+                </div> -->
         </mat-card-content>
         </mat-card>
     </div>
     <div  *ngIf="showCard" >
-        <mat-card>
+        <mat-card class="card-view" [ngStyle]="{ 'background-color': this.color }">
             <mat-card-content>
                 <input class="content-input" placeholder="Title" [(ngModel)]="title">
            
@@ -30,7 +44,8 @@
                      <mat-icon>archive</mat-icon> -->
             
         <!-- </div> -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"></path></svg>
+        <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"></path></svg>
             
            
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNOSAxMmMyLjIxIDAgNC0xLjc5IDQtNHMtMS43OS00LTQtNC00IDEuNzktNCA0IDEuNzkgNCA0IDR6bTAtNmMxLjEgMCAyIC45IDIgMnMtLjkgMi0yIDItMi0uOS0yLTIgLjktMiAyLTJ6bTAgN2MtMi42NyAwLTggMS4zNC04IDR2M2gxNnYtM2MwLTIuNjYtNS4zMy00LTgtNHptNiA1SDN2LS45OUMzLjIgMTYuMjkgNi4zIDE1IDkgMTVzNS44IDEuMjkgNiAydjF6bTMtNHYtM2gtM1Y5aDNWNmgydjNoM3YyaC0zdjNoLTJ6Ii8+Cjwvc3ZnPgo="/>
@@ -41,12 +56,17 @@
 
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDAwIj4KICA8cGF0aCBkPSJNMTkgM0g1Yy0xLjEgMC0yIC45LTIgMnYxNGMwIDEuMS45IDIgMiAyaDE0YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMTZINVY1aDE0djE0em0tNS03bC0zIDMuNzJMOSAxM2wtMyA0aDEybC00LTV6Ii8+Cjwvc3ZnPgo=" /> 
             
-            
-            <app-archive-notes (sendArchive)="setArchive($event)"></app-archive-notes>
+            <div  class="archive">
+                <app-archive-notes (sendArchive)="setArchive($event)"></app-archive-notes>
+            </div>
+           
 
             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.42l.82-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.59L16 13.5z"></path></svg> -->
+            <div class="button">
+                <button  (click)="closeCard()">close</button>
 
-            <button class="button" (click)="closeCard()">close</button>
+            </div>
+        </div>
 
         </div>
         </mat-card>
