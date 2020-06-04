@@ -79,9 +79,7 @@ fxLayoutAlign="space-between center">
 </div>
 
 <div class="color">
-  <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorlist">
-    <mat-icon>palette</mat-icon>
-  </button>
+  <app-color (updateColor)="setUpdateColor($event)"></app-color>
 </div>
 
 <div class="img">

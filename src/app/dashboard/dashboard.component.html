@@ -6,6 +6,14 @@
         <a  style="padding-left: 10px; color:grey;">Fundoo</a>  
       
       </div>
+      <div class="search"  >
+     
+      <button mat-icon-button fxHide.xs="true">
+        <mat-icon>search</mat-icon>
+      </button>
+      <input matTooltip="Search" placeholder="Search" class="input" />
+   
+    </div>
       <div>
         <app-logout></app-logout>
       </div>
@@ -13,7 +21,7 @@
   
   
   <mat-sidenav-container >
-        <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened" [fixedInViewport]="true" fixedTopGap="65">
+        <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened"  fixedTopGap="65">
          
             <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
               
@@ -31,6 +39,7 @@
             </button>
     
         <br>
+        
         <button mat-button id="sidenav-button" >
               
           Trash

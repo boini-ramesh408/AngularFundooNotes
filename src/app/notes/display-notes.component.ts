@@ -12,7 +12,7 @@ export class DisplayNotesComponent implements OnInit {
 
 
   @Input() note;
-  
+  color:string
   constructor(private http: HttpClient,private notesService:NotesServiceService) { }
 
 
@@ -37,5 +37,10 @@ export class DisplayNotesComponent implements OnInit {
      }
      )
   }
+
+  setUpdateColor($event){
+    console.log($event)
+  }
+
 
 }
