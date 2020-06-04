@@ -29,7 +29,7 @@ export class DisplayNotesComponent implements OnInit {
 
     this.notesService.deleteNoteWithId(this.note.id)
     .subscribe((response:any) => { 
-
+      response.reload();
       
        // data.push(response)
      
