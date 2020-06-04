@@ -34,6 +34,7 @@ import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.
 import { ColorComponent } from './color/color.component';
 import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-
     DisplayAllNotesComponent,
     ColorComponent,
     ArchiveNotesComponent,
-    DisplayArchieveNotesComponent
+    DisplayArchieveNotesComponent,
+    EditNotesComponent
   ],
   imports: [
     BrowserModule,
