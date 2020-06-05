@@ -1,5 +1,5 @@
 export class Note_data {
-    
+    public id:number;
     public title: String;
     public note: String;
     public color:string;

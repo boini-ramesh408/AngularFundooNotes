@@ -9,6 +9,7 @@ import { AddNotesComponent } from './add-notes/add-notes.component';
 import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.component';
 import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 const routes: Routes = [
@@ -32,13 +33,19 @@ const routes: Routes = [
       },{
         path: "notes",
         component: DisplayAllNotesComponent,
-        // canActivate: [AuthGuardService]
+        
       },
       {
         path: "archive",
         component: DisplayArchieveNotesComponent,
-        // canActivate: [AuthGuardService]
+        
       },
+      {
+        path: "search",
+        component: SearchBarComponent,
+       
+      },
+      
     ]
   }
 ];

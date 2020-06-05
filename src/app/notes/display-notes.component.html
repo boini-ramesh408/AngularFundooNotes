@@ -29,7 +29,7 @@ fxLayoutAlign="space-between center"
 <mat-card autocomplete="off"
 role="combobox"
 flex="column"
-
+(click)=openDialog(note)
 [ngStyle]="{ 'background-color': note.color }"
 class="matcard">
 <div>
@@ -37,7 +37,7 @@ class="matcard">
 <div   class="pin-unpin-title"
 fxLayout="row"
 fxLayoutAlign="space-between center">
-<mat-card-content class="content" >
+<mat-card-content class="content" (click)=openDialog(note)>
     
     
       {{note.title}}

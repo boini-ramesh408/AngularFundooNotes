@@ -21,5 +21,9 @@ export class NotesServiceService {
   deleteNoteWithId(id){
     return this.http.delete(`http://127.0.0.1:8000/api/note/${id}`)
   }
+  updateNotesWithId(id,data){
+    
+    return this.http.put(`http://127.0.0.1:8000/api/note/${id}`,data)
+  }
   
 }

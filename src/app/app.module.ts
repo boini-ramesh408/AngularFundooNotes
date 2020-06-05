@@ -15,6 +15,8 @@ import { MatCardModule,MatTabsModule,
    MatButtonModule,
    MatMenuModule,
    MatTooltipModule,
+   MatDialogModule,
+   MAT_DIALOG_DEFAULT_OPTIONS,
    
    } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -52,8 +54,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     ArchiveNotesComponent,
     DisplayArchieveNotesComponent,
     EditNotesComponent,
-    SearchBarComponent
+    SearchBarComponent,
   ],
+  entryComponents: [EditNotesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,9 +75,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatListModule,
     MatMenuModule,
     MatTooltipModule,
+    MatDialogModule,
   
   ],
-  providers: [UserServiceService,HttpServicesService],
+  providers: [UserServiceService,HttpServicesService,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
