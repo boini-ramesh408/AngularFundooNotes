@@ -8,12 +8,12 @@
       </div>
       <div class="search"  >
      
-      <button mat-icon-button fxHide.xs="true">
-        <mat-icon>search</mat-icon>
-      </button>
-      <input matTooltip="Search" placeholder="Search" class="input" [routerLink]="['/dashboard/search']"/>
-   
-    </div>
+    <button mat-icon-button fxHide.xs="true">
+      <mat-icon (click)="submitSearch()">search</mat-icon>
+    </button>
+    <input matTooltip="Search" placeholder="Search" class="input" [routerLink]="['/dashboard/search']"/>
+ 
+  </div>
       <div>
         <app-logout></app-logout>
       </div>

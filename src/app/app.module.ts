@@ -38,6 +38,7 @@ import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchdNotesComponent } from './searchd-notes/searchd-notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     DisplayArchieveNotesComponent,
     EditNotesComponent,
     SearchBarComponent,
+    SearchdNotesComponent,
   ],
   entryComponents: [EditNotesComponent],
   imports: [

@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpServicesService } from '../httpServices/http-services.service';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class NotesServiceService {
   url="note/"
   url1="getnote/"
+
+
+  private searchSource = new BehaviorSubject('No Notes');
+  public searchNotes = this.searchSource.asObservable();
+
   constructor(private http: HttpClient,private hs:HttpServicesService) { }
 
   createNotes(data){
