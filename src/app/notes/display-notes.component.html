@@ -29,8 +29,9 @@ fxLayoutAlign="space-between center"
 <mat-card autocomplete="off"
 role="combobox"
 flex="column"
-(click)=openDialog(note)
+
 [ngStyle]="{ 'background-color': note.color }"
+
 class="matcard">
 <div>
 
@@ -40,13 +41,34 @@ fxLayoutAlign="space-between center">
 <mat-card-content class="content" (click)=openDialog(note)>
     
     
-      {{note.title}}
+      <!-- {{note.title}} -->
+      <textarea
+      id="title"
+      class="textarea"
+      [(ngModel)]="note.title"
+      matInput
+      matTextareaAutosize
+      type="text"
+      placeholder="Title"
+      [ngStyle]="{ 'background-color': note.color }"
+    ></textarea>
     
     </mat-card-content>
+    <br>
 
     <mat-card-content  class="content"> 
         
-        {{note.note}}
+        <!-- {{note.note}} -->
+        <textarea
+        id="title"
+        class="textarea"
+        [(ngModel)]="note.note"
+        matInput
+        matTextareaAutosize
+        type="text"
+        placeholder="Title"
+        [ngStyle]="{ 'background-color': note.color }"
+      ></textarea>
       
     </mat-card-content>
 
@@ -79,7 +101,7 @@ fxLayoutAlign="space-between center">
 </div>
 
 <div class="color">
-  <app-color (updateColor)="setUpdateColor($event)"></app-color>
+  <app-color></app-color>
 </div>
 
 <div class="img">

@@ -2,8 +2,8 @@
     <mat-toolbar class="mat-toolbar">
       <div class="toolbar-menu-brand">
         <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <!-- <img class="img" src="../assets/logo/fundoo-logo.png" /> -->
-        <a  style="padding-left: 10px; color:grey;">Fundoo</a>  
+        <img class="img" src="../assets/logo/fundoo-logo.png"  [routerLink]="['/dashboard/notes']"/>
+        <a  style="padding-left: 10px; color:grey;" [routerLink]="['/dashboard/notes']">Fundoo</a>  
       
       </div>
       <div class="search"  >
@@ -20,7 +20,7 @@
     </mat-toolbar>
   
   
-  <mat-sidenav-container >
+  <mat-sidenav-container class="sidenav">
         <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened"  fixedTopGap="65">
          
             <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">

@@ -1,9 +1,8 @@
 
 
-<mat-card autocomplete="off"
-
-role="combobox"
-flex="column"
+<mat-card  mat-dialog-content
+fxLayout="column"
+fxFlex
 class="card"
 [ngStyle]="{ 'background-color': note.color }"
 >
@@ -15,6 +14,7 @@ fxLayoutAlign="space-between center">
 <mat-card-title>
   <textarea
     id="title"
+    class="textarea"
     [(ngModel)]="note.title"
     matInput
     matTextareaAutosize
@@ -23,9 +23,12 @@ fxLayoutAlign="space-between center">
     [ngStyle]="{ 'background-color': note.color }"
   ></textarea>
 </mat-card-title>
+
   <mat-card-content>
     <textarea
       matInput
+      class="textarea"
+
       type="text"
       matTextareaAutosize
       

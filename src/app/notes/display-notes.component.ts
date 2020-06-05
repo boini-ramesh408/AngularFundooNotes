@@ -14,7 +14,7 @@ export class DisplayNotesComponent implements OnInit {
 
 
   @Input() note;
-  color:string
+  // color:string
   constructor(private http: HttpClient,private notesService:NotesServiceService,private dialog: MatDialog) { 
 
     
@@ -42,15 +42,13 @@ export class DisplayNotesComponent implements OnInit {
      }
      )
   }
-  // updateNotes(){
-   
-  //   this.notesService.updateNotesWithId(this.note.id,this.note)
-  // }
+ 
 
   setUpdateColor($event){
-    console.log($event)
+    console.log($event,"colrevent")
+    this.note=$event
   }
-
+  
   openDialog(note) {
     console.log("catched note at simple note ", note);
     let dialogRef = this.dialog.open(EditNotesComponent, {

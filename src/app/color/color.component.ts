@@ -10,6 +10,8 @@ import { Note_data } from '../model/Note_data';
 export class ColorComponent implements OnInit {
 
   @Output() sendColor = new EventEmitter(false);
+  @Output() updateColor = new EventEmitter(false);
+  
   notes:Note_data[];
   color: string;
 
@@ -47,6 +49,7 @@ export class ColorComponent implements OnInit {
     this.notes = color;
     console.log("note color from variable : ", this.notes);
     this.sendColor.emit(this.notes)
+    // this.updateColor.emit(this.notes)
 
    
       

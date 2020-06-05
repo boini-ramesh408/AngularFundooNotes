@@ -19,11 +19,19 @@ note:Note_data[];
   ngOnInit() {
   }
   onSubmit() {
-    // data is getting fetched
-    console.log("data recieved from simple note : ",this.note);
+    
+    console.log("data recieved from simple note : ",this.note['id']);
+    let id=this.note['id']
 
+    // let data={"title":this.note['title'],"note":this.note['note']}
     this.dialogRef.close();
-    this.notesService.updateNotesWithId(this.note.id,this.note)
+    
+    this.notesService.updateNotesWithId(id,this.note).subscribe(
+      (response: any) => {
+        console.log("response on closing mat dialogue: ", response);
+        // this._snackbar.open(response.message + " sucessfully...", "ok", {
+        //   duration: 4000
+        });
     // this._noteService.updateNote(this.note, this.note.noteId).subscribe(
     //   (response: any) => {
     //     console.log("response on closing mat dialogue: ", response);
