@@ -39,6 +39,7 @@ import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RemindMeComponent } from './remind-me/remind-me.component';
+import { RemindBoxComponent } from './remind-box/remind-box.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { RemindMeComponent } from './remind-me/remind-me.component';
     EditNotesComponent,
     SearchBarComponent,
     RemindMeComponent,
+    RemindBoxComponent,
   ],
   entryComponents: [EditNotesComponent],
   imports: [
