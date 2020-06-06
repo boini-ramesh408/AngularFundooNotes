@@ -8,7 +8,7 @@ import { Note_data } from '../model/Note_data';
   styleUrls: ['./color.component.scss']
 })
 export class ColorComponent implements OnInit {
-
+ 
   @Output() sendColor = new EventEmitter(false);
   @Output() updateColor = new EventEmitter(false);
   

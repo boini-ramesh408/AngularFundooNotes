@@ -24,14 +24,21 @@ export class DisplayAllNotesComponent implements OnInit {
    
   }
 
+  receiveData($event){
+    
+    console.log("entering data",$event)
+    this.notes=$event
+  }
   displayAllNotes(){
     this.notesService.getAllNotes()
     .subscribe((response:any) => { 
 
       this.notes=response.data
+
+      this.receiveData(this.notes)
        // data.push(response)
      
-      //  console.log(this.notes,"res")
+       console.log(this.notes,"res")
      }
      )
   }

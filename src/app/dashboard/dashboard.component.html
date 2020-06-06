@@ -11,7 +11,7 @@
     <button mat-icon-button fxHide.xs="true">
       <mat-icon (click)="submitSearch()">search</mat-icon>
     </button>
-    <input matTooltip="Search" placeholder="Search" class="input" [routerLink]="['/dashboard/search']"/>
+    <input matTooltip="Search" placeholder="Search"  [formControl]="searchText" class="input" [routerLink]="['/dashboard/search']"/>
  
   </div>
       <div>

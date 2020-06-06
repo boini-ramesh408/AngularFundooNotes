@@ -101,7 +101,7 @@ fxLayoutAlign="space-between center">
 </div>
 
 <div class="color">
-  <app-color></app-color>
+  <app-color (sendColor)="updateColor($event)"></app-color>
 </div>
 
 <div class="img">
@@ -112,7 +112,7 @@ fxLayoutAlign="space-between center">
 
 <div class="archive">
   <button mat-icon-button matTooltip="Archive" (click)="archive()">
-    <mat-icon>archive</mat-icon>
+    <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
   </button>
 </div>
 
