@@ -38,6 +38,8 @@ import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
 import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { RemindMeComponent } from './remind-me/remind-me.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     DisplayArchieveNotesComponent,
     EditNotesComponent,
     SearchBarComponent,
+    RemindMeComponent,
   ],
   entryComponents: [EditNotesComponent],
   imports: [
@@ -76,6 +79,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+  
   
   ],
   providers: [UserServiceService,HttpServicesService,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],

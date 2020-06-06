@@ -25,6 +25,7 @@ export class AddNotesComponent implements OnInit {
   is_archive:false;
   selectedTime: string;
   today: any;
+  reminder:string
 
   constructor(private http: HttpClient,private notesService:NotesServiceService,
   )
@@ -79,5 +80,18 @@ export class AddNotesComponent implements OnInit {
    
   }
 
+
+  setRemind($event){
+    let reminder  = new Date($event)
+    let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
+    let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
+    let finalReminder = date + ' ' + time 
+    console.log('reminder event recorded  :', finalReminder);
+    this.reminder = finalReminder;
+  }
+
+  openTimePicker(){
+    console.log("datee")
+  }
  
 }
