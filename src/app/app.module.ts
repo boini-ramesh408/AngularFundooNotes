@@ -47,6 +47,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RemindMeComponent } from './remind-me/remind-me.component';
 import { RemindBoxComponent } from './remind-box/remind-box.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { MoreComponent } from './more/more.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     SearchBarComponent,
     RemindMeComponent,
     RemindBoxComponent,
+    MoreComponent,
   ],
   entryComponents: [EditNotesComponent,RemindBoxComponent],
   imports: [
