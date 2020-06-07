@@ -48,6 +48,7 @@ import { RemindMeComponent } from './remind-me/remind-me.component';
 import { RemindBoxComponent } from './remind-box/remind-box.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { MoreComponent } from './more/more.component';
+import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { MoreComponent } from './more/more.component';
     RemindMeComponent,
     RemindBoxComponent,
     MoreComponent,
+    DisplayReminderComponent,
   ],
   entryComponents: [EditNotesComponent,RemindBoxComponent],
   imports: [
