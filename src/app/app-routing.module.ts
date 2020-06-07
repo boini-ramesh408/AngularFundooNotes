@@ -10,6 +10,7 @@ import { DisplayAllNotesComponent } from './display-all-notes/display-all-notes.
 import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,11 @@ const routes: Routes = [
         component: SearchBarComponent,
        
       },
-      
+      {
+        path: "reminders",
+        component: DisplayReminderComponent,
+       
+      },
     ]
   }
 ];

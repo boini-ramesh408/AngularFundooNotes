@@ -71,6 +71,7 @@ import { DisplayReminderComponent } from './display-reminder/display-reminder.co
     RemindBoxComponent,
     MoreComponent,
     DisplayReminderComponent,
+    
   ],
   entryComponents: [EditNotesComponent,RemindBoxComponent],
   imports: [
