@@ -26,7 +26,7 @@ export class DisplayAllNotesComponent implements OnInit {
 
   receiveData($event){
     
-    // console.log("entering data",$event)
+    console.log("entering data",$event)
     // this.notes=$event
     this.displayAllNotes()
 
@@ -40,7 +40,7 @@ export class DisplayAllNotesComponent implements OnInit {
      
        // data.push(response)
      
-       console.log(this.notes,"res")
+      //  console.log(this.notes,"res")
      }
      )
   }

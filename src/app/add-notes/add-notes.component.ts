@@ -50,7 +50,7 @@ export class AddNotesComponent implements OnInit {
       return this.showCard = false 
     }
   }
-  
+
   closeCard(){
     console.log(this.color,"fhfgh")
       let reminder  = new Date(this.reminder)
@@ -89,9 +89,9 @@ export class AddNotesComponent implements OnInit {
   }
 
   setColor($event){
-    console.log($event,"yhjjghj")
+    // console.log($event,"yhjjghj")
     this.color = $event;
-   console.log(this.color,"colr")
+  //  console.log(this.color,"colr")
    
   }
 

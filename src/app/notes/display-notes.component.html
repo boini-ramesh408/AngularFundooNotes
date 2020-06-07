@@ -79,7 +79,7 @@ fxLayoutAlign="space-between center">
 
 <div class="moreInfo">
 
-   <app-more></app-more>
+   <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
 </div>
 
 <div class="remind"> 

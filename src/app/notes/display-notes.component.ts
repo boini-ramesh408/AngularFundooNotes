@@ -17,9 +17,10 @@ export class DisplayNotesComponent implements OnInit {
 
   notes:Note_data[];
   @Input() note;
-  event = new EventEmitter();
+
   color:string
   is_archive:false;
+  expand: any = false;
   constructor(private http: HttpClient,
     private notesService:NotesServiceService,
     private dialog: MatDialog,private router: Router,
@@ -33,29 +34,32 @@ export class DisplayNotesComponent implements OnInit {
   ngOnInit() {
     // this.getRefresh()
     // console.log(this.note,"notes")
+    this.displayAllNotes()
    
   }
 
-  deleteNote(){
-    console.log(this.note.id)
+  // deleteNote(){
+  //   console.log(this.note.id)
 
-    // return this.http.delete(`http://localhost:8000/notes/api/`, {headers:{
-    //   'token': token
+  //   // return this.http.delete(`http://localhost:8000/notes/api/`, {headers:{
+  //   //   'token': token
 
-    this.notesService.deleteNoteWithId(this.note.id)
-    .subscribe((response:any) => { 
+  //   this.notesService.deleteNoteWithId(this.note.id)
+  //   .subscribe((response:any) => { 
      
-      this._matSnackBar.open('Note deleted added', 'close')
-              ._dismissAfter(2500);
+  //     this._matSnackBar.open('Note deleted added', 'close')
+  //             ._dismissAfter(2500);
       
-       // data.push(response)
+  //      // data.push(response)
      
-       console.log(response)
-     }
-     )
+  //      console.log(response)
+  //    }
+  //    )
+  // }
+  deleteNote($event){
+    // console.log($event,"event")
+    this.displayAllNotes()
   }
- 
-
   openDialog(note) {
 
     console.log("catched note at simple note ", note);
@@ -137,7 +141,7 @@ export class DisplayNotesComponent implements OnInit {
      
        // data.push(response)
      
-       console.log(this.notes,"res")
+      //  console.log(this.notes,"res")
      }
      )
   }
