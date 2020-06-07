@@ -45,7 +45,7 @@ export class DisplayNotesComponent implements OnInit {
     this.notesService.deleteNoteWithId(this.note.id)
     .subscribe((response:any) => { 
      
-      this._matSnackBar.open('Note successfully added', 'close')
+      this._matSnackBar.open('Note deleted added', 'close')
               ._dismissAfter(2500);
       
        // data.push(response)
@@ -64,7 +64,6 @@ export class DisplayNotesComponent implements OnInit {
       width: "400px",
       height: "auto",
 
-     
       data: { note }
     });
 
@@ -81,13 +80,15 @@ export class DisplayNotesComponent implements OnInit {
   
 // }
  updateColor($event){
+  // this.displayAllNotes()
     console.log($event,"yhjjghj")
     this.color = $event;
    console.log(this.color,"colr")
    let data={"color":this.color}
    console.log(this.note.id,"notes")
 
-   this.notesService.updateNotesWithId(this.note.id,data) 
+   this.notesService.updateNotesWithId(this.note.id,data)
+
    .subscribe(response => { 
      
     // this.getRefresh.emit(re)
@@ -105,6 +106,7 @@ export class DisplayNotesComponent implements OnInit {
    
   }
   updateArchive($event){
+    // this.displayAllNotes()
     console.log($event,"yhjjghj")
     this.is_archive = $event;
    console.log(this.is_archive,"arciv")
@@ -112,6 +114,7 @@ export class DisplayNotesComponent implements OnInit {
 
    this.notesService.updateNotesWithId(this.note.id,data) 
    .subscribe(response => { 
+    
     // this.getRefresh.emit(re)
     //  this.event.emit(this.getRefresh())
     // this.router.navigate(['/dashboard/notes']);
