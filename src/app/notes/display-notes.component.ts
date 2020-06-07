@@ -23,6 +23,7 @@ export class DisplayNotesComponent implements OnInit {
   constructor(private http: HttpClient,
     private notesService:NotesServiceService,
     private dialog: MatDialog,private router: Router,
+    private _matSnackBar: MatSnackBar,
    ) { 
 
     
@@ -44,7 +45,8 @@ export class DisplayNotesComponent implements OnInit {
     this.notesService.deleteNoteWithId(this.note.id)
     .subscribe((response:any) => { 
      
-     
+      this._matSnackBar.open('Note successfully added', 'close')
+              ._dismissAfter(2500);
       
        // data.push(response)
      
@@ -71,26 +73,29 @@ export class DisplayNotesComponent implements OnInit {
     });
   }
 
-getRefresh(){
-  this.notesService.getAllNotes().subscribe((response:any)=>{
-    console.log("getting")
-  })
+// getRefresh(){
+//   this.notesService.getAllNotes().subscribe((response:any)=>{
+//     console.log("getting")
+//   })
 
   
-}
+// }
  updateColor($event){
     console.log($event,"yhjjghj")
     this.color = $event;
    console.log(this.color,"colr")
    let data={"color":this.color}
+   console.log(this.note.id,"notes")
 
    this.notesService.updateNotesWithId(this.note.id,data) 
    .subscribe(response => { 
+     
     // this.getRefresh.emit(re)
     //  this.event.emit(this.getRefresh())
     // this.router.navigate(['/dashboard/notes']);
     // this.event.emit
-    
+    this._matSnackBar.open('color updated', 'close')
+    ._dismissAfter(2500);
     
      // data.push(response)
    
@@ -112,12 +117,27 @@ getRefresh(){
     // this.router.navigate(['/dashboard/notes']);
     // this.event.emit
     
-    
+    this._matSnackBar.open('Archieve notes updated', 'close')
+    ._dismissAfter(2500);
      // data.push(response)
    
      console.log(response)
    }
    )
   }
+  displayAllNotes(){
+    this.notesService.getAllNotes()
+    .subscribe((response:any) => { 
+
+      this.notes=response.data
+
+     
+       // data.push(response)
+     
+       console.log(this.notes,"res")
+     }
+     )
+  }
+  
 
 }

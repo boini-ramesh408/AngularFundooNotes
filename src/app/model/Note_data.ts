@@ -4,6 +4,6 @@ export class Note_data {
     public note: String;
     public color:string;
     public is_archive:false;
-   
+   public reminder:string;
   }
   

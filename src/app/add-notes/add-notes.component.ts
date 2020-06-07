@@ -5,6 +5,7 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 import { Note_data } from '../model/Note_data';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 // import { AmazingTimePickerService } from "amazing-time-picker";
 @Component({
@@ -25,10 +26,12 @@ export class AddNotesComponent implements OnInit {
   is_archive:false;
   selectedTime: string;
   today: any;
-  reminder:string
+  reminder:string;
+  // reminder= new FormControl('');
 
   constructor(private http: HttpClient,private notesService:NotesServiceService,
-  )
+    private _matSnackBar: MatSnackBar,
+    )
   {
     this.showCard = false; 
   }
@@ -47,9 +50,19 @@ export class AddNotesComponent implements OnInit {
       return this.showCard = false 
     }
   }
+  
   closeCard(){
     console.log(this.color,"fhfgh")
-    let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color}
+      let reminder  = new Date(this.reminder)
+    
+    let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
+    
+    let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
+    let finalReminder = date + ' ' + time 
+
+    console.log('reminder event recorded  :', finalReminder);
+    // this.reminder = finalReminder;
+    let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color,"reminder":finalReminder}
     console.log(this.color,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
@@ -60,6 +73,8 @@ export class AddNotesComponent implements OnInit {
       .subscribe((response) => { 
         console.log(response,"res")
         this.receiveAddNotes.emit(data)
+        this._matSnackBar.open('Note successfully added', 'close')
+              ._dismissAfter(2500);
         // this.receiveAddNotes.emit(response['data'])
       }
       )
@@ -81,17 +96,15 @@ export class AddNotesComponent implements OnInit {
   }
 
 
-  setRemind($event){
-    let reminder  = new Date($event)
-    let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
-    let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
-    let finalReminder = date + ' ' + time 
-    console.log('reminder event recorded  :', finalReminder);
-    this.reminder = finalReminder;
+  submitData(){
+    console.log("reminder")
+    // let reminder  = new Date($event)
+    // let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
+    // let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
+    // let finalReminder = date + ' ' + time 
+    // console.log('reminder event recorded  :', finalReminder);
+    // this.reminder = finalReminder;
   }
 
-  openTimePicker(){
-    console.log("datee")
-  }
  
 }

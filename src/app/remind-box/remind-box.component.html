@@ -1,1 +1,46 @@
-<p>remind-box works!</p>
+<div *ngIf="!pickDate; else close">
+    <label for="">Reminders: </label><br>
+
+<button mat-button   class="reminder-main-dialog"><label for="">Later Today:</label>8pm</button>
+<br>
+<button  mat-button  class="reminder-main-dialog"><label for=""> Tomorrow:</label>8am</button>
+<br>
+<button   mat-button class="reminder-main-dialog"><label for=""> NextWeek:</label>8am</button>
+<br>
+<mat-form-field>
+    <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" >
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+  
+<!-- <mat-form-field>
+    <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [formControl]="date">
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+   -->
+<!-- <button  mat-button  class="reminder-main-dialog"><label for="" (click)="openDateTime()"> Pick Date And Time:</label></button> -->
+</div>
+
+<ng-template #close>
+    <div>
+        <button mat-icon-button (click)="closeDateTime()"> <mat-icon>arrow_back</mat-icon> Pick Date & Time</button><br>
+        <label for="">Input Date: </label>
+        <input class="date-time-pick" type="date" [(ngModel)]="inputDate"><br><br>
+        <label for="">Input Time: </label>
+        <input class="date-time-pick" type="time" [(ngModel)]="inputTime"><br>
+        <button class="save-button"(click)="save()">Save</button>
+    </div>
+</ng-template>
+<!-- <ng-template>
+    <mat-form-field>
+        <mat-label>Verbose datepicker</mat-label>
+        <input matInput [matDatepicker]="dp" >
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+      
+
+</ng-template> -->
+
+  

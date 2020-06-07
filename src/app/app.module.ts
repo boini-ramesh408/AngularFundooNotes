@@ -17,6 +17,12 @@ import { MatCardModule,MatTabsModule,
    MatTooltipModule,
    MatDialogModule,
    MAT_DIALOG_DEFAULT_OPTIONS,
+   MatDatepickerModule,
+   MatDatepicker,
+   MatDatepickerToggle,
+   MatNativeDateModule,
+   MatSnackBar,
+   MatSnackBarModule,
    
    } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -40,6 +46,7 @@ import { EditNotesComponent } from './edit-notes/edit-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RemindMeComponent } from './remind-me/remind-me.component';
 import { RemindBoxComponent } from './remind-box/remind-box.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -61,7 +68,7 @@ import { RemindBoxComponent } from './remind-box/remind-box.component';
     RemindMeComponent,
     RemindBoxComponent,
   ],
-  entryComponents: [EditNotesComponent],
+  entryComponents: [EditNotesComponent,RemindBoxComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -81,6 +88,13 @@ import { RemindBoxComponent } from './remind-box/remind-box.component';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+
+    MatDatepickerModule,
+    MatNativeDateModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatSnackBarModule,
+    // AmazingTimePickerModule,
   
   
   ],

@@ -16,7 +16,7 @@ export class DisplayAllNotesComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("vcres")
+    // console.log("vcres")
 
     this.displayAllNotes()
     
@@ -26,8 +26,10 @@ export class DisplayAllNotesComponent implements OnInit {
 
   receiveData($event){
     
-    console.log("entering data",$event)
-    this.notes=$event
+    // console.log("entering data",$event)
+    // this.notes=$event
+    this.displayAllNotes()
+
   }
   displayAllNotes(){
     this.notesService.getAllNotes()
@@ -35,7 +37,7 @@ export class DisplayAllNotesComponent implements OnInit {
 
       this.notes=response.data
 
-      this.receiveData(this.notes)
+     
        // data.push(response)
      
        console.log(this.notes,"res")

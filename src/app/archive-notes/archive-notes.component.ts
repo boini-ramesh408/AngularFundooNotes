@@ -1,4 +1,5 @@
 import { Component, OnInit,Output, EventEmitter,Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-archive-notes',
@@ -11,7 +12,7 @@ export class ArchiveNotesComponent implements OnInit {
 
   is_archive:boolean;
 
-  constructor() { }
+  constructor(private _matSnackBar: MatSnackBar,) { }
 
   ngOnInit() {
     this.is_archive=this.archivedStatus
@@ -24,6 +25,8 @@ export class ArchiveNotesComponent implements OnInit {
     console.log('archived Status  : ' ,this.archivedStatus)
   this.is_archive = true
   this.archivedStatus = true
+  this._matSnackBar.open('Archieve notes added', 'close')
+  ._dismissAfter(2500);
   // console.log('Is _ archived after : ', this.is_archived)
   }else{
     this.is_archive = false;

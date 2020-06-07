@@ -21,7 +21,9 @@
   
   
   <mat-sidenav-container class="sidenav">
-        <mat-sidenav class="navSet" #snav mode="push" [(opened)]="opened"  fixedTopGap="65">
+        <mat-sidenav class="navSet" #snav mode="side" style="width: 240px;"
+        
+        [opened]="true"  fixedTopGap="65">
          
             <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
               
