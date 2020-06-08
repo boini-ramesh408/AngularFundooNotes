@@ -51,6 +51,7 @@ import { MoreComponent } from './more/more.component';
 import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
 import { TrashNotesComponent } from './trash-notes/trash-notes.component';
 import { LabelComponent } from './label/label.component';
+import { LabelDialogComponent } from './label-dialog/label-dialog.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { LabelComponent } from './label/label.component';
     DisplayReminderComponent,
     TrashNotesComponent,
     LabelComponent,
+    LabelDialogComponent,
     
   ],
   entryComponents: [EditNotesComponent,RemindBoxComponent],
