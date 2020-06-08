@@ -11,5 +11,5 @@ export class LabelDialogComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
 }
