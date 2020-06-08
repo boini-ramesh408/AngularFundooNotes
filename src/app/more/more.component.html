@@ -1,10 +1,14 @@
-<div>
+<div >
     <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="deleteNote()">
-          Delete Note
-        </button>
-      </mat-menu>
+      <div>
+        <mat-menu #menu="matMenu"  >
+        
+          <button mat-menu-item  (click)="deleteNote()">
+            Delete Note
+          </button>
+        </mat-menu>
+      </div>
+      
 </div>

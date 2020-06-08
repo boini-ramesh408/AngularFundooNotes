@@ -50,6 +50,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { MoreComponent } from './more/more.component';
 import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
 import { TrashNotesComponent } from './trash-notes/trash-notes.component';
+import { LabelComponent } from './label/label.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { TrashNotesComponent } from './trash-notes/trash-notes.component';
     MoreComponent,
     DisplayReminderComponent,
     TrashNotesComponent,
+    LabelComponent,
     
   ],
   entryComponents: [EditNotesComponent,RemindBoxComponent],

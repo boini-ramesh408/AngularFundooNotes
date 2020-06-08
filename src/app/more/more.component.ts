@@ -21,7 +21,10 @@ export class MoreComponent implements OnInit {
   ngOnInit() {
   }
   deleteNote(){
+    console.log("datatatat")
+
     // if (this.is_trashed === false){
+    //   console.log(this.is_trashed,"trashed")
     //   // console.log('Is _ archived before : ', this.is_archived)
       
     //     this.is_trashed = true

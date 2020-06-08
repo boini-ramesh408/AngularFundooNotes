@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class NotesServiceService {
   url="note/"
   url1="getnote/"
+  surl="search/"
 
 
   private searchSource = new BehaviorSubject('No Notes');
@@ -20,6 +21,7 @@ export class NotesServiceService {
     return this.hs.post(this.url,data)
     
   }
+  
   getAllNotes(){
     return this.hs.get(this.url)
     
@@ -35,7 +37,8 @@ export class NotesServiceService {
     // return this.http.put(`http://127.0.0.1:8000/api/note/${id}`,data)
   }
   getSearchNotes(searchData){
-    return this.http.post('http://127.0.0.1:8000/api/search/',searchData)
+    return this.hs.post(this.surl,searchData)
+    // return this.http.post('http://127.0.0.1:8000/api/search/',searchData)
     .subscribe(response => {
       let searchNoteData= response['data']
       console.log(searchNoteData)
