@@ -87,6 +87,7 @@ export class DisplayNotesComponent implements OnInit {
   // this.displayAllNotes()
     console.log($event,"yhjjghj")
     this.color = $event;
+    this.note.color=this.color
    console.log(this.color,"colr")
    let data={"color":this.color}
    console.log(this.note.id,"notes")
@@ -94,7 +95,7 @@ export class DisplayNotesComponent implements OnInit {
    this.notesService.updateNotesWithId(this.note.id,data)
 
    .subscribe(response => { 
-     
+     this.displayAllNotes()
     // this.getRefresh.emit(re)
     //  this.event.emit(this.getRefresh())
     // this.router.navigate(['/dashboard/notes']);
@@ -118,7 +119,7 @@ export class DisplayNotesComponent implements OnInit {
 
    this.notesService.updateNotesWithId(this.note.id,data) 
    .subscribe(response => { 
-    
+    this.displayAllNotes()
     // this.getRefresh.emit(re)
     //  this.event.emit(this.getRefresh())
     // this.router.navigate(['/dashboard/notes']);
