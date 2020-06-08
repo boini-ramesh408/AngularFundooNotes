@@ -27,6 +27,7 @@ export class AddNotesComponent implements OnInit {
   selectedTime: string;
   today: any;
   reminder:string;
+  is_trashed:false;
   // reminder= new FormControl('');
 
   constructor(private http: HttpClient,private notesService:NotesServiceService,

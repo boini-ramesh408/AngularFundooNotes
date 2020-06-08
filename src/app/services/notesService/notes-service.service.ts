@@ -24,12 +24,15 @@ export class NotesServiceService {
     return this.hs.get(this.url)
     
   }
+
   deleteNoteWithId(id){
-    return this.http.delete(`http://127.0.0.1:8000/api/note/${id}`)
+    // return this.http.delete(`http://127.0.0.1:8000/api/note/${id}`)
+    return this.hs.delete(this.url,id)
   }
   updateNotesWithId(id,data){
-    console.log(data,"data")
-    return this.http.put(`http://127.0.0.1:8000/api/note/${id}`,data)
+    // console.log(data,"data")
+    return this.hs.put(this.url,id,data)
+    // return this.http.put(`http://127.0.0.1:8000/api/note/${id}`,data)
   }
   getSearchNotes(searchData){
     return this.http.post('http://127.0.0.1:8000/api/search/',searchData)

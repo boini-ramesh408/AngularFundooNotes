@@ -16,10 +16,10 @@ public post(url1,data) {
 public get(url1){
   return this.http.get(this.url+url1);
 }
-public put(url1,data){
-  return this.http.put(this.url+url1,data);
+public put(url1,id,data){
+  return this.http.put(this.url+url1+`${id}`,data);
 }
-public delete(url1,data){
-  return this.http.delete(this.url+url1,data);
+public delete(url1,id){
+  return this.http.delete(this.url+url1+`${id}`);
 }
 }

@@ -5,5 +5,6 @@ export class Note_data {
     public color:string;
     public is_archive:false;
    public reminder:string;
+   public is_trashed:false;
   }
   
