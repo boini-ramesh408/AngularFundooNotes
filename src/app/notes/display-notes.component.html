@@ -25,44 +25,29 @@ fxLayoutAlign="space-between center"
 </div> -->
 
 
-
-<mat-card autocomplete="off"
-role="combobox"
-flex="column"
-
-[ngStyle]="{ 'background-color': note.color }"
-
-class="matcard">
-<div>
-
-<div   class="pin-unpin-title"
-fxLayout="row"
-fxLayoutAlign="space-between center">
-<mat-card-content class="content" (click)=openDialog(note)>
-    
-    
-      <!-- {{note.title}} -->
-      <textarea
-      id="title"
-      class="textarea"
-      [(ngModel)]="note.title"
-      matInput
-      matTextareaAutosize
-      type="text"
-      placeholder="Title"
-      [ngStyle]="{ 'background-color': note.color }"
-    ></textarea>
-    
-    </mat-card-content>
-    <br>
-
-    <mat-card-content  class="content"> 
-        
-        <!-- {{note.note}} -->
+<div >
+  <mat-card autocomplete="off"
+  role="combobox"
+  flex="column"
+  
+  [ngStyle]="{ 'background-color': note.color }"
+  class="matcard"
+  
+  >
+  <div>
+  
+  <div   
+  
+  fxLayout="column"
+  fxLayoutAlign="space-between center">
+  <mat-card-content class="content" (click)=openDialog(note)>
+      
+      
+        <!-- {{note.title}} -->
         <textarea
         id="title"
         class="textarea"
-        [(ngModel)]="note.note"
+        [(ngModel)]="note.title"
         matInput
         matTextareaAutosize
         type="text"
@@ -70,54 +55,73 @@ fxLayoutAlign="space-between center">
         [ngStyle]="{ 'background-color': note.color }"
       ></textarea>
       
-    </mat-card-content>
-
+      </mat-card-content>
+      <br>
+  
+      <mat-card-content  class="content"> 
+          
+          <!-- {{note.note}} -->
+          <textarea
+          id="title"
+          class="textarea"
+          [(ngModel)]="note.note"
+          matInput
+          matTextareaAutosize
+          type="text"
+          placeholder="Title"
+          [ngStyle]="{ 'background-color': note.color }"
+        ></textarea>
+        
+      </mat-card-content>
+  
+  </div>
+  <div>
+     {{note.reminder}}
+  </div>
+  
+  <div class="moreInfo">
+  
+     <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+  </div>
+  
+  <div class="remind"> 
+    <button mat-icon-button matTooltip="Remind me" type="time">
+      <mat-icon>add_alert</mat-icon>
+    </button>
+  </div>
+  
+  
+  
+  <div class="colab">
+    <button mat-icon-button>
+      <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+    </button>
+  </div>
+  
+  <div class="color">
+    <app-color (sendColor)="updateColor($event)"></app-color>
+  </div>
+  
+  <div class="img">
+    <button mat-icon-button matTooltip="Add Image">
+      <mat-icon>crop_original</mat-icon>
+    </button>
+  </div>
+  
+  <div class="archive">
+    <button mat-icon-button matTooltip="Archive" (click)="archive()">
+      <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
+    </button>
+  </div>
+  
+  <div>
+  
+  </div>
+  
+  
+  
+  </div>
+  
+  </mat-card>
+  
 </div>
-<div>
-   {{note.reminder}}
-</div>
-
-<div class="moreInfo">
-
-   <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
-</div>
-
-<div class="remind"> 
-  <button mat-icon-button matTooltip="Remind me" type="time">
-    <mat-icon>add_alert</mat-icon>
-  </button>
-</div>
-
-
-
-<div class="colab">
-  <button mat-icon-button>
-    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-  </button>
-</div>
-
-<div class="color">
-  <app-color (sendColor)="updateColor($event)"></app-color>
-</div>
-
-<div class="img">
-  <button mat-icon-button matTooltip="Add Image">
-    <mat-icon>crop_original</mat-icon>
-  </button>
-</div>
-
-<div class="archive">
-  <button mat-icon-button matTooltip="Archive" (click)="archive()">
-    <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
-  </button>
-</div>
-
-<div>
-
-</div>
-
-
-
-</div>
-
-</mat-card>

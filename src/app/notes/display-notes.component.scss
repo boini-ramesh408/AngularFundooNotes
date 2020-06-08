@@ -17,16 +17,10 @@
 //     width: 10%;
 //     flex-direction: row;
 // }
-// .card{
-//     padding-right: 10%;
-// }
+.card{
+    padding-right: 10%;
+}
 
-  .content {
-    border: none;
-    margin-bottom: 0px;
-   
-    outline: 0px;
-  }
 
   // // width of a crad of note
   // .matcard{
@@ -52,13 +46,17 @@
   // }
  
   .matcard{
-    margin-top: 5%;
+    margin-top: 4%; 
+    // box-sizing: border-box;
+
     box-shadow: 1px 1px 10px 1px #cec9c9;
     width: 20%;
     justify-content: space-between;
     float: left;
-   margin-left: 10%;
-
+   margin-left: 13%;
+   margin-right: -9%;
+   
+ 
     
   }
 
@@ -96,4 +94,9 @@
     outline: none;
     min-height: 8px;
     background-color: transparent;
+  }
+  .pin-unpin-div {
+    margin-top: -20px;
+    margin-right: -10px;
+    opacity: 0.75;
   }

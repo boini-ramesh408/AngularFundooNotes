@@ -17,6 +17,7 @@ export class ArchiveNotesComponent implements OnInit {
   ngOnInit() {
     this.is_archive=this.archivedStatus
   }
+  
   goArchive(){
 
   
@@ -32,7 +33,10 @@ export class ArchiveNotesComponent implements OnInit {
     this.is_archive = false;
     this.archivedStatus = true;
   }
-  this.sendArchive.emit(this.is_archive)
+  if(this.is_archive === true){
+    this.sendArchive.emit(this.is_archive)
+  }
+ 
  
 }
 }

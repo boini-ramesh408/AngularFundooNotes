@@ -1,1 +1,3 @@
-<p>display-reminder works!</p>
+<div *ngFor="let notesData of notes">
+    <app-display-notes [note]="notesData"></app-display-notes>
+</div>
