@@ -79,7 +79,7 @@ import { LabelDialogComponent } from './label-dialog/label-dialog.component';
     LabelDialogComponent,
     
   ],
-  entryComponents: [EditNotesComponent,RemindBoxComponent],
+  entryComponents: [EditNotesComponent,LabelDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

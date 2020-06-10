@@ -26,18 +26,20 @@
         [opened]="true"  fixedTopGap="65">
          
             <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
-              
+              <!-- <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon> -->
               Notes
             </button> 
           
           <br>
           
-          <button class="sidenav-element-button" [routerLink]="['/dashboard/reminders']" >Reminders</button>
+          <button class="sidenav-element-button" [routerLink]="['/dashboard/reminders']" >
+            <!-- <mat-icon class="remind" id="sidenav-icon">notifications_none</mat-icon> -->
+            Reminders</button>
           <br>
           <app-label></app-label>
           <br>
           <button mat-button id="sidenav-button" [routerLink]="['/dashboard/archive']" >
-              
+            <!-- <mat-icon id="sidenav-icon">archive</mat-icon> -->
             Archive
             
             </button>
@@ -45,7 +47,7 @@
         <br>
         
         <button mat-button id="sidenav-button" >
-              
+          <!-- <mat-icon id="sidenav-icon">delete</mat-icon> -->
           Trash
           
           </button>

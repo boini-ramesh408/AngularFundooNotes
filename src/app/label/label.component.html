@@ -1,12 +1,12 @@
 <div style="align-content: center;">
-    <label for="" style="color: rgba(173, 173, 173);">LABELS</label>
+    <!-- <label for="" style="color: rgba(173, 173, 173);">LABELS</label> -->
 </div>
 
 
 <div>
     <button *ngFor="let label of labels" style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;">
         <mat-icon prefix style="float: left;">label</mat-icon>
-        {{label.label_name}}
+        {{label.name}}
     </button>
 </div>
 

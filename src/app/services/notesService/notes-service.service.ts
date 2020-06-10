@@ -9,7 +9,9 @@ export class NotesServiceService {
   url="note/"
   url1="getnote/"
   surl="search/"
-
+  
+  private labelSource = new BehaviorSubject('No labels to show');
+  public labelData = this.labelSource.asObservable();
 
   private searchSource = new BehaviorSubject('No Notes');
   public searchNotes = this.searchSource.asObservable();
@@ -46,5 +48,28 @@ export class NotesServiceService {
     });
 
   }
-  
+  getAllLabels(){
+    this.http.get("http://127.0.0.1:8000/api/label/")
+    .subscribe(response => {
+      let label = response['data']
+      
+      this.labelSource.next(label);
+      
+    })
+  }
+  deleteLabelWithId(id){
+    this.http.delete(`http://127.0.0.1:8000/api/label/${id}`)
+    .subscribe(response => {
+      console.log(response,"label deleted")
+    })
+  }
+  updateLabelWithId(id,data){
+    console.log(id,"id")
+    data={"name":data}
+    console.log(data,"data")
+    this.http.put(`http://127.0.0.1:8000/api/label/${id}`,data)
+    .subscribe(response => {
+      console.log(response,"label deleted")
+    })
+  }
 }
