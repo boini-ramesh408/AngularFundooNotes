@@ -53,6 +53,7 @@ import { TrashNotesComponent } from './trash-notes/trash-notes.component';
 import { LabelComponent } from './label/label.component';
 import { LabelDialogComponent } from './label-dialog/label-dialog.component';
 import { CollaboratorsComponent } from './collaborators/collaborators.component';
+import { CollabDialgBoxComponent } from './collab-dialg-box/collab-dialg-box.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { CollaboratorsComponent } from './collaborators/collaborators.component'
     LabelComponent,
     LabelDialogComponent,
     CollaboratorsComponent,
+    CollabDialgBoxComponent,
     
   ],
   entryComponents: [EditNotesComponent,LabelDialogComponent],
