@@ -32,6 +32,7 @@ export class AddNotesComponent implements OnInit {
 
   constructor(private http: HttpClient,private notesService:NotesServiceService,
     private _matSnackBar: MatSnackBar,
+    private _matDialog: MatDialog
     )
   {
     this.showCard = false; 
@@ -107,5 +108,18 @@ export class AddNotesComponent implements OnInit {
     // this.reminder = finalReminder;
   }
 
- 
+  addLabelToNoteDialog(note) {
+    console.log(
+      "fetched Note on add label Click sending the data to add label component : ",
+      note
+    );
+    const dialogReference = this._matDialog.open(AddLabelComponent, {
+      width: "280px",
+      height: "auto",
+      data: { note }
+    });
+    dialogReference.afterClosed().subscribe(result => {
+      console.log("dialog closed with out any change");
+    });
+  }
 }
