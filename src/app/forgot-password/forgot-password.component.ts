@@ -19,14 +19,16 @@ export class ForgotPasswordComponent implements OnInit {
   
     
     console.log(this.email)
+    localStorage.setItem('email',this.email );
     // // const headers = new HttpHeaders().set("content-type", "application/json");
     // this.http.post('http://localhost:8000/api/reset/',dataa)
     this.userService.postForgotPasswordData(this.email)
     .subscribe((response) => {
+
       console.log(response)
     
       try{
-        if (response['success'] === true){
+        if (response['status'] === true){
         
           console.log(response['data'])
           alert(response['message']);

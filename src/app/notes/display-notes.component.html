@@ -79,6 +79,7 @@ fxLayoutAlign="space-between center"
   <div (click)=openReminder()>
      {{note.reminder}}
   </div>
+  
   <div *ngFor="let label of note.labels" class="footer-items">
     <div class="labels">
         <p id='card-label'>{{label.name}} </p> 

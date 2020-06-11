@@ -3,12 +3,23 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <div>
-        <mat-menu #menu="matMenu"  >
+        <div >
+          <mat-menu #menu="matMenu"  >
         
-          <button mat-menu-item  (click)="deleteNote()">
-            Delete Note
-          </button>
-        </mat-menu>
+            <button mat-menu-item  (click)="deleteNote()">
+              Delete Note
+            </button>
+  
+              <button mat-menu-item  (click)="addLabelToNoteDialog(notes)">
+               Add Label
+              </button>
+              
+          </mat-menu>
+          
+        </div>
+
+        
       </div>
       
 </div>
+

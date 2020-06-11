@@ -7,5 +7,8 @@ export class Note_data {
    public reminder:string;
    public is_trashed:false;
    public label:string;
+   public labelsList: Array<any>;
+
+   
   }
   

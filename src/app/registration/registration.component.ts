@@ -12,17 +12,15 @@ export class RegistrationComponent implements OnInit {
 
   patternForPassword="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
   
-  username= new FormControl('', [Validators.required,Validators.maxLength(10),
+  username= new FormControl('', [Validators.required,Validators.maxLength(15),
 
                   Validators.minLength(4)]);
 
-  password=new FormControl('',[Validators.required,Validators.minLength(7),
-    
-    Validators.pattern(this.patternForPassword)]);
+  password=new FormControl('',[Validators.required,Validators.minLength(7)] );
 
   confirmPassword=new FormControl('',[Validators.required,Validators.minLength(7)]);
 
-  email=new FormControl('', [Validators.required, Validators.email,Validators.maxLength(15),]);
+  email=new FormControl('', [Validators.required,]);
  
   constructor(private http: HttpClient,private router: Router,
 
@@ -49,7 +47,8 @@ export class RegistrationComponent implements OnInit {
       try{
         if (response['status'] === true){
           localStorage.setItem('token', response['data']);
-          console.log(response['token'],"hhhh")
+          localStorage.setItem('email', response['email']);
+         
           alert(response['message']);
          
         }
@@ -83,7 +82,7 @@ export class RegistrationComponent implements OnInit {
   errorForPassword(){
     return this.password.hasError('required') ? 'password field is required':
   this.password.hasError('minlength') ? 'you should enter 8-digit password':
-  this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
+  // this.password.hasError('pattern') ? 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters':
   this.password;
   }
   errorForConfirmPassword(){
@@ -95,7 +94,7 @@ export class RegistrationComponent implements OnInit {
   }
   errorForEmail(){
     return this.email.hasError('required') ? 'email field is required':
-    this.email.hasError('email') ? 'Enter valid email':
+    // this.email.hasError('email') ? 'Enter valid email':
     this.email;
   }
 }

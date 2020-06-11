@@ -1,6 +1,61 @@
 
- <h3>
-    Collaborators
-</h3>
 
+
+<div class="dialog-container">
+    <!-- <h1>Collaborators</h1> -->
+    <mat-card-title>
+        Collaborators
+    </mat-card-title>
+    <hr>
+    <form>
+        <mat-card-header>
+            <div *ngIf="owner[2] !== ''; else noDp" mat-card-avatar> 
+                <img src="{{owner[2]}}" alt="" style="border-radius: 50%;width: 40px; height: 40px;">
+            </div>
+            <mat-card-title style="font-size: 1rem;">{{owner}}</mat-card-title>
+            <!-- <mat-card-subtitle>{{owner[1]}}</mat-card-subtitle> -->
+        </mat-card-header>
+
+       <!-- <mat-card-header *ngFor="let collab of listOfCollaborators">
+            
+            <mat-card-title style="font-size: 1rem;"> {{collab}}</mat-card-title>
+         
+        </mat-card-header>  -->
+        
+        <mat-form-field style="width: 100%;">
+            <div style="display: flex;">
+                <input type="text"
+                 placeholder="Person or email to share with "
+                 matInput
+                 [formControl]="collaborators"
+                 [matAutocomplete]="auto">
+                <button (click)="addCollab(collaborators)" mat-icon-button><mat-icon>check</mat-icon></button>
+            </div>
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+          
+        </mat-form-field> 
+       
+    </form>
+    
+      
+</div>
+
+<div style="display: flex; float: right; width: 100%; background: rgba(175, 175, 175, 1);">
+ 
+        <button style="border: transparent;vertical-align: center;">Cancel</button>
+        <button (click)="onSave()" style="border: transparent; align-self: center;">Save</button>
+    
+</div> 
+
+
+<ng-template #noDp>
+    <div mat-card-avatar>
+        <mat-icon style="transform: scale(2); align-self: center; background-size: cover;">account_circle</mat-icon>
+    </div>
+</ng-template>
 

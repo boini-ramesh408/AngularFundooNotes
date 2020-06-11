@@ -1,7 +1,8 @@
 import { Component, OnInit, Output,EventEmitter, Input} from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
 import { Note_data } from '../model/Note_data';
+import { AddLabelComponent } from '../add-label/add-label.component';
 
 
 @Component({
@@ -13,10 +14,15 @@ export class MoreComponent implements OnInit {
   // notes:Note_data[];
   @Input() notes;
 
+  @Output() sendMoreData = new EventEmitter(false);
+
   @Output() sendDeleteData = new EventEmitter(false);
+
   is_trashed:boolean
+  
   constructor( private _matSnackBar: MatSnackBar,
-    private notesService:NotesServiceService ) { }
+    private notesService:NotesServiceService ,
+    private _matDialog:MatDialog) { }
 
   ngOnInit() {
   }
@@ -49,4 +55,18 @@ export class MoreComponent implements OnInit {
      }
      )
   }
+
+
+  addLabelToNoteDialog(notes) {
+    console.log("fetched Note on add label Click sending the data to add label component : ",notes);
+    const dialogReference = this._matDialog.open(AddLabelComponent, {
+      width: "280px",
+      height: "auto",
+      data: { notes }
+    });
+    dialogReference.afterClosed().subscribe(result => {
+      console.log("dialog closed with out any change");
+    });
+  }
+
 }

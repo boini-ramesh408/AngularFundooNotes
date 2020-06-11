@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpServicesService } from '../httpServices/http-services.service';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +9,7 @@ export class NotesServiceService {
   url="note/"
   url1="getnote/"
   surl="search/"
-  
+  private _subject = new Subject<any>();
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 
@@ -20,7 +20,9 @@ export class NotesServiceService {
   public searchNotes = this.searchSource.asObservable();
 
   constructor(private http: HttpClient,private hs:HttpServicesService) { }
-
+  public get autoRefesh() {
+    return this._subject;
+  }
   createNotes(data){
   
     return this.hs.post(this.url,data)

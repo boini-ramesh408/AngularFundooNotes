@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output, Input } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
@@ -17,7 +17,7 @@ import { AddLabelComponent } from '../add-label/add-label.component';
 export class AddNotesComponent implements OnInit {
 
  @Output() receiveAddNotes = new EventEmitter(false);
-  notes:Note_data[];
+notes:Note_data;
   showCard: boolean;
  
 
@@ -109,18 +109,18 @@ export class AddNotesComponent implements OnInit {
     // this.reminder = finalReminder;
   }
 
-  addLabelToNoteDialog(note) {
-    console.log(
-      "fetched Note on add label Click sending the data to add label component : ",
-      note
-    );
-    const dialogReference = this._matDialog.open(AddLabelComponent, {
-      width: "280px",
-      height: "auto",
-      data: { note }
-    });
-    dialogReference.afterClosed().subscribe(result => {
-      console.log("dialog closed with out any change");
-    });
-  }
+  // addLabelToNoteDialog(notes) {
+  //   console.log(
+  //     "fetched Note on add label Click sending the data to add label component : ",
+  //     notes
+  //   );
+  //   const dialogReference = this._matDialog.open(AddLabelComponent, {
+  //     width: "280px",
+  //     height: "auto",
+  //     data: { notes }
+  //   });
+  //   dialogReference.afterClosed().subscribe(result => {
+  //     console.log("dialog closed with out any change");
+  //   });
+  // }
 }

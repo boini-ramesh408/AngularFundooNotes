@@ -23,6 +23,8 @@ import { MatCardModule,MatTabsModule,
    MatNativeDateModule,
    MatSnackBar,
    MatSnackBarModule,
+   MatCheckboxModule,
+   MatAutocompleteModule,
    
    } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -85,7 +87,7 @@ import { AddLabelComponent } from './add-label/add-label.component';
     AddLabelComponent,
     
   ],
-  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent],
+  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,AddLabelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -94,7 +96,7 @@ import { AddLabelComponent } from './add-label/add-label.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
-    // MatTabsModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -105,7 +107,7 @@ import { AddLabelComponent } from './add-label/add-label.component';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
-    
+    MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
     OwlDateTimeModule,
