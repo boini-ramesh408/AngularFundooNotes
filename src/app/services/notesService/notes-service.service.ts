@@ -13,6 +13,9 @@ export class NotesServiceService {
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 
+  private userSource = new BehaviorSubject('No Users');
+  public usersList = this.userSource.asObservable();
+  
   private searchSource = new BehaviorSubject('No Notes');
   public searchNotes = this.searchSource.asObservable();
 

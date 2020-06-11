@@ -75,9 +75,19 @@ fxLayoutAlign="space-between center"
       </mat-card-content>
   
   </div>
+  <mat-card-footer style="display: flex;">
   <div (click)=openReminder()>
      {{note.reminder}}
   </div>
+  <div *ngFor="let label of note.labels" class="footer-items">
+    <div class="labels">
+        <p id='card-label'>{{label.name}} </p> 
+        <button mat-icon-button>
+            <mat-icon class="label-icon">close</mat-icon>
+        </button>
+    </div>
+</div>
+</mat-card-footer>
   
   <div class="moreInfo">
   

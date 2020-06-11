@@ -83,7 +83,7 @@ import { CollabDialgBoxComponent } from './collab-dialg-box/collab-dialg-box.com
     CollabDialgBoxComponent,
     
   ],
-  entryComponents: [EditNotesComponent,LabelDialogComponent],
+  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -103,7 +103,7 @@ import { CollabDialgBoxComponent } from './collab-dialg-box/collab-dialg-box.com
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
-
+    
     MatDatepickerModule,
     MatNativeDateModule,
     OwlDateTimeModule,
