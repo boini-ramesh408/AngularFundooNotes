@@ -6,6 +6,7 @@ import { Note_data } from '../model/Note_data';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { AddLabelComponent } from '../add-label/add-label.component';
 
 // import { AmazingTimePickerService } from "amazing-time-picker";
 @Component({
