@@ -46,7 +46,7 @@ export class AddLabelComponent implements OnInit {
   
   addNoteToLabel(label)
   {
-    console.log(label,"laabel add",this.fetchedNote)
-
+    console.log(label,"laabel add")
+    // this.labelsList = label
   }
 }

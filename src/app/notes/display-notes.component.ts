@@ -17,7 +17,7 @@ export class DisplayNotesComponent implements OnInit {
 
   notes:Note_data[];
   @Input() note;
-
+  showIcons=false
   color:string
   is_archive:false;
   expand: any = false;
@@ -37,7 +37,17 @@ export class DisplayNotesComponent implements OnInit {
     this.displayAllNotes()
    
   }
+  getButton(){
+    if(this.showIcons === false){
+      return this.showIcons = true
+    }
+  }
 
+  removeButton(){
+    if(this.showIcons === true){
+      return this.showIcons = false
+    }
+  }
   // deleteNote(){
   //   console.log(this.note.id)
 

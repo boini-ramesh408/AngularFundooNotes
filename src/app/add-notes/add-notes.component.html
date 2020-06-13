@@ -30,6 +30,9 @@
                 <input class="content-input" placeholder="Take a note" [(ngModel)]="note">
            
         </mat-card-content>
+        <div *ngFor="let label of labels">
+            {{label.name}}
+        </div>
             <div>
 
 
@@ -70,7 +73,7 @@
                     </div>
                 </mat-menu>
             </div>
-     
+           
           
            <div class="colob">
             <app-collaborators (sendCollaborators)="setCollaborator($event)"></app-collaborators>
@@ -92,7 +95,8 @@
                 <app-archive-notes (sendArchive)="setArchive($event)"></app-archive-notes>
             </div>
             <div class="more">
-                <app-more (sendMoreData)="setMore($event)"></app-more>
+                <!-- <app-more (sendMoreData)="setMore($event)"></app-more> -->
+                 <app-note-setting (sendLabels)="setLabels($event)"></app-note-setting>
                 <!-- <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More">
                     <mat-icon>more_vert</mat-icon>
                   </button>

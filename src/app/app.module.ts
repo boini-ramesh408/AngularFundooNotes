@@ -57,6 +57,7 @@ import { LabelDialogComponent } from './label-dialog/label-dialog.component';
 import { CollaboratorsComponent } from './collaborators/collaborators.component';
 import { CollabDialgBoxComponent } from './collab-dialg-box/collab-dialg-box.component';
 import { AddLabelComponent } from './add-label/add-label.component';
+import { NoteSettingComponent, NoteSettingDialogComponent } from './note-setting/note-setting.component';
 
 @NgModule({
   declarations: [
@@ -85,9 +86,11 @@ import { AddLabelComponent } from './add-label/add-label.component';
     CollaboratorsComponent,
     CollabDialgBoxComponent,
     AddLabelComponent,
+    NoteSettingComponent,
+    NoteSettingDialogComponent
     
   ],
-  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,AddLabelComponent],
+  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

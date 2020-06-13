@@ -6,9 +6,9 @@ export class Note_data {
     public is_archive:false;
    public reminder:string;
    public is_trashed:false;
-   public label:string;
+   public labels:[];
    public labelsList: Array<any>;
-
+    public collaborators:[]
    
   }
   

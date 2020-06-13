@@ -25,7 +25,7 @@ fxLayoutAlign="space-between center"
 </div> -->
 
 
-<div >
+<div (mouseenter)="getButton()" (mouseleave)="removeButton()">
   <mat-card autocomplete="off"
   role="combobox"
   flex="column"
@@ -35,7 +35,9 @@ fxLayoutAlign="space-between center"
   
   >
   <div>
-  
+  <div  >
+
+
   <div   
   
   fxLayout="column"
@@ -89,7 +91,8 @@ fxLayoutAlign="space-between center"
     </div>
 </div>
 </mat-card-footer>
-  
+</div>
+<div *ngIf="showIcons">
   <div class="moreInfo">
   
      <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
@@ -124,10 +127,7 @@ fxLayoutAlign="space-between center"
       <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
     </button>
   </div>
-  
-  <div>
-  
-  </div>
+</div>
   
   
   

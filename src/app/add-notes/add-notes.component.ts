@@ -15,12 +15,13 @@ import { AddLabelComponent } from '../add-label/add-label.component';
   styleUrls: ['./add-notes.component.scss']
 })
 export class AddNotesComponent implements OnInit {
-
+// @Input() label
  @Output() receiveAddNotes = new EventEmitter(false);
-notes:Note_data;
+
+  notes:Note_data;
   showCard: boolean;
  
-
+  labels:[]
   title:string;
   note:string;
   color:string;
@@ -40,7 +41,7 @@ notes:Note_data;
   }
 
   ngOnInit() {
-   
+  
   }
   openCard(){
     console.log("data")
@@ -65,7 +66,9 @@ notes:Note_data;
 
     console.log('reminder event recorded  :', finalReminder);
     // this.reminder = finalReminder;
-    let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color,"reminder":finalReminder}
+    
+    let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color,
+    "reminder":finalReminder,"label":this.labels}
     console.log(this.color,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
@@ -123,4 +126,9 @@ notes:Note_data;
   //     console.log("dialog closed with out any change");
   //   });
   // }
+  setLabels($event){
+    // console.log($event,"ent")
+    this.labels=$event
+
+  }
 }

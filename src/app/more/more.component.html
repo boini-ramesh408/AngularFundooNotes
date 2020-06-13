@@ -1,9 +1,11 @@
 <div >
-    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More">
-        <mat-icon>more_vert</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More" >
+        <mat-icon >more_vert</mat-icon>
       </button>
       <div>
+
         <div >
+          
           <mat-menu #menu="matMenu"  >
         
             <button mat-menu-item  (click)="deleteNote()">
@@ -22,4 +24,16 @@
       </div>
       
 </div>
+
+<ng-template #showLabelList>
+  <h2>Label note</h2>
+
+  <div *ngFor="let label of allLabels">
+      <mat-checkbox [checked]= "label.pk" [value]="label" (change)="toggle($event)">{{label.label_name}}</mat-checkbox>
+  </div>
+
+  <button (click)="onClose()">Cancel</button>
+  <button (click)="submitLabels()">Submit</button>
+</ng-template>
+
 
