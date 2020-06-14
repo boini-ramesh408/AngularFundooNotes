@@ -19,6 +19,12 @@ export class NotesServiceService {
   private searchSource = new BehaviorSubject('No Notes');
   public searchNotes = this.searchSource.asObservable();
 
+  public collabSource = new BehaviorSubject('No Collaborators');
+  public collabList = this.collabSource.asObservable();
+
+  public NoteLabelSource = new BehaviorSubject('No Notes label');
+  public NoteLabelList = this.NoteLabelSource.asObservable();
+
   constructor(private http: HttpClient,private hs:HttpServicesService) { }
   public get autoRefesh() {
     return this._subject;

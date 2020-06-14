@@ -3,24 +3,26 @@
 
 <div class="dialog-container">
     <!-- <h1>Collaborators</h1> -->
-    <mat-card-title>
+    <h3>
         Collaborators
-    </mat-card-title>
-    <hr>
-    <form>
+    </h3>
+    <mat-divider></mat-divider>
+    <!-- <div style="font-size: 1rem;">{{owner}}</div><i>(Owner)</i> -->
+
+    <!-- <form>
         <mat-card-header>
-            <div *ngIf="owner[2] !== ''; else noDp" mat-card-avatar> 
-                <img src="{{owner[2]}}" alt="" style="border-radius: 50%;width: 40px; height: 40px;">
+           
+            <div mat-card-avatar>
             </div>
-            <mat-card-title style="font-size: 1rem;">{{owner}}</mat-card-title>
-            <!-- <mat-card-subtitle>{{owner[1]}}</mat-card-subtitle> -->
+            <div style="font-size: 1rem;">{{owner}}</div><i>(Owner)</i>
+          
         </mat-card-header>
 
-       <!-- <mat-card-header *ngFor="let collab of listOfCollaborators">
+       <mat-card-header *ngFor="let collab of listOfCollaborators">
             
             <mat-card-title style="font-size: 1rem;"> {{collab}}</mat-card-title>
          
-        </mat-card-header>  -->
+        </mat-card-header> 
         
         <mat-form-field style="width: 100%;">
             <div style="display: flex;">
@@ -41,19 +43,89 @@
           
         </mat-form-field> 
        
+    </form> -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 0 0 20px;">
+        <div mat-card-avatar>
+        </div>
+        <span style="width: 100%; font-weight: bold;">
+            {{owner}} <i>(Owner)</i>
+        </span>
+        <span>
+            {{owner}}
+        </span>
+    </div>
+    <mat-card-content style="margin: 40px 0 40px 0;">
+        
+        <div style=" display: flex; padding: 15px 0;" *ngFor="let email of addColab"> 
+            <div mat-card-avatar class="user-profile-image"></div>
+            <div style="padding: 10px 10px 10px 25px;
+                        display: flex;
+                        width: 90%;
+                        justify-content: space-between;">
+                <div>
+                    <span>{{email}}</span>
+                </div>
+                <div style="cursor: pointer; 
+                            background-color: #ece0e2;
+                            border-radius: 50%">
+                    <i matTooltip="Delete" class="material-icons close" style="color: olive;" (click)="deletePerson(email)">close</i>
+                </div>
+            </div>
+            
+        </div>
+        <div style="display: flex;">
+            <div>
+                <i class='material-icons' 
+                    style="padding: 10px;
+                    border-radius: 25px;
+                    border: 1px dotted;
+                    margin: 15px 35px 0 0;
+                    color: rgba(0,0,0,.38);">person_add</i>
+            </div>
+    <form class="example-form">
+        <!-- <mat-form-field class="example-full-width">
+            <input  placeholder="Email to share with" [formControl]="newPerson" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option  *ngFor="let option of filteredOptions | async" [value]="option">
+                        <div>
+                            {{option}}
+                        </div>
+                    </mat-option>
+                </mat-autocomplete>
+            
+        </mat-form-field> -->
+        <mat-form-field style="width: 200%;">
+            <div style="display: flex;">
+                <input type="text"
+                 placeholder="Person or email to share with "
+                 matInput
+                 [formControl]="collaborators"
+                 [matAutocomplete]="auto">
+                <button (click)="addCollab(collaborators)" mat-icon-button>
+                    <mat-icon>check</mat-icon></button>
+            </div>
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+          
+        </mat-form-field> 
     </form>
-    
-      
 </div>
 
-<div class="colabottom">
+<!-- <div class="colabottom">
  
         <button  mat-button >Cancel</button>
         <button  mat-button (click)="onSave()" >Save</button>
     
-</div> 
+</div>  -->
 
-
+<mat-card-actions style="margin: -15px; text-align-last: right; background-color: #e6e3de;">
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button (click)=onSave()>Save</button>
+</mat-card-actions>
 <ng-template #noDp>
     <div mat-card-avatar>
         <mat-icon style="transform: scale(2); align-self: center; background-size: cover;">account_circle</mat-icon>

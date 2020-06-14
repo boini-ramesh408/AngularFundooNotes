@@ -20,8 +20,8 @@ export class AddNotesComponent implements OnInit {
 
   notes:Note_data;
   showCard: boolean;
- 
-  labels:[]
+  collaborators:[];
+  labels:[];
   title:string;
   note:string;
   color:string;
@@ -68,7 +68,7 @@ export class AddNotesComponent implements OnInit {
     // this.reminder = finalReminder;
     
     let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color,
-    "reminder":finalReminder,"label":this.labels}
+    "reminder":finalReminder,"label":this.labels,"collaborators":this.collaborators}
     console.log(this.color,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
@@ -130,5 +130,9 @@ export class AddNotesComponent implements OnInit {
     // console.log($event,"ent")
     this.labels=$event
 
+  }
+  setCollaborator($event){
+    console.log($event,"collaborators")
+    this.collaborators=$event
   }
 }

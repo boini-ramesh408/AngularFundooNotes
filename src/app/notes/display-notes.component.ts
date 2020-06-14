@@ -148,7 +148,7 @@ export class DisplayNotesComponent implements OnInit {
     .subscribe((response:any) => { 
 
       this.notes=response.data
-
+      console.log(response,"all Notes")
      
        // data.push(response)
      
@@ -156,6 +156,17 @@ export class DisplayNotesComponent implements OnInit {
      }
      )
   }
+  setCollaborator($event){
+    
+    console.log('Collab Event : ',$event)
+    let data = $event
   
+   
+    console.log('ids : ', this.note.id)
+    // let data = {'id': this.data.id, 'collaborators': collabIds};
+    this.notesService.updateNotesWithId(this.note.id,data).subscribe(response => {
+     console.log(response)
+    })
+  }
 
 }

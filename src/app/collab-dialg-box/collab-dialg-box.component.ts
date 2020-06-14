@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import {map, startWith} from 'rxjs/operators';
+import { emit } from 'process';
 @Component({
   selector: 'app-collab-dialg-box',
   templateUrl: './collab-dialg-box.component.html',
@@ -15,6 +16,7 @@ export class CollabDialgBoxComponent implements OnInit {
  
   collaborators = new FormControl('');
   listOfCollaborators = [];
+  addColab=[]
   filteredOptions : Observable<any>;
   owner = localStorage.getItem('email').split(',')
   constructor(private ns : NotesServiceService,
@@ -32,10 +34,13 @@ export class CollabDialgBoxComponent implements OnInit {
     }
 
   ngOnInit(){
+    
     this.filteredOptions = this.collaborators.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
+     
     );
+    console.log(this.filteredOptions,"filtes")
   }
 
   private _filter(value: string): string[] {
@@ -44,13 +49,32 @@ export class CollabDialgBoxComponent implements OnInit {
 
     return this.listOfCollaborators.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
+  addCollab(collaborators){  
+    console.log(collaborators.value,"col")
+    this.listOfCollaborators.push(collaborators.value);
+    let sdata=this.listOfCollaborators
+    // this.ns.collabSource.next(sdata)
+        // console.log('Collaborator : ', obj)
+        this.addColab.push(collaborators.value);
+        console.log('listOf Collaborators: ', this.listOfCollaborators)
+     
+    
+    // collabName.setValue(collabName.username)
+    console.log('List Of Collaborators : ', this.listOfCollaborators);
+    this.collaborators.setValue('');
+  }
   
   onSave(){
     console.log('Closing Collab Dialog and sending data to main component');
     this.dialogRef.close(this.listOfCollaborators)
   }
 
-  
+  closeDialog() {
+    this.dialogRef.close(this.listOfCollaborators);
+  }
 
+  deletePerson(email) {
+    this.listOfCollaborators.splice( this.listOfCollaborators.indexOf(email), 1 );
+  }
   
 }

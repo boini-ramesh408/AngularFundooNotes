@@ -31,7 +31,13 @@
            
         </mat-card-content>
         <div *ngFor="let label of labels">
-            {{label.name}}
+
+            <mat-chip-list >
+                <mat-chip> {{label.name}}</mat-chip>
+                
+              </mat-chip-list>
+              
+           
         </div>
             <div>
 

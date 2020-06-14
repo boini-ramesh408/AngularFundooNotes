@@ -8,7 +8,7 @@ export class Note_data {
    public is_trashed:false;
    public labels:[];
    public labelsList: Array<any>;
-    public collaborators:[]
+    public collaborators:[];
    
   }
   

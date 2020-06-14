@@ -88,4 +88,11 @@ export class NoteSettingDialogComponent implements OnInit{
   onClose(){
     this.dialogRef.close();
   }
+  addLabelToNoteDialog(label){
+    console.log(label['name'],"label")
+    for (var labelDta in label) {
+      
+    }
+      
+  }
 }

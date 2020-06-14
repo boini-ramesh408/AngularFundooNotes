@@ -25,6 +25,7 @@ import { MatCardModule,MatTabsModule,
    MatSnackBarModule,
    MatCheckboxModule,
    MatAutocompleteModule,
+   MatChipsModule,
    
    } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -107,6 +108,7 @@ import { NoteSettingComponent, NoteSettingDialogComponent } from './note-setting
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatChipsModule,
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,

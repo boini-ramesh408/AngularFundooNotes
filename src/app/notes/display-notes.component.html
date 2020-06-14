@@ -92,7 +92,7 @@ fxLayoutAlign="space-between center"
 </div>
 </mat-card-footer>
 </div>
-<div *ngIf="showIcons">
+<div >
   <div class="moreInfo">
   
      <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
@@ -107,9 +107,10 @@ fxLayoutAlign="space-between center"
   
   
   <div class="colab">
-    <button mat-icon-button>
+    <!-- <button mat-icon-button>
       <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-    </button>
+    </button> -->
+    <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
   </div>
   
   <div class="color">
