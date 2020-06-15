@@ -41,7 +41,10 @@ export class AddNotesComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    this.notesService.NoteLabelList.subscribe(result => {
+    
+     console.log(result,"hhd")
+    })
   }
   openCard(){
     console.log("data")
@@ -58,6 +61,11 @@ export class AddNotesComponent implements OnInit {
   closeCard(){
     console.log(this.color,"fhfgh")
       let reminder  = new Date(this.reminder)
+      let labelData=this.labels
+
+    for(var i in labelData){
+      console.log(i['id'])
+    }
     
     let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
     
@@ -68,7 +76,7 @@ export class AddNotesComponent implements OnInit {
     // this.reminder = finalReminder;
     
     let data= {"title":this.title,"note":this.note,"is_archive":this.is_archive,"color":this.color,
-    "reminder":finalReminder,"label":this.labels,"collaborators":this.collaborators}
+    "reminder":finalReminder,"label":labelData,"collaborators":this.collaborators}
     console.log(this.color,"titleeeee")
     if (this.showCard === true){
       console.log("data2",data)
@@ -127,12 +135,18 @@ export class AddNotesComponent implements OnInit {
   //   });
   // }
   setLabels($event){
-    // console.log($event,"ent")
+    console.log($event,"ent")
     this.labels=$event
+  
+    
 
   }
   setCollaborator($event){
     console.log($event,"collaborators")
     this.collaborators=$event
   }
+
+  // deletePerson(email) {
+  //   this.listOfCollaborators.splice( this.labels.indexOf(email), 1 );
+  // }
 }

@@ -16,7 +16,13 @@ export class DisplayAllNotesComponent implements OnInit {
 
   ngOnInit() {
 
-    // console.log("vcres")
+    //  this.http.get("http://127.0.0.1:8000/api/displayLabel/")
+    // .subscribe(response => {
+    //   this.labelData = response['data']
+    //   console.log(this.labelData,"lbl")
+    
+      
+    // })
 
     this.displayAllNotes()
     

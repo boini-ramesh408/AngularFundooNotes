@@ -19,6 +19,7 @@ export class DisplayNotesComponent implements OnInit {
   @Input() note;
   showIcons=false
   color:string
+  labelData=[]
   is_archive:false;
   expand: any = false;
   constructor(private http: HttpClient,
@@ -32,9 +33,16 @@ export class DisplayNotesComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.getRefresh()
-    // console.log(this.note,"notes")
+    // this.http.get("http://127.0.0.1:8000/api/displayLabel/")
+    // .subscribe(response => {
+    //   this.labelData = response['data']
+    //   console.log(this.labelData,"lbl")
+    
+      
+    // })
     this.displayAllNotes()
+
+
    
   }
   getButton(){
@@ -48,6 +56,7 @@ export class DisplayNotesComponent implements OnInit {
       return this.showIcons = false
     }
   }
+  
   // deleteNote(){
   //   console.log(this.note.id)
 
@@ -93,14 +102,15 @@ export class DisplayNotesComponent implements OnInit {
 
   
 // }
+
  updateColor($event){
   // this.displayAllNotes()
     console.log($event,"yhjjghj")
     this.color = $event;
     this.note.color=this.color
-   console.log(this.color,"colr")
+  //  console.log(this.color,"colr")
    let data={"color":this.color}
-   console.log(this.note.id,"notes")
+  //  console.log(this.note.id,"notes")
 
    this.notesService.updateNotesWithId(this.note.id,data)
 
@@ -115,16 +125,16 @@ export class DisplayNotesComponent implements OnInit {
     
      // data.push(response)
    
-     console.log(response)
+    //  console.log(response)
    }
    )
    
   }
   updateArchive($event){
     // this.displayAllNotes()
-    console.log($event,"yhjjghj")
+    // console.log($event,"yhjjghj")
     this.is_archive = $event;
-   console.log(this.is_archive,"arciv")
+  //  console.log(this.is_archive,"arciv")
    let data={"is_archive":this.is_archive}
 
    this.notesService.updateNotesWithId(this.note.id,data) 
@@ -139,7 +149,7 @@ export class DisplayNotesComponent implements OnInit {
     ._dismissAfter(2500);
      // data.push(response)
    
-     console.log(response)
+    //  console.log(response)
    }
    )
   }
@@ -148,7 +158,7 @@ export class DisplayNotesComponent implements OnInit {
     .subscribe((response:any) => { 
 
       this.notes=response.data
-      console.log(response,"all Notes")
+      // console.log(response,"all Notes")
      
        // data.push(response)
      
@@ -158,14 +168,14 @@ export class DisplayNotesComponent implements OnInit {
   }
   setCollaborator($event){
     
-    console.log('Collab Event : ',$event)
+    // console.log('Collab Event : ',$event)
     let data = $event
   
    
-    console.log('ids : ', this.note.id)
+    // console.log('ids : ', this.note.id)
     // let data = {'id': this.data.id, 'collaborators': collabIds};
     this.notesService.updateNotesWithId(this.note.id,data).subscribe(response => {
-     console.log(response)
+    //  console.log(response)
     })
   }
 

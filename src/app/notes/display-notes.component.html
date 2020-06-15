@@ -77,19 +77,23 @@ fxLayoutAlign="space-between center"
       </mat-card-content>
   
   </div>
+  <div *ngFor="let label of note.label" class="footer-items">
+    <!-- <div class="labels">
+        <p id='card-label'>{{label}} </p> 
+        
+    </div> -->
+    <mat-chip-list >
+      <mat-chip> {{label}}</mat-chip>
+      
+    </mat-chip-list>
+</div>
   <mat-card-footer style="display: flex;">
+    
   <div (click)=openReminder()>
      {{note.reminder}}
   </div>
   
-  <div *ngFor="let label of note.labels" class="footer-items">
-    <div class="labels">
-        <p id='card-label'>{{label.name}} </p> 
-        <button mat-icon-button>
-            <mat-icon class="label-icon">close</mat-icon>
-        </button>
-    </div>
-</div>
+ 
 </mat-card-footer>
 </div>
 <div >
@@ -107,10 +111,10 @@ fxLayoutAlign="space-between center"
   
   
   <div class="colab">
-    <!-- <button mat-icon-button>
+    <button mat-icon-button>
       <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-    </button> -->
-    <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
+    </button>
+    <!-- <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators> -->
   </div>
   
   <div class="color">

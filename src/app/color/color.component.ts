@@ -18,21 +18,21 @@ export class ColorComponent implements OnInit {
   colorsList = [
     [
       { colorCode: "rgba(255,255,255,1)", name: "white" },
-      { colorCode: "rgba(231, 116, 113,1)", name: "Red" },
-      { colorCode: "rgba(249, 150, 107,1)", name: "Orange" },
-      { colorCode: "rgba(233, 171, 23,1)", name: "Yellow" }
+      { colorCode: "#f28b82", name: "Red" },
+      { colorCode:  "#fbbc04", name: "Orange" },
+      { colorCode:  "#fff475", name: "Yellow" }
     ],
     [
-      { colorCode: "rgba(137, 195, 92,1)", name: "Green" },
-      { colorCode: "rgba(132, 139, 121,1)", name: "Teal" },
-      { colorCode: "rgba(198, 222, 255,1)", name: "Blue" },
-      { colorCode: "rgba( 114, 143, 206,1)", name: "Dark blue" }
+      { colorCode:" #ccff90", name: "Green" },
+      { colorCode: "#a7ffeb", name: "Teal" },
+      { colorCode: "#cbf0f8", name: "Blue" },
+      { colorCode: "#aecbfa", name: "Dark blue" }
     ],
     [
-      { colorCode: "rgba( 158, 123, 255,1)", name: "Purple" },
-      { colorCode: "rgba(230, 169, 236,1)", name: "Pink" },
-      { colorCode: "rgba(194, 178, 128,1)", name: "Brown" },
-      { colorCode: "rgba(229, 228, 226,1)", name: "Gray" }
+      { colorCode: "#d7aefb", name: "Purple" },
+      { colorCode: "#fdcfe8", name: "Pink" },
+      { colorCode: "#e6c9a8", name: "Brown" },
+      { colorCode: "#e8eaed", name: "Gray" }
     ]
   ];
   constructor(

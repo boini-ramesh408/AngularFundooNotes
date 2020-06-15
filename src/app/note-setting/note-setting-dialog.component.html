@@ -14,7 +14,7 @@
         </mat-form-field>
     </div>
     <div *ngFor="let label of allLabels">
-        <mat-checkbox class="color" [value]="label" (change)="toggle($event)" (click)="addLabelToNoteDialog(label)">{{label.name}} </mat-checkbox>
+        <mat-checkbox class="color" [value]="label" (change)="toggle($event)" >{{label.name}} </mat-checkbox>
     </div>
 
     <button (click)="onClose()">Cancel</button>

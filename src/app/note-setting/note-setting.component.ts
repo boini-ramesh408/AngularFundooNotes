@@ -18,6 +18,7 @@ export class NoteSettingComponent implements OnInit {
   }
 
   openMore($event){
+    console.log($event,"evnt")
     console.log($event)
     let rect = $event.target.getBoundingClientRect()
     console.log(rect)
@@ -74,10 +75,13 @@ export class NoteSettingDialogComponent implements OnInit{
   }
 
   toggle($event){
-    console.log($event)
+    console.log($event,"toggle")
+    // console.log($event.source.value['name'],"toggle");
     if ($event.source.checked ===true){
-      console.log($event.source.value);
-      this.listOfLabels.push($event.source.value)
+      console.log($event.source.value['name'],"toggle");
+      this.listOfLabels.push($event.source.value['name'])
+      this.dataService.NoteLabelSource.next($event.source.value['id']
+      )
     }
   }
 
@@ -90,9 +94,10 @@ export class NoteSettingDialogComponent implements OnInit{
   }
   addLabelToNoteDialog(label){
     console.log(label['name'],"label")
-    for (var labelDta in label) {
+    // let ln=
+    // for (var labelDta in label) {
       
-    }
+    // }
       
   }
 }

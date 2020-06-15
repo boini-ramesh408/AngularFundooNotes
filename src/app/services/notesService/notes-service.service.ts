@@ -10,6 +10,7 @@ export class NotesServiceService {
   url1="getnote/"
   surl="search/"
   private _subject = new Subject<any>();
+
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 
@@ -24,6 +25,9 @@ export class NotesServiceService {
 
   public NoteLabelSource = new BehaviorSubject('No Notes label');
   public NoteLabelList = this.NoteLabelSource.asObservable();
+
+  public AddcollabSource = new BehaviorSubject('No colabs to show');
+  public AddColablData = this.AddcollabSource.asObservable();
 
   constructor(private http: HttpClient,private hs:HttpServicesService) { }
   public get autoRefesh() {
@@ -54,7 +58,7 @@ export class NotesServiceService {
     // return this.http.post('http://127.0.0.1:8000/api/search/',searchData)
     .subscribe(response => {
       let searchNoteData= response['data']
-      console.log(searchNoteData)
+      // console.log(searchNoteData)
       this.searchSource.next(searchNoteData)
     });
 
@@ -63,7 +67,7 @@ export class NotesServiceService {
     this.http.get("http://127.0.0.1:8000/api/label/")
     .subscribe(response => {
       let label = response['data']
-      
+      // console.log(label.name,"lbl")
       this.labelSource.next(label);
       
     })
@@ -75,9 +79,9 @@ export class NotesServiceService {
     })
   }
   updateLabelWithId(id,data){
-    console.log(id,"id")
+    // console.log(id,"id")
     data={"name":data}
-    console.log(data,"data")
+    // console.log(data,"data")
     this.http.put(`http://127.0.0.1:8000/api/label/${id}`,data)
     .subscribe(response => {
       console.log(response,"label deleted")

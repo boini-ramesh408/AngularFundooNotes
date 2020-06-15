@@ -32,6 +32,7 @@ export class LabelDialogComponent implements OnInit {
     };
   ngOnInit(){
     this.ns.getAllLabels();
+    
     this.ns.labelData.subscribe(result => {this.labels = result})
     // console.log('coming from here')
   }

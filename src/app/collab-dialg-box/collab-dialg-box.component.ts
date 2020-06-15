@@ -53,10 +53,11 @@ export class CollabDialgBoxComponent implements OnInit {
     console.log(collaborators.value,"col")
     this.listOfCollaborators.push(collaborators.value);
     let sdata=this.listOfCollaborators
-    // this.ns.collabSource.next(sdata)
+    
+   
         // console.log('Collaborator : ', obj)
         this.addColab.push(collaborators.value);
-        console.log('listOf Collaborators: ', this.listOfCollaborators)
+        console.log('listOf Collaborators: ', this.addColab)
      
     
     // collabName.setValue(collabName.username)

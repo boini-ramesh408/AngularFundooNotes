@@ -27,19 +27,20 @@ export class CollaboratorsComponent implements OnInit {
       this.listOfUsers = data
       })
   }
+  
   openCollaboratorDialog(): void{
     const dialogRef = this.dialog.open(CollabDialgBoxComponent, {
-      width: "30rem",
-      // height: "12rem",
+      width: "40rem",
+      // height: "2rem",
       data: this.listOfUsers,
       panelClass: 'dialog-container'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.listOfUsers = result;
-      console.log(this.listOfUsers)
-      this.ns.collabSource.next(this.listOfUsers)
-      // this.sendCollaborators.emit(this.listOfUsers);
+      console.log(this.listOfUsers,"list")
+      // this.ns.collabSource.next(this.listOfUsers)
+      this.sendCollaborators.emit(this.listOfUsers);
       console.log("Collaborators DialogBox Closed!");
     })
   } 
