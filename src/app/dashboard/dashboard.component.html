@@ -25,24 +25,28 @@
         
         [opened]="true"  fixedTopGap="65">
          
-            <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
+            <button class="sidenav-element-button"  style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/notes']">
+              <mat-icon matPrefix style="float: left;">lightbulb_outline</mat-icon>
               <!-- <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon> -->
               Notes
             </button> 
           
           <br>
           
-          <button class="sidenav-element-button" [routerLink]="['/dashboard/reminders']" >
+          <button class="sidenav-element-button" style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/reminders']" >
+            <mat-icon matPrefix style="float: left;">notifications_none</mat-icon>
             <!-- <mat-icon class="remind" id="sidenav-icon">notifications_none</mat-icon> -->
             Reminders</button>
             <mat-divider></mat-divider>
+            <br>
             <br>
           <app-label></app-label>
           <br>
           <br>
           <mat-divider></mat-divider>
-          
-          <button mat-button id="sidenav-button" [routerLink]="['/dashboard/archive']" >
+          <br>
+          <button mat-button id="sidenav-button" style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/archive']" >
+            <mat-icon matPrefix style="float: left;">archive</mat-icon>
             <!-- <mat-icon id="sidenav-icon">archive</mat-icon> -->
             Archive
             
@@ -50,11 +54,17 @@
     
         <br>
         <br>
-        <button mat-button id="sidenav-button" >
-          <!-- <mat-icon id="sidenav-icon">delete</mat-icon> -->
+        <br>
+        <button  style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;"> 
+          <mat-icon matPrefix style="float: left;">delete</mat-icon>
+          Trash
+      </button>
+        <!-- <button mat-button id="sidenav-button" >
+          <mat-icon matPrefix style="float: left;">delete</mat-icon>
+          <mat-icon id="sidenav-icon">delete</mat-icon>
           Trash
           
-          </button>
+          </button> -->
           <mat-divider></mat-divider >
          </mat-sidenav>
       
