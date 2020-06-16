@@ -48,13 +48,15 @@
   .matcard{
     margin-top: 4%; 
     // box-sizing: border-box;
-
+    backface-visibility: hidden;
+    border-radius: 10px;
     box-shadow: 1px 1px 10px 1px #cec9c9;
     width: 20%;
     justify-content: space-between;
     float: left;
    margin-left: 13%;
    margin-right: -9%;
+  //  height: 90px;
    
  
     
