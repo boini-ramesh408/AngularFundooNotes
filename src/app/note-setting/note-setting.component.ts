@@ -11,7 +11,8 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 export class NoteSettingComponent implements OnInit {
 
   @Output() sendLabels = new EventEmitter(false);
-
+  @Output() sendUpdteLabels = new EventEmitter(false);
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -33,6 +34,7 @@ export class NoteSettingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       this.sendLabels.emit(result)
+      this.sendUpdteLabels.emit(result)
       
       console.log('emitting event')
       console.log("More Note Options Dialog Box Closed")

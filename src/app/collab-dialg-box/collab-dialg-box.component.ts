@@ -13,7 +13,7 @@ import { emit } from 'process';
 })
 export class CollabDialgBoxComponent implements OnInit {
   listOfUsers
- 
+  collab=[]
   collaborators = new FormControl('');
   listOfCollaborators = [];
   addColab=[]
@@ -41,6 +41,7 @@ export class CollabDialgBoxComponent implements OnInit {
      
     );
     console.log(this.filteredOptions,"filtes")
+
   }
 
   private _filter(value: string): string[] {
@@ -50,14 +51,16 @@ export class CollabDialgBoxComponent implements OnInit {
     return this.listOfCollaborators.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
   addCollab(collaborators){  
+
     console.log(collaborators.value,"col")
-    this.listOfCollaborators.push(collaborators.value);
-    let sdata=this.listOfCollaborators
+
+    this.collab.push(collaborators.value);
+   
     
    
         // console.log('Collaborator : ', obj)
         this.addColab.push(collaborators.value);
-        console.log('listOf Collaborators: ', this.addColab)
+        console.log('listOf Collaborators: ', this.collab)
      
     
     // collabName.setValue(collabName.username)
@@ -67,7 +70,7 @@ export class CollabDialgBoxComponent implements OnInit {
   
   onSave(){
     console.log('Closing Collab Dialog and sending data to main component');
-    this.dialogRef.close(this.listOfCollaborators)
+    this.dialogRef.close(this.collab)
   }
 
   closeDialog() {

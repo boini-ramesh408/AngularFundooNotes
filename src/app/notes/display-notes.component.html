@@ -58,7 +58,7 @@ fxLayoutAlign="space-between center"
       ></textarea>
       
       </mat-card-content>
-      
+    
   
       <mat-card-content  class="content"> 
           
@@ -98,8 +98,11 @@ fxLayoutAlign="space-between center"
 </div>
 <div >
   <div class="moreInfo">
+   
+       <!-- <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
+     
   
-     <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+     <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
   </div>
   
   <div class="remind"> 
@@ -111,9 +114,9 @@ fxLayoutAlign="space-between center"
   
   
   <div class="colab">
-    <button mat-icon-button>
+    <!-- <button mat-icon-button>
       <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-    </button>
+    </button> -->
     <!-- <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators> -->
   </div>
   

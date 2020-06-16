@@ -102,7 +102,9 @@ export class DisplayNotesComponent implements OnInit {
 
   
 // }
-
+UpdateLabels($event){
+  this.note.label=$event
+}
  updateColor($event){
   // this.displayAllNotes()
     console.log($event,"yhjjghj")

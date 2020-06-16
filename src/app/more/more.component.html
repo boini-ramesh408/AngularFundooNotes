@@ -29,6 +29,7 @@
   <h2>Label note</h2>
 
   <div *ngFor="let label of allLabels">
+    
       <mat-checkbox [checked]= "label.pk" [value]="label" (change)="toggle($event)">{{label.label_name}}</mat-checkbox>
   </div>
 
