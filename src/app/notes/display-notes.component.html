@@ -77,6 +77,13 @@ fxLayoutAlign="space-between center"
       </mat-card-content>
   
   </div>
+  <!-- <div *ngFor="let collaborator of note.collaborators" class="footer-items">
+   
+    <mat-chip-list >
+      <mat-chip> {{collaborator}}</mat-chip>
+      
+    </mat-chip-list>
+</div> -->
   <div *ngFor="let label of note.label" class="footer-items">
     <!-- <div class="labels">
         <p id='card-label'>{{label}} </p> 
@@ -90,7 +97,12 @@ fxLayoutAlign="space-between center"
   <mat-card-footer style="display: flex;">
     
   <div (click)=openReminder()>
-     {{note.reminder}}
+
+      <!-- <mat-chip-list >
+      <mat-chip>{{note.reminder}}</mat-chip>
+      
+    </mat-chip-list> -->
+    {{note.reminder}}
   </div>
   
  
@@ -99,7 +111,7 @@ fxLayoutAlign="space-between center"
 <div >
   <div class="moreInfo">
    
-       <!-- <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
+       <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
      
   
      <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
@@ -117,7 +129,7 @@ fxLayoutAlign="space-between center"
     <!-- <button mat-icon-button>
       <mat-icon matTooltip="Collaborator">person_add</mat-icon>
     </button> -->
-    <!-- <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators> -->
+    <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
   </div>
   
   <div class="color">
