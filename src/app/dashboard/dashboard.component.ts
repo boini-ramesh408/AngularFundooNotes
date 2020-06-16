@@ -26,4 +26,9 @@ export class DashboardComponent implements OnInit {
    
   }
 
+  getListData($event){
+    console.log('List-Grid view event in Sidenav:', $event);
+    // this.sendListView.emit($event)
+  }
+
 }

@@ -60,6 +60,7 @@ import { CollabDialgBoxComponent } from './collab-dialg-box/collab-dialg-box.com
 import { AddLabelComponent } from './add-label/add-label.component';
 import { NoteSettingComponent, NoteSettingDialogComponent } from './note-setting/note-setting.component';
 import { GridListViewComponent } from './grid-list-view/grid-list-view.component';
+import { ProfileUploadComponent } from './profile-upload/profile-upload.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { GridListViewComponent } from './grid-list-view/grid-list-view.component
     AddLabelComponent,
     NoteSettingComponent,
     NoteSettingDialogComponent,
-    GridListViewComponent
+    GridListViewComponent,
+    ProfileUploadComponent
     
   ],
   entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
