@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoteSettingComponent } from './note-setting.component';
+import { GridListViewComponent } from './grid-list-view.component';
 
-describe('NoteSettingComponent', () => {
-  let component: NoteSettingComponent;
-  let fixture: ComponentFixture<NoteSettingComponent>;
+describe('GridListViewComponent', () => {
+  let component: GridListViewComponent;
+  let fixture: ComponentFixture<GridListViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoteSettingComponent ]
+      declarations: [ GridListViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoteSettingComponent);
+    fixture = TestBed.createComponent(GridListViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
