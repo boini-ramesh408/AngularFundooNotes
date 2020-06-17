@@ -61,6 +61,7 @@ import { AddLabelComponent } from './add-label/add-label.component';
 import { NoteSettingComponent, NoteSettingDialogComponent } from './note-setting/note-setting.component';
 import { GridListViewComponent } from './grid-list-view/grid-list-view.component';
 import { ProfileUploadComponent } from './profile-upload/profile-upload.component';
+import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { ProfileUploadComponent } from './profile-upload/profile-upload.componen
     NoteSettingComponent,
     NoteSettingDialogComponent,
     GridListViewComponent,
-    ProfileUploadComponent
+    ProfileUploadComponent,
+    ProfileDialogComponent
     
   ],
   entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
