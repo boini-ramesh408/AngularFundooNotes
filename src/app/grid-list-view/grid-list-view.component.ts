@@ -10,8 +10,10 @@ export class GridListViewComponent implements OnInit {
   @Output() listData= new EventEmitter(false)
   constructor() { }
 
-  ngOnInit() { this.toggleList = false; 
+  ngOnInit() { 
+    this.toggleList = false; 
   }
+  
   switchView(){
     if (this.toggleList === true){
       this.listData.emit(false)

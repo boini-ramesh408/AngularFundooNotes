@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'add', component: AddNotesComponent},
   {
     path: "dashboard",
-    component: DashboardComponent,
+    component:DashboardComponent,
     children: [
      
       {

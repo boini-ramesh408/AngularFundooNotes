@@ -9,6 +9,7 @@ export class Note_data {
    public labels:[];
    public labelsList: Array<any>;
     public collaborators:[];
+    public view:false;
    
   }
   

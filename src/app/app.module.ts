@@ -26,6 +26,7 @@ import { MatCardModule,MatTabsModule,
    MatCheckboxModule,
    MatAutocompleteModule,
    MatChipsModule,
+   MatGridListModule,
    
    } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -62,6 +63,7 @@ import { NoteSettingComponent, NoteSettingDialogComponent } from './note-setting
 import { GridListViewComponent } from './grid-list-view/grid-list-view.component';
 import { ProfileUploadComponent } from './profile-upload/profile-upload.component';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
+import { AllNotesGridComponent } from './all-notes-grid/all-notes-grid.component';
 
 @NgModule({
   declarations: [
@@ -94,9 +96,13 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
     NoteSettingDialogComponent,
     GridListViewComponent,
     ProfileUploadComponent,
-    ProfileDialogComponent
-    
+    ProfileDialogComponent,
+    AllNotesGridComponent,
+   
+    ProfileDialogComponent,
+
   ],
+
   entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
   imports: [
     BrowserModule,
@@ -125,7 +131,7 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
     OwlNativeDateTimeModule,
     MatSnackBarModule,
     // AmazingTimePickerModule,
-  
+    MatGridListModule,
   
   ],
   providers: [UserServiceService,HttpServicesService,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],

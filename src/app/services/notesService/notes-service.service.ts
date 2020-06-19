@@ -29,6 +29,9 @@ export class NotesServiceService {
   public AddcollabSource = new BehaviorSubject('No colabs to show');
   public AddColablData = this.AddcollabSource.asObservable();
 
+  public GridListStatusSource = new BehaviorSubject('No status to show');
+  public GridListStatus = this.GridListStatusSource.asObservable();
+
   constructor(private http: HttpClient,private hs:HttpServicesService) { }
   public get autoRefesh() {
     return this._subject;
@@ -86,5 +89,13 @@ export class NotesServiceService {
     .subscribe(response => {
       console.log(response,"label deleted")
     })
+  }
+
+  uploadProfilePicture(data){
+    console.log(data.name,"imageData")
+    let formData = new FormData()
+    formData.append('bridge', data)
+   
+    return this.http.post("http://127.0.0.1:8000/api/uploadImage/",formData)
   }
 }

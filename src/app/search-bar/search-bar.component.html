@@ -1,3 +1,6 @@
-<div *ngFor="let note of searchedNotes">
-    <app-display-notes [note]="note"></app-display-notes>
-</div> 
+
+<div *ngIf="searchedNotes.length != 0">
+    <div *ngFor="let note of searchedNotes">
+        <app-display-notes [note]="note"></app-display-notes>
+    </div> 
+</div>

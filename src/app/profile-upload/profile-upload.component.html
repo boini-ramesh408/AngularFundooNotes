@@ -1,4 +1,41 @@
-<button mat-icon-button (click)="openProfileDialog()">
-    <mat-icon>account_circle</mat-icon>
-</button>
-
+<div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+     
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <!-- menu for sign out -->
+    <mat-menu #menu="matMenu">
+      <div
+        fxLayout="row"
+        fxFlex="100"
+        fxLayoutAlign="space-between center"
+      >
+        <mat-card style="overflow: hidden">
+          <mat-card-content>
+            <div>
+              <img
+                class="topic-avatar"
+                mat-card-avatar
+                src="../assets/logo/fundoo-logo.png" 
+              />
+              <label class="btn-upload">
+                <input (change)="getFileButton($event)" type="file" name="fileupload" />
+                
+              </label>
+            </div>
+            <div
+              class="firstName"
+              style="margin-top: 15px;
+            text-align: center;"
+            >
+              {{ email }}
+            </div>
+          </mat-card-content>
+          <div>
+            <app-logout></app-logout>
+          </div>
+        </mat-card>
+      </div>
+      <!-- <mat-divider></mat-divider> -->
+    </mat-menu>
+  </div>

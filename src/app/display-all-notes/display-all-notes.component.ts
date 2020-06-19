@@ -10,19 +10,18 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 export class DisplayAllNotesComponent implements OnInit {
   notes:Note_data[];
 
-  expand: any = false;
+
+ view=false
+
+  constructor(private http: HttpClient,private notesService:NotesServiceService) { 
+    this.view=false
     
-  constructor(private http: HttpClient,private notesService:NotesServiceService) { }
+  }
+
 
   ngOnInit() {
-
-    //  this.http.get("http://127.0.0.1:8000/api/displayLabel/")
-    // .subscribe(response => {
-    //   this.labelData = response['data']
-    //   console.log(this.labelData,"lbl")
-    
-      
-    // })
+   
+  
 
     this.displayAllNotes()
     
@@ -37,8 +36,11 @@ export class DisplayAllNotesComponent implements OnInit {
     this.displayAllNotes()
 
   }
+
   displayAllNotes(){
+
     this.notesService.getAllNotes()
+
     .subscribe((response:any) => { 
 
       this.notes=response.data
