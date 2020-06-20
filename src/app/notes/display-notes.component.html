@@ -1,50 +1,182 @@
 
+<div *ngIf="viewListGrid == false ;else showList"> 
+    <div>
+    <div *ngFor="let notesData of note" >
+          <mat-card autocomplete="off"
+          role="combobox"
+
+          fxFlex="100"
+
+         
+
+          [ngStyle]="{ 'background-color': notesData.color }"
+          class="matcard"
+          >
+          <div>
+          <div>
 
 
-<div *ngFor="let notesData of note" >
-  <mat-card autocomplete="off"
-  role="combobox"
-
-  fxFlex="100"
-
-  [ngClass]="{'cardGridView':chooseView == 'row wrap','cardListView':chooseView == 'column wrap'}"
-
-  [ngStyle]="{ 'background-color': notesData.color }"
-  class="matcard"
-  >
-  <div>
-  <div >
-
-
-  <div   
-  
-  fxLayout="column"
-  fxLayoutAlign="space-between center">
-  <mat-card-content class="content" (click)=openDialog(note)>
-      
-      
-        <!-- {{note.title}} -->
-        <textarea
-        id="title"
-        class="textarea"
-        [(ngModel)]="notesData.title"
-        matInput
-        matTextareaAutosize
-        type="text"
-        placeholder="Title"
-        [ngStyle]="{ 'background-color': notesData.color }"
-      ></textarea>
-      
-      </mat-card-content>
-    
-  
-      <mat-card-content  class="content"> 
+          <div   
           
-          <!-- {{note.note}} -->
+          fxLayout="column"
+          fxLayoutAlign="space-between center">
+          <mat-card-content class="content" (click)=openDialog(note)>
+              
+              
+                <!-- {{note.title}} -->
+                <textarea
+                id="title"
+                class="textarea"
+                [(ngModel)]="notesData.title"
+                matInput
+                matTextareaAutosize
+                type="text"
+                placeholder="Title"
+                [ngStyle]="{ 'background-color': notesData.color }"
+              ></textarea>
+              
+              </mat-card-content>
+            
+          
+              <mat-card-content  class="content"> 
+                  
+                  <!-- {{note.note}} -->
+                  <textarea
+                  id="title"
+                  class="textarea"
+                  [(ngModel)]="notesData.note"
+                  matInput
+                  matTextareaAutosize
+                  type="text"
+                  placeholder="Title"
+                  [ngStyle]="{ 'background-color': notesData.color }"
+                ></textarea>
+                
+              </mat-card-content>
+          
+          </div>
+          <!-- <div *ngFor="let collaborator of note.collaborators" class="footer-items">
+          
+            <mat-chip-list >
+              <mat-chip> {{collaborator}}</mat-chip>
+              
+            </mat-chip-list>
+        </div> -->
+          <div *ngFor="let label of notesData.label" class="footer-items">
+            <!-- <div class="labels">
+                <p id='card-label'>{{label}} </p> 
+                
+            </div> -->
+            <mat-chip-list >
+              <mat-chip> {{label}}</mat-chip>
+              
+            </mat-chip-list>
+        </div>
+          <mat-card-footer style="display: flex;"  *ngIf="notesData.reminder != null">
+            
+          <div (click)=openReminder()  *ngIf="notesData.reminder != null">
+
+              <mat-chip-list >
+              <mat-chip>{{notesData.reminder}}</mat-chip>
+              
+            </mat-chip-list>
+            <!-- {{notesData.reminder}} -->
+          </div>
+          
+
+        </mat-card-footer>
+
+        </div>
+
+        <br>
+        <div class="main">
+
+          
+              
+            
+          
+            <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
+
+          
+        
+            <button mat-icon-button matTooltip="Remind me" type="time">
+              <mat-icon>add_alert</mat-icon>
+            </button>
+
+          
+          
+          
+          
+            <!-- <button mat-icon-button>
+              <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+            </button> -->
+            <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
+        
+          
+        
+            <app-color (sendColor)="updateColor($event)"></app-color>
+
+          
+        
+            <button mat-icon-button matTooltip="Add Image">
+              <mat-icon>crop_original</mat-icon>
+            </button>
+
+          
+
+            <button mat-icon-button matTooltip="Archive" (click)="archive()">
+              <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
+            </button>
+            
+            <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+
+        </div>
+          
+          
+          
+          </div>
+          
+          </mat-card>
+      
+    </div>
+  </div>
+
+<!-- //Todo -->
+
+
+</div>
+
+
+<div *ngIf="viewListGrid == true">
+
+  <!-- <div #showList>hello</div> -->
+  <div *ngFor="let notesData of note" >
+    <mat-card autocomplete="off"
+    role="combobox"
+
+    fxFlex="100"
+
+   
+
+    [ngStyle]="{ 'background-color': notesData.color }"
+    class="matcardd"
+    >
+    <div>
+    <div>
+
+
+    <div   
+    
+    fxLayout="column"
+    fxLayoutAlign="space-between center">
+    <mat-card-content class="content" (click)=openDialog(note)>
+        
+        
+          <!-- {{note.title}} -->
           <textarea
           id="title"
           class="textarea"
-          [(ngModel)]="notesData.note"
+          [(ngModel)]="notesData.title"
           matInput
           matTextareaAutosize
           type="text"
@@ -52,90 +184,109 @@
           [ngStyle]="{ 'background-color': notesData.color }"
         ></textarea>
         
-      </mat-card-content>
-  
-  </div>
-  <!-- <div *ngFor="let collaborator of note.collaborators" class="footer-items">
-   
-    <mat-chip-list >
-      <mat-chip> {{collaborator}}</mat-chip>
+        </mat-card-content>
       
-    </mat-chip-list>
-</div> -->
-  <div *ngFor="let label of notesData.label" class="footer-items">
-    <!-- <div class="labels">
-        <p id='card-label'>{{label}} </p> 
-        
-    </div> -->
-    <mat-chip-list >
-      <mat-chip> {{label}}</mat-chip>
-      
-    </mat-chip-list>
-</div>
-  <mat-card-footer style="display: flex;"  *ngIf="notesData.reminder != null">
     
-  <div (click)=openReminder()  *ngIf="notesData.reminder != null">
-
+        <mat-card-content  class="content"> 
+            
+            <!-- {{note.note}} -->
+            <textarea
+            id="title"
+            class="textarea"
+            [(ngModel)]="notesData.note"
+            matInput
+            matTextareaAutosize
+            type="text"
+            placeholder="Title"
+            [ngStyle]="{ 'background-color': notesData.color }"
+          ></textarea>
+          
+        </mat-card-content>
+    
+    </div>
+    <!-- <div *ngFor="let collaborator of note.collaborators" class="footer-items">
+    
       <mat-chip-list >
-      <mat-chip>{{notesData.reminder}}</mat-chip>
-      
-    </mat-chip-list>
-    <!-- {{notesData.reminder}} -->
+        <mat-chip> {{collaborator}}</mat-chip>
+        
+      </mat-chip-list>
+  </div> -->
+    <div *ngFor="let label of notesData.label" class="footer-items">
+      <!-- <div class="labels">
+          <p id='card-label'>{{label}} </p> 
+          
+      </div> -->
+      <mat-chip-list >
+        <mat-chip> {{label}}</mat-chip>
+        
+      </mat-chip-list>
   </div>
-  
-
-</mat-card-footer>
-
-</div>
-
-<br>
-<div class="main">
-
-   
+    <mat-card-footer style="display: flex;"  *ngIf="notesData.reminder != null">
       
-     
-  
-     <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
+    <div (click)=openReminder()  *ngIf="notesData.reminder != null">
 
-  
- 
-    <button mat-icon-button matTooltip="Remind me" type="time">
-      <mat-icon>add_alert</mat-icon>
-    </button>
-
-  
-  
-  
-  
-    <!-- <button mat-icon-button>
-      <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-    </button> -->
-    <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
- 
-  
- 
-    <app-color (sendColor)="updateColor($event)"></app-color>
-
-  
- 
-    <button mat-icon-button matTooltip="Add Image">
-      <mat-icon>crop_original</mat-icon>
-    </button>
-
-  
-
-    <button mat-icon-button matTooltip="Archive" (click)="archive()">
-      <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
-    </button>
+        <mat-chip-list >
+        <mat-chip>{{notesData.reminder}}</mat-chip>
+        
+      </mat-chip-list>
+      <!-- {{notesData.reminder}} -->
+    </div>
     
-    <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+
+  </mat-card-footer>
+
+  </div>
+
+  <br>
+  <div class="main">
+
+    
+        
+      
+    
+      <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
+
+    
+  
+      <button mat-icon-button matTooltip="Remind me" type="time">
+        <mat-icon>add_alert</mat-icon>
+      </button>
+
+    
+    
+    
+    
+      <!-- <button mat-icon-button>
+        <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+      </button> -->
+      <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
+  
+    
+  
+      <app-color (sendColor)="updateColor($event)"></app-color>
+
+    
+  
+      <button mat-icon-button matTooltip="Add Image">
+        <mat-icon>crop_original</mat-icon>
+      </button>
+
+    
+
+      <button mat-icon-button matTooltip="Archive" (click)="archive()">
+        <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
+      </button>
+      
+      <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+
+  </div>
+    
+    
+    
+    </div>
+    
+    </mat-card>
 
 </div>
-  
-  
-  
-  </div>
-  
-  </mat-card>
-  
+
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Output ,EventEmitter, DoCheck} from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
@@ -8,17 +8,30 @@ import { FormControl } from '@angular/forms';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,DoCheck {
   @Output() sendListView = new EventEmitter(false);
   searchText:string
   toggleList:boolean;
+
+  viewListGridMessage = false;
   constructor(private http: HttpClient,private notesService:NotesServiceService) 
   {
     
   }
+  ngDoCheck() {
+   
 
+    if ( window.innerWidth < 600) {
+        this.viewListGridMessage = false;
+        this.notesService.gridListView = true;
+    } else {
+      this.notesService.gridListView = this.viewListGridMessage;
+    }
+  }
   ngOnInit() {
     this.toggleList = false; 
+    this.notesService.gridListView = this.viewListGridMessage;
+
   }
   
   submitSearch(){ 
@@ -35,7 +48,11 @@ export class DashboardComponent implements OnInit {
 
     // this.sendListView.emit($event)
   }
-
+  viewChange() {
+   
+      this.viewListGridMessage = !this.viewListGridMessage;
+    console.log(this.viewListGridMessage,"status")
+  }
 
 
 

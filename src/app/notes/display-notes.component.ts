@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, Output } from '@angular/core';
+import { Component, OnInit,Input, Output, DoCheck } from '@angular/core';
 import { Note_data } from "../model/Note_data";
 import { MatDialog, MatSnackBar } from "@angular/material";
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { EventEmitter } from 'events';
   styleUrls: ['./display-notes.component.scss']
 })
 
-export class DisplayNotesComponent implements OnInit {
+export class DisplayNotesComponent implements OnInit, DoCheck{
 
 
   chooseView:boolean
@@ -25,7 +25,7 @@ export class DisplayNotesComponent implements OnInit {
   is_archive:false;
   expand: any = false;
 
-  public gridListView = false;
+
 
   constructor(private http: HttpClient,
     private notesService:NotesServiceService,
@@ -36,18 +36,21 @@ export class DisplayNotesComponent implements OnInit {
   
     
   }
-viewListGrid: boolean;
+  viewListGrid: boolean;
 
   ngDoCheck() {
     this.viewListGrid = this.notesService.gridListView;
+    console.log( this.notesService.gridListView,"status1")
   }
 
   ngOnInit() {
-    this.notesService.GridListStatus
-    .subscribe(response => {
-      console.log(response,"eee")
-     this.chooseView=response
-    });
+
+
+    // this.notesService.GridListStatus
+    // .subscribe(response => {
+    //   console.log(response,"eee")
+    //  this.chooseView=response
+    // });
 
     // this.http.get("http://127.0.0.1:8000/api/displayLabel/")
     // .subscribe(response => {

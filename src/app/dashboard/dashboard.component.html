@@ -14,11 +14,20 @@
     <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" (click)="submitSearch(searchText)" class="input" [routerLink]="['/dashboard/search']"/>
  
   </div>
+
   
+
+  <div>
+    <button mat-icon-button>
+      <mat-icon class="mat-icon-setting" *ngIf="!viewListGridMessage" (click)="viewChange()">view_stream</mat-icon>
+      <mat-icon class="mat-icon-setting" *ngIf="viewListGridMessage" (click)="viewChange()">dashboard</mat-icon>
+  </button>
+    <!-- <app-grid-list-view (listData)="getListData($event)"></app-grid-list-view> -->
+  
+  </div>
+
   <div>
     
-    <app-grid-list-view (listData)="getListData($event)"></app-grid-list-view>
-  
   </div>
 <!-- 
   <div>

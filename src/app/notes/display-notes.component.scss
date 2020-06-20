@@ -57,6 +57,23 @@
    margin-left: 13%;
    margin-right: -9%;
    height: auto;
+ 
+    
+  }
+
+
+  .matcardd{
+    margin-top: 4%; 
+    // box-sizing: border-box;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px #cec9c9;
+    width: 70%;
+    justify-content: space-between;
+    float: left;
+   margin-left: 13%;
+   margin-right: -9%;
+   height: auto;
    
  
     
@@ -65,7 +82,20 @@
   .moreInfo{
     margin-left: 80%;
     margin-top: 13%;
+  
+.ng-one-note-flex {
+  display: flex;
+  .note-card-class {
+      width: 238px;
   }
+}
+.ng-one-note-grid {
+  display: grid;
+
+  .note-card-class {
+      width: auto;
+  }
+}}
 
   .remind{
     margin-left: 1%;
@@ -102,3 +132,15 @@
     margin-right: -10px;
     opacity: 0.75;
   }
+
+
+
+.ng-one-note-flex {
+  display: flex;
+  
+}
+.ng-one-note-grid {
+  // display: grid;
+
+  
+}
