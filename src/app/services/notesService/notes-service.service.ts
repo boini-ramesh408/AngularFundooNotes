@@ -11,14 +11,16 @@ export class NotesServiceService {
   surl="search/"
   private _subject = new Subject<any>();
 
+  public gridListView = false;
+
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 
   private userSource = new BehaviorSubject('No Users');
   public usersList = this.userSource.asObservable();
   
-  private searchSource = new BehaviorSubject('No Notes');
-  public searchNotes = this.searchSource.asObservable();
+  public searchSource = new BehaviorSubject('No Notes');
+  public searchStatus = this.searchSource.asObservable();
 
   public collabSource = new BehaviorSubject('No Collaborators');
   public collabList = this.collabSource.asObservable();
@@ -29,7 +31,7 @@ export class NotesServiceService {
   public AddcollabSource = new BehaviorSubject('No colabs to show');
   public AddColablData = this.AddcollabSource.asObservable();
 
-  public GridListStatusSource = new BehaviorSubject('No status to show');
+  public GridListStatusSource = new BehaviorSubject<boolean>(false);
   public GridListStatus = this.GridListStatusSource.asObservable();
 
   constructor(private http: HttpClient,private hs:HttpServicesService) { }

@@ -1,6 +1,16 @@
+<!-- <div class="search"  >
+     
+    <button mat-icon-button fxHide.xs="true">
+      <mat-icon (click)="submitSearch()">search</mat-icon>
+    </button>
+    <input matTooltip="Search" placeholder="Search"  [formControl]="searchText" class="input" [routerLink]="['/dashboard/search']"/>
+ 
+  </div> -->
+  
 
-<div *ngIf="searchedNotes.length != 0">
-    <div *ngFor="let note of searchedNotes">
-        <app-display-notes [note]="note"></app-display-notes>
+<div>
+    <div >
+
+        <app-display-notes [note]="searchedNotes"></app-display-notes>
     </div> 
 </div>

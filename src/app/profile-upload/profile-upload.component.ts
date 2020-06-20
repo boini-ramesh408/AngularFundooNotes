@@ -11,7 +11,8 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 export class ProfileUploadComponent implements OnInit {
   displayPictureUpload = null;
   image = localStorage.getItem('image') 
-  email = localStorage.getItem('email') 
+  email = localStorage.getItem('email').split(',')
+  username = localStorage.getItem('name')
   constructor(public dialog: MatDialog,private snackbar: MatSnackBar,private dataService: NotesServiceService) { }
 
   ngOnInit() {

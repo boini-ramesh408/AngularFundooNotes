@@ -1,7 +1,14 @@
-<div>
+<div >
     <button mat-icon-button [matMenuTriggerFor]="menu">
-     
-      <mat-icon>account_circle</mat-icon>
+      <div> 
+        
+        <img
+       
+        mat-card-avatar
+        src="https://lh3.googleusercontent.com/ogw/ADGmqu8BJM0C4Q7VXGEqna41IJsrqy1XUtHZpu-Hbo-Y=s83-c-mo"
+      />
+    </div>
+      
     </button>
     <!-- menu for sign out -->
     <mat-menu #menu="matMenu">
@@ -12,14 +19,16 @@
       >
         <mat-card style="overflow: hidden">
           <mat-card-content>
-            <div>
+            <div  class="topic-avatar">
               <img
-                class="topic-avatar"
+               class="icon"
                 mat-card-avatar
-                src="../assets/logo/fundoo-logo.png" 
+              src="https://lh3.googleusercontent.com/ogw/ADGmqu8BJM0C4Q7VXGEqna41IJsrqy1XUtHZpu-Hbo-Y=s83-c-mo"
               />
-              <label class="btn-upload">
-                <input (change)="getFileButton($event)" type="file" name="fileupload" />
+              
+            
+              <label>
+                <input  class="btn-upload" (change)="getFileButton($event)" type="file" name="fileupload" />
                 
               </label>
             </div>
@@ -28,10 +37,11 @@
               style="margin-top: 15px;
             text-align: center;"
             >
+            <h3>{{username}}</h3>
               {{ email }}
             </div>
           </mat-card-content>
-          <div>
+          <div class="logout">
             <app-logout></app-logout>
           </div>
         </mat-card>

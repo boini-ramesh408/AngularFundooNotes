@@ -10,26 +10,28 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
   @Output() sendListView = new EventEmitter(false);
-  searchText = new FormControl('')
-
+  searchText:string
+  toggleList:boolean;
   constructor(private http: HttpClient,private notesService:NotesServiceService) 
   {
     
   }
 
   ngOnInit() {
+    this.toggleList = false; 
   }
   
-  submitSearch(){
-    console.log("search notes starts",this.searchText.value)
-    let searchData = {'title': this.searchText.value}
-    this.notesService.getSearchNotes(searchData) 
+  submitSearch(){ 
+    console.log("search notes starts",this.searchText)
+    let searchData = {'title': this.searchText}
+    // this.notesService.getSearchNotes(searchData) 
+    this.notesService.searchSource.next( this.searchText)
    
   }
 
   getListData($event){
     console.log('List-Grid view event in :', $event);
-    // this.notesService.GridListStatusSource.next($event)
+    this.notesService.GridListStatusSource.next($event)
 
     // this.sendListView.emit($event)
   }
@@ -62,4 +64,5 @@ export class DashboardComponent implements OnInit {
   //     }
   //   });
   // }
+  
 }

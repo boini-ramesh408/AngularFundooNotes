@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
     
     // let dataa = {"username": this.username, "password":this.password};
    console.log(this.username.value)
+
+   localStorage.setItem('name',this.username.value);
     this.userService.postLoginData(this.username.value,this.password.value)
     // this.http.post('http://localhost:8000/api/login/',dataa)
     .subscribe((response) => {  

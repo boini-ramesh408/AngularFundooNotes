@@ -11,17 +11,27 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 })
 export class SearchBarComponent implements OnInit {
   searchedNotes
+  searchText
   title = new FormControl('')
-  constructor(private router: Router,private http: HttpClient,private notesService:NotesServiceService) { }
+  constructor(private router: Router,private http: HttpClient,private notesService:NotesServiceService)
+   {   this.notesService.searchStatus.subscribe(data => {
+     
+    this.searchText = data
+    console.log('searched  data:',this.searchText)
+  }) }
 
   ngOnInit() {
+    //TODO below code for searching backend code
     console.log("search enter")
-    this.notesService.searchNotes.subscribe(data => {
+ 
+    this.notesService.getAllNotes().subscribe((response:any) => {
      
-      this.searchedNotes = data
-      console.log('searched note data:',this.searchedNotes)
-    })
+      this.searchedNotes = response['data']
 
+      console.log('searched note data:',response['data'])
+
+
+    })
   }
  
   }

@@ -11,10 +11,14 @@ export class DisplayAllNotesComponent implements OnInit {
   notes:Note_data[];
 
 
- view=false
+ view
 
   constructor(private http: HttpClient,private notesService:NotesServiceService) { 
-    this.view=false
+   this.notesService.GridListStatus
+    .subscribe(response => {
+      console.log(response)
+     this.view=response
+    });
     
   }
 

@@ -11,9 +11,10 @@
     <button mat-icon-button fxHide.xs="true">
       <mat-icon (click)="submitSearch()">search</mat-icon>
     </button>
-    <input matTooltip="Search" placeholder="Search"  [formControl]="searchText" class="input" [routerLink]="['/dashboard/search']"/>
+    <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" (click)="submitSearch(searchText)" class="input" [routerLink]="['/dashboard/search']"/>
  
   </div>
+  
   <div>
     
     <app-grid-list-view (listData)="getListData($event)"></app-grid-list-view>

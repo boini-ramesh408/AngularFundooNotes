@@ -11,9 +11,19 @@ import { NotesServiceService } from '../services/notesService/notes-service.serv
 export class AllNotesGridComponent implements OnInit {
 
   allNotes; 
-  @Input() view ;
 
-  constructor(private allNotesService: NotesServiceService) { }
+  @Input() view ;
+  
+  constructor(private allNotesService: NotesServiceService) { 
+    // this.allNotesService.GridListStatus.subscribe((response)=> { 
+    //   console.log(response)
+    //  this.view=response
+     
+    // }
+    // )
+    // GridListStatusSource
+
+  }
 
   ngOnInit(): void {
     console.log("a")
@@ -22,7 +32,16 @@ export class AllNotesGridComponent implements OnInit {
   }
 
   recieveNotes(){
-    this.allNotesService.getAllNotes()
+    this.allNotesService.getAllNotes() .subscribe((response:any) => { 
+
+      this.allNotes=response['data']
+      // console.log(this.allNotes)
+     
+       // data.push(response)
+     
+      //  console.log(this.notes,"res")
+     }
+     )
     
   }
 

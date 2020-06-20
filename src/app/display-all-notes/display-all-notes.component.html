@@ -3,8 +3,8 @@
 
 <div> <app-add-notes (receiveAddNotes)="receiveData($event)"></app-add-notes></div>
 
+<div >
+    <app-display-notes [note]="notes"></app-display-notes>
+</div> 
 
-<div *ngFor="let notesData of notes">
-    <app-display-notes [note]="notesData"></app-display-notes>
-</div>
-
+<!-- <div><app-all-notes-grid [view]="view"></app-all-notes-grid></div> -->

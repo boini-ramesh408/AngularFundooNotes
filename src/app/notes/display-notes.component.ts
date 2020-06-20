@@ -15,6 +15,8 @@ import { EventEmitter } from 'events';
 
 export class DisplayNotesComponent implements OnInit {
 
+
+  chooseView:boolean
   notes:Note_data[];
   @Input() note;
   showIcons=false
@@ -22,17 +24,31 @@ export class DisplayNotesComponent implements OnInit {
   labelData=[]
   is_archive:false;
   expand: any = false;
+
+  public gridListView = false;
+
   constructor(private http: HttpClient,
     private notesService:NotesServiceService,
     private dialog: MatDialog,private router: Router,
     private _matSnackBar: MatSnackBar,
    ) { 
 
+  
     
   }
+viewListGrid: boolean;
 
+  ngDoCheck() {
+    this.viewListGrid = this.notesService.gridListView;
+  }
 
   ngOnInit() {
+    this.notesService.GridListStatus
+    .subscribe(response => {
+      console.log(response,"eee")
+     this.chooseView=response
+    });
+
     // this.http.get("http://127.0.0.1:8000/api/displayLabel/")
     // .subscribe(response => {
     //   this.labelData = response['data']
