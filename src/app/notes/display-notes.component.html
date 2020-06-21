@@ -1,7 +1,7 @@
 
 <div *ngIf="viewListGrid == false ;else showList"> 
     <div>
-    <div *ngFor="let notesData of note" >
+    <div >
           <mat-card autocomplete="off"
           role="combobox"
 
@@ -9,7 +9,7 @@
 
          
 
-          [ngStyle]="{ 'background-color': notesData.color }"
+          [ngStyle]="{ 'background-color': note.color }"
           class="matcard"
           >
           <div>
@@ -27,12 +27,12 @@
                 <textarea
                 id="title"
                 class="textarea"
-                [(ngModel)]="notesData.title"
+                [(ngModel)]="note.title"
                 matInput
                 matTextareaAutosize
                 type="text"
                 placeholder="Title"
-                [ngStyle]="{ 'background-color': notesData.color }"
+                [ngStyle]="{ 'background-color': note.color }"
               ></textarea>
               
               </mat-card-content>
@@ -44,12 +44,12 @@
                   <textarea
                   id="title"
                   class="textarea"
-                  [(ngModel)]="notesData.note"
+                  [(ngModel)]="note.note"
                   matInput
                   matTextareaAutosize
                   type="text"
                   placeholder="Title"
-                  [ngStyle]="{ 'background-color': notesData.color }"
+                  [ngStyle]="{ 'background-color': note.color }"
                 ></textarea>
                 
               </mat-card-content>
@@ -62,7 +62,7 @@
               
             </mat-chip-list>
         </div> -->
-          <div *ngFor="let label of notesData.label" class="footer-items">
+          <div *ngFor="let label of note.label" class="footer-items">
             <!-- <div class="labels">
                 <p id='card-label'>{{label}} </p> 
                 
@@ -72,12 +72,12 @@
               
             </mat-chip-list>
         </div>
-          <mat-card-footer style="display: flex;"  *ngIf="notesData.reminder != null">
+          <mat-card-footer style="display: flex;"  *ngIf="note.reminder != null">
             
-          <div (click)=openReminder()  *ngIf="notesData.reminder != null">
+          <div (click)=openReminder()  *ngIf="note.reminder != null">
 
               <mat-chip-list >
-              <mat-chip>{{notesData.reminder}}</mat-chip>
+              <mat-chip>{{note.reminder}}</mat-chip>
               
             </mat-chip-list>
             <!-- {{notesData.reminder}} -->
@@ -150,7 +150,7 @@
 <div *ngIf="viewListGrid == true">
 
   <!-- <div #showList>hello</div> -->
-  <div *ngFor="let notesData of note" >
+  <div  >
     <mat-card autocomplete="off"
     role="combobox"
 
@@ -158,7 +158,7 @@
 
    
 
-    [ngStyle]="{ 'background-color': notesData.color }"
+    [ngStyle]="{ 'background-color': note.color }"
     class="matcardd"
     >
     <div>
@@ -176,12 +176,12 @@
           <textarea
           id="title"
           class="textarea"
-          [(ngModel)]="notesData.title"
+          [(ngModel)]="note.title"
           matInput
           matTextareaAutosize
           type="text"
           placeholder="Title"
-          [ngStyle]="{ 'background-color': notesData.color }"
+          [ngStyle]="{ 'background-color': note.color }"
         ></textarea>
         
         </mat-card-content>
@@ -193,12 +193,12 @@
             <textarea
             id="title"
             class="textarea"
-            [(ngModel)]="notesData.note"
+            [(ngModel)]="note.note"
             matInput
             matTextareaAutosize
             type="text"
             placeholder="Title"
-            [ngStyle]="{ 'background-color': notesData.color }"
+            [ngStyle]="{ 'background-color': note.color }"
           ></textarea>
           
         </mat-card-content>
@@ -211,7 +211,7 @@
         
       </mat-chip-list>
   </div> -->
-    <div *ngFor="let label of notesData.label" class="footer-items">
+    <div *ngFor="let label of note.label" class="footer-items">
       <!-- <div class="labels">
           <p id='card-label'>{{label}} </p> 
           
@@ -221,12 +221,12 @@
         
       </mat-chip-list>
   </div>
-    <mat-card-footer style="display: flex;"  *ngIf="notesData.reminder != null">
+    <mat-card-footer style="display: flex;"  *ngIf="note.reminder != null">
       
-    <div (click)=openReminder()  *ngIf="notesData.reminder != null">
+    <div (click)=openReminder()  *ngIf="note.reminder != null">
 
         <mat-chip-list >
-        <mat-chip>{{notesData.reminder}}</mat-chip>
+        <mat-chip>{{note.reminder}}</mat-chip>
         
       </mat-chip-list>
       <!-- {{notesData.reminder}} -->

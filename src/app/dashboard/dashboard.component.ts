@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit,DoCheck {
     console.log("search notes starts",this.searchText)
     let searchData = {'title': this.searchText}
     // this.notesService.getSearchNotes(searchData) 
-    this.notesService.searchSource.next( this.searchText)
+    this.notesService.searchSource.next(this.searchText)
    
   }
 
