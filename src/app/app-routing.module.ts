@@ -11,6 +11,7 @@ import { ArchiveNotesComponent } from './archive-notes/archive-notes.component';
 import { DisplayArchieveNotesComponent } from './display-archieve-notes/display-archieve-notes.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
+import { TrashNotesComponent } from './trash-notes/trash-notes.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,11 @@ const routes: Routes = [
       {
         path: "reminders",
         component: DisplayReminderComponent,
+       
+      },
+      {
+        path: "trash",
+        component: TrashNotesComponent,
        
       },
     ]

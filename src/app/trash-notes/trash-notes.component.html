@@ -1,1 +1,71 @@
-<p>trash-notes works!</p>
+
+<div *ngFor="let note of notes">
+    <mat-card  mat-dialog-content
+    fxLayout="column"
+    fxFlex
+    class="matcard"
+    [ngStyle]="{ 'background-color': note.color }"
+    >
+    
+    <div>
+    <br>
+    <div   class="pin-unpin-title"
+    fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <mat-card-title>
+      <textarea
+        id="title"
+        class="textarea"
+        [(ngModel)]="note.title"
+        matInput
+        matTextareaAutosize
+        type="text"
+        placeholder="Title"
+        [ngStyle]="{ 'background-color': note.color }"
+      ></textarea>
+    </mat-card-title>
+    
+      <mat-card-content>
+        <textarea
+          matInput
+          class="textarea"
+    
+          type="text"
+          matTextareaAutosize
+          
+          placeholder="Take a note"
+          [(ngModel)]="note.note"
+          [ngStyle]="{ 'background-color': note.color }"
+        ></textarea>
+      </mat-card-content>
+    
+    </div>
+    
+    
+    
+    <!-- <div>
+      <div class="all-icons" fxLayout="row" fxFlex="82" fxLaoutAline="space-between center">
+        <span class="alert" matTooltip="reminder" [matMenuTriggerFor]="matMenuReminder"> <mat-icon>add_alert</mat-icon> </span>
+        <span class="col" matTooltip="Collaborate"> <mat-icon>person_add</mat-icon> </span>
+        <span class="color" matTooltip="Change color" [matMenuTriggerFor]="matMenuChangeColor"> <mat-icon>color_lens</mat-icon> </span>
+        <span class="img" matTooltip="Add image"> <mat-icon>image</mat-icon> </span>
+        <span class="arcive" matTooltip="Archive"> <mat-icon>archive</mat-icon> </span>
+        <span class="more" matTooltip="More" [matMenuTriggerFor]="matMenuMore"> <mat-icon>more_vert</mat-icon> </span>
+        
+    </div> -->
+    
+    <!-- <div class="icon" mat-dialog-actions>
+        
+      
+      <button mat-button (click)="onSubmit()">
+        Close
+      </button>
+    </div> -->
+    </div>
+    
+    
+    </div>
+    
+    </mat-card>
+    
+</div>
