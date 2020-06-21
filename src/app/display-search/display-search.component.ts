@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 
 @Component({
   selector: 'app-display-search',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-search.component.scss']
 })
 export class DisplaySearchComponent implements OnInit {
-
+  @Input() note;
   constructor() { }
 
   ngOnInit() {

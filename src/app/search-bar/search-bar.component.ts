@@ -18,7 +18,7 @@ export class SearchBarComponent implements OnInit,DoCheck {
 
   constructor(private router: Router,private http: HttpClient,private notesService:NotesServiceService)
    {  
-     
+
   //     this.notesService.searchStatus.subscribe(data => {
      
   //   this.searchText = data
@@ -27,10 +27,14 @@ export class SearchBarComponent implements OnInit,DoCheck {
  }
 
  ngDoCheck() {
+   
   this.searchText = this.notesService.searchInputData;
   console.log( this.notesService.searchInputData,"status1")
+
+
 }
   ngOnInit() {
+    console.log(this.notes,"search purpose")
     //TODO below code for searching backend code
     console.log("search enter")
  

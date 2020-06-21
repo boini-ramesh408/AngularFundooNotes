@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="position">
 
   <div class="search">
@@ -11,10 +11,10 @@
      </div>
 </div>
 
-  
+   -->
 
 <div>
-    <div *ngFor="let notesData of notes">
+    <div *ngFor="let notesData of notes | filter:this.searchText">
 
         <app-display-notes [note]="notesData"></app-display-notes>
     </div> 

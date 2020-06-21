@@ -35,8 +35,8 @@ export class DashboardComponent implements OnInit,DoCheck {
     
   }
   ngDoCheck() {
-   
-
+    this.notesService.searchInputData = this.searchText;
+    console.log(this.searchText,"update")
     if ( window.innerWidth < 600) {
         this.viewListGridMessage = false;
         this.notesService.gridListView = true;
@@ -50,15 +50,15 @@ export class DashboardComponent implements OnInit,DoCheck {
 
 
   ngOnInit() {
-
-    this.notesService.searchInputData = this.searchText;
+    console.log(this.searchText)
+    
     this.toggleList = false; 
     this.notesService.gridListView = this.viewListGridMessage;
 
   }
   
   submitSearch(){ 
-    console.log("search notes starts",this.searchText)
+    // console.log("search notes starts",this.searchText)
     let searchData = {'title': this.searchText}
     // this.notesService.getSearchNotes(searchData) 
     this.notesService.searchSource.next(this.searchText)
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit,DoCheck {
   }
 
   getListData($event){
-    console.log('List-Grid view event in :', $event);
+    // console.log('List-Grid view event in :', $event);
     this.notesService.GridListStatusSource.next($event)
 
     // this.sendListView.emit($event)
@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit,DoCheck {
   viewChange() {
    
       this.viewListGridMessage = !this.viewListGridMessage;
-    console.log(this.viewListGridMessage,"status")
+    // console.log(this.viewListGridMessage,"status")
   }
 
 
@@ -110,7 +110,7 @@ export class DashboardComponent implements OnInit,DoCheck {
       return res.title.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
     })
   }
-  
+
   openCard(){
     console.log("data")
     if (this.showCard === false){

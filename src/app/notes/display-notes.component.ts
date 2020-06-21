@@ -40,7 +40,7 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
 
   ngDoCheck() {
     this.viewListGrid = this.notesService.gridListView;
-    console.log( this.notesService.gridListView,"status1")
+    // console.log( this.notesService.gridListView,"status1")
   }
 
   ngOnInit() {
