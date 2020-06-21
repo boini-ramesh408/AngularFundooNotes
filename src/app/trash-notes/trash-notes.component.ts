@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Note_data } from '../model/Note_data';
+import { NoteSettingComponent } from '../note-setting/note-setting.component';
+import { NotesServiceService } from '../services/notesService/notes-service.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-trash-notes',
@@ -10,7 +13,8 @@ import { Note_data } from '../model/Note_data';
 export class TrashNotesComponent implements OnInit {
 
   notes:Note_data
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private _matSnackBar: MatSnackBar,private ns:NotesServiceService) { }
 
   ngOnInit() {
     this.displayAllTrashNotes()
@@ -29,16 +33,19 @@ export class TrashNotesComponent implements OnInit {
 
 
 
-  // delete(noteId) {
-  //   this.noteservice.deleteNote(noteId, this.token).subscribe(
-  //     result => {
-  //       console.log('This note is deleted: -> ', result.data);
-  //       this.deletedNote = result.data;
-  //       this.trashedNotes =  this.trashedNotes.filter(note => note.id !== noteId);
-  //     },
-  //     err => console.log('failed to load api' + err)
-  //   );
-  // }
+  delete(noteId) {
+   this.ns.deleteNoteWithId(noteId)
+    .subscribe((response:any) => { 
+      // this.sendDeleteData.emit(this.notes)
+      this._matSnackBar.open('Note deleted ', 'close')
+              ._dismissAfter(2500);
+      
+       // data.push(response)
+     
+       console.log(response)
+     }
+     )
+  }
 
 
   // restoreNote(noteId) {
