@@ -1,8 +1,6 @@
 import { PipeTransform, Pipe } from '@angular/core';
 import { Note_data } from './Note_data';
 
-
-
 @Pipe({
     name:'SearchFilter'
 })
