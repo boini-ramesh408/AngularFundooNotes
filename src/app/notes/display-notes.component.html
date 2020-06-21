@@ -107,10 +107,8 @@
           
           
           
-            <!-- <button mat-icon-button>
-              <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-            </button> -->
-            <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
+           
+            <!-- <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators> -->
         
           
         
@@ -127,8 +125,8 @@
             <button mat-icon-button matTooltip="Archive" (click)="archive()">
               <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
             </button>
-            
-            <app-note-setting [notes]="note" (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+             <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+            <!-- <app-note-setting [notes]="note" (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
 
         </div>
           
@@ -256,10 +254,8 @@
     
     
     
-      <!-- <button mat-icon-button>
-        <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-      </button> -->
-      <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators>
+   
+      <!-- <app-collaborators (sendCollaborator)="setCollaborator($event)"></app-collaborators> -->
   
     
   
@@ -276,8 +272,8 @@
       <button mat-icon-button matTooltip="Archive" (click)="archive()">
         <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
       </button>
-       <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
-      <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+       <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+      <!-- <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
 
   </div>
     

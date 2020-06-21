@@ -51,7 +51,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RemindMeComponent } from './remind-me/remind-me.component';
 import { RemindBoxComponent } from './remind-box/remind-box.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import { MoreComponent } from './more/more.component';
+import { MoreComponent, MoreDialogComponent } from './more/more.component';
 import { DisplayReminderComponent } from './display-reminder/display-reminder.component';
 import { TrashNotesComponent } from './trash-notes/trash-notes.component';
 import { LabelComponent } from './label/label.component';
@@ -106,6 +106,7 @@ import { FilterPipe } from './model/filter.pipe';
     SearchFilterPipe,
     DisplaySearchComponent,
     FilterPipe,
+    MoreDialogComponent,
   ],
 
   entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],

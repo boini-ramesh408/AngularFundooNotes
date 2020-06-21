@@ -16,7 +16,7 @@ export class MoreComponent implements OnInit {
 
   is_trashed:boolean;
   showLabelsSignal:Boolean
-  
+
   @Output() sendMoreData = new EventEmitter(false);
 
   @Output() sendDeleteData = new EventEmitter(false);
@@ -31,32 +31,33 @@ export class MoreComponent implements OnInit {
   }
   deleteNote(){
     console.log("datatatat")
-
-    // if (this.is_trashed === false){
-    //   console.log(this.is_trashed,"trashed")
-    //   // console.log('Is _ archived before : ', this.is_archived)
-      
-    //     this.is_trashed = true
-   
-    // this._matSnackBar.open('Archieve notes added', 'close')
-    // ._dismissAfter(2500);
-    // // console.log('Is _ archived after : ', this.is_archived)
-    // }else{
-    //   this.is_trashed = false;
-   
-    // }
-    
-    this.notesService.deleteNoteWithId(this.notes.id)
+    console.log("datatatat")
+    // const is_trashed: true
+    let data={"is_trashed":true}
+    this.notesService.updateNotesWithId(this.notes.id,data)
+ 
     .subscribe((response:any) => { 
-      this.sendDeleteData.emit(this.notes)
-      this._matSnackBar.open('Note deleted ', 'close')
+
+      console.log(response,"trash")
+      // this.sendDeleteData.emit(this.notes)
+      this._matSnackBar.open('Note Trashed ', 'close')
               ._dismissAfter(2500);
       
-       // data.push(response)
      
-       console.log(response)
      }
      )
+    
+    // this.notesService.deleteNoteWithId(this.notes.id)
+    // .subscribe((response:any) => { 
+    //   this.sendDeleteData.emit(this.notes)
+    //   this._matSnackBar.open('Note deleted ', 'close')
+    //           ._dismissAfter(2500);
+      
+    //    // data.push(response)
+     
+    //    console.log(response)
+    //  }
+    //  )
   }
 
 
@@ -72,4 +73,15 @@ export class MoreComponent implements OnInit {
     });
   }
 
+}
+
+
+@Component({
+  selector: "app-more-dialog.component",
+  templateUrl:'./more-diaog.component.html',
+  // styleUrls: ['./more-dialog.component.scss']
+})
+export class MoreDialogComponent implements OnInit {
+  ngOnInit() {
+  }
 }
