@@ -13,13 +13,13 @@ import { AddLabelComponent } from '../add-label/add-label.component';
 export class MoreComponent implements OnInit {
   // notes:Note_data[];
   @Input() notes;
-
+  is_trashed:boolean;
   showLabelsSignal:Boolean
   @Output() sendMoreData = new EventEmitter(false);
 
   @Output() sendDeleteData = new EventEmitter(false);
 
-  is_trashed:boolean
+ 
   
   constructor( private _matSnackBar: MatSnackBar,
     private notesService:NotesServiceService ,

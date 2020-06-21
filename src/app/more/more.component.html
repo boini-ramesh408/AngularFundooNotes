@@ -4,11 +4,11 @@
       </button>
       <div>
 
-        <div >
+        <div>
           
           <mat-menu #menu="matMenu"  >
         
-            <button mat-menu-item  (click)="deleteNote()">
+            <button  *ngIf="is_trashed" mat-menu-item (click)="deleteNote()">
               Delete Note
             </button>
   
