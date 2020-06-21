@@ -27,7 +27,7 @@ export class SearchBarComponent implements OnInit,DoCheck {
  }
 
  ngDoCheck() {
-   
+
   this.searchText = this.notesService.searchInputData;
   console.log( this.notesService.searchInputData,"status1")
 
