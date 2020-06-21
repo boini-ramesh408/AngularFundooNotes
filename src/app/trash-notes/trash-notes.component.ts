@@ -21,7 +21,7 @@ export class TrashNotesComponent implements OnInit {
     this.http.get("http://127.0.0.1:8000/api/trashed/")
     .subscribe(response => {
       this.notes=response['data']
-     console.log(response,"trash motes")
+     console.log(response,"trash notes")
       
     })
   }
@@ -29,5 +29,32 @@ export class TrashNotesComponent implements OnInit {
 
 
 
+  // delete(noteId) {
+  //   this.noteservice.deleteNote(noteId, this.token).subscribe(
+  //     result => {
+  //       console.log('This note is deleted: -> ', result.data);
+  //       this.deletedNote = result.data;
+  //       this.trashedNotes =  this.trashedNotes.filter(note => note.id !== noteId);
+  //     },
+  //     err => console.log('failed to load api' + err)
+  //   );
+  // }
+
+
+  // restoreNote(noteId) {
+  //   const noteDetail = {
+  //     is_trashed: false
+  //   };
+
+
+  //   this.noteservice.updateNote(noteDetail, noteId, this.token).subscribe(
+  //     result => {
+  //       console.log('This note is updated just now: -> ', result);
+  //       this.updatedData = result;
+  //       this.trashedNotes =  this.trashedNotes.filter(note => note.id !== noteId);
+  //     },
+  //     err => console.log('failed to load api' + err)
+  //   );
+  // }
   
 }
