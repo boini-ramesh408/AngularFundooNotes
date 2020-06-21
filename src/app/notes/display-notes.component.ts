@@ -46,19 +46,7 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
   ngOnInit() {
 
 
-    // this.notesService.GridListStatus
-    // .subscribe(response => {
-    //   console.log(response,"eee")
-    //  this.chooseView=response
-    // });
 
-    // this.http.get("http://127.0.0.1:8000/api/displayLabel/")
-    // .subscribe(response => {
-    //   this.labelData = response['data']
-    //   console.log(this.labelData,"lbl")
-    
-      
-    // })
     this.displayAllNotes()
 
 

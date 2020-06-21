@@ -276,8 +276,8 @@
       <button mat-icon-button matTooltip="Archive" (click)="archive()">
         <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
       </button>
-       <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
-      <!-- <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
+       <!-- <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more> -->
+      <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
 
   </div>
     
