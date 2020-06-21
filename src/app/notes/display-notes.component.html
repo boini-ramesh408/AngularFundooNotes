@@ -128,7 +128,7 @@
               <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
             </button>
             
-            <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
+            <app-note-setting [notes]="note" (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting>
 
         </div>
           

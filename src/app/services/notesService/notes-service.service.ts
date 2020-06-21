@@ -15,6 +15,10 @@ export class NotesServiceService {
 
   public searchInputData="";
 
+
+  public noteDeleteDataSource = new BehaviorSubject('No notes for delete ');
+  public noteDeleteStatus = this.noteDeleteDataSource.asObservable();
+
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 
@@ -56,7 +60,7 @@ export class NotesServiceService {
     return this.hs.delete(this.url,id)
   }
   updateNotesWithId(id,data){
-    // console.log(data,"data")
+    console.log(data,"data")
     return this.hs.put(this.url,id,data)
     // return this.http.put(`http://127.0.0.1:8000/api/note/${id}`,data)
   }
