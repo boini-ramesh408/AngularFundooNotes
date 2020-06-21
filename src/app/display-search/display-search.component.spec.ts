@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllNotesGridComponent } from './all-notes-grid.component';
+import { DisplaySearchComponent } from './display-search.component';
 
-describe('AllNotesGridComponent', () => {
-  let component: AllNotesGridComponent;
-  let fixture: ComponentFixture<AllNotesGridComponent>;
+describe('DisplaySearchComponent', () => {
+  let component: DisplaySearchComponent;
+  let fixture: ComponentFixture<DisplaySearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllNotesGridComponent ]
+      declarations: [ DisplaySearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllNotesGridComponent);
+    fixture = TestBed.createComponent(DisplaySearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

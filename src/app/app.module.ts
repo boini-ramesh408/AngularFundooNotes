@@ -65,6 +65,7 @@ import { ProfileUploadComponent } from './profile-upload/profile-upload.componen
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 import { AllNotesGridComponent } from './all-notes-grid/all-notes-grid.component';
 import { SearchFilterPipe } from './model/search-filter.pipe';
+import { DisplaySearchComponent } from './display-search/display-search.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { SearchFilterPipe } from './model/search-filter.pipe';
    
     ProfileDialogComponent,
     SearchFilterPipe,
+    DisplaySearchComponent,
   ],
 
   entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
