@@ -3,6 +3,7 @@ import { Component, OnInit, Output ,EventEmitter, DoCheck} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
 import { FormControl } from '@angular/forms';
+import { Note_data } from '../model/Note_data';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,10 +13,25 @@ export class DashboardComponent implements OnInit,DoCheck {
   @Output() sendListView = new EventEmitter(false);
   searchText:string
   toggleList:boolean;
-
+  notes:Note_data[];
+  showCard: boolean;
   viewListGridMessage = false;
   constructor(private http: HttpClient,private notesService:NotesServiceService) 
   {
+    
+
+      this.notesService.getAllNotes()
+  
+      .subscribe((response:any) => { 
+  
+        this.notes=response.data
+  
+       
+         // data.push(response)
+       
+        //  console.log(this.notes,"res")
+       }
+       )
     
   }
   ngDoCheck() {
@@ -25,10 +41,17 @@ export class DashboardComponent implements OnInit,DoCheck {
         this.viewListGridMessage = false;
         this.notesService.gridListView = true;
     } else {
+
       this.notesService.gridListView = this.viewListGridMessage;
     }
+
+    
   }
+
+
   ngOnInit() {
+
+    this.notesService.searchInputData = this.searchText;
     this.toggleList = false; 
     this.notesService.gridListView = this.viewListGridMessage;
 
@@ -81,5 +104,22 @@ export class DashboardComponent implements OnInit,DoCheck {
   //     }
   //   });
   // }
+
+  Search(){
+    this.notes=this.notes.filter(res=>{
+      return res.title.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase())
+    })
+  }
   
+  openCard(){
+    console.log("data")
+    if (this.showCard === false){
+      console.log("data1")
+      return this.showCard = true
+    }
+    
+    else{
+      return this.showCard = false 
+    }
+  }
 }

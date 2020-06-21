@@ -121,6 +121,7 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
 
   
 // }
+
 UpdateLabels($event){
   this.note.label=$event
 }
@@ -184,9 +185,11 @@ UpdateLabels($event){
        // data.push(response)
      
       //  console.log(this.notes,"res")
+
      }
      )
   }
+
   setCollaborator($event){
     
     // console.log('Collab Event : ',$event)

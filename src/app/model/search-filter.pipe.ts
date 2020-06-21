@@ -10,6 +10,8 @@ export class SearchFilterPipe implements PipeTransform{
             return notes
         }
         return notes.filter(notesData =>
+          
             notesData.title.toLowerCase().indexOf(searchText.toLowerCase())!== -1);
+            
     }
 }

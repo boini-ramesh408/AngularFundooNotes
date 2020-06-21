@@ -1,15 +1,20 @@
-<!-- <div class="search"  > -->
+
+<div class="position">
+
+  <div class="search">
      
-    <!-- <button mat-icon-button fxHide.xs="true">
-      <mat-icon (click)="submitSearch()">search</mat-icon>
-    </button>
-    <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" class="input" />
- 
-  </div> -->
+    <button mat-icon-button fxHide.xs="true">
+         <mat-icon>search</mat-icon>
+       </button>
+       <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" (input)="Search()"  class="input" />
+      
+     </div>
+</div>
+
   
 
 <div>
-    <div *ngFor="let notesData of notes | SearchFilter:searchText ">
+    <div *ngFor="let notesData of notes">
 
         <app-display-notes [note]="notesData"></app-display-notes>
     </div> 

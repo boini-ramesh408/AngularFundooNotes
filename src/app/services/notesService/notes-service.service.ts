@@ -13,6 +13,8 @@ export class NotesServiceService {
 
   public gridListView = false;
 
+  public searchInputData="";
+
   private labelSource = new BehaviorSubject('No labels to show');
   public labelData = this.labelSource.asObservable();
 

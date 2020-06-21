@@ -6,16 +6,17 @@
         <a  style="padding-left: 10px; color:grey;" [routerLink]="['/dashboard/notes']">Fundoo</a>  
       
       </div>
+
       <div class="search">
      <!-- <app-search-bar></app-search-bar> -->
     <button mat-icon-button fxHide.xs="true">
       <mat-icon (click)="submitSearch()">search</mat-icon>
     </button>
 
-    <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" (click)="submitSearch()" class="input" [routerLink]="['/dashboard/search']"/>
+    <input matTooltip="Search" placeholder="Search"   [(ngModel)]="searchText" (input)="Search()" class="input" [routerLink]="['/dashboard/search']"/>
  
   </div>
-
+ 
   
 
   <div>
