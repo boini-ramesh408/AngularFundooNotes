@@ -134,4 +134,34 @@ export class MoreDialogComponent implements OnInit {
   onClose(){
     this.dialogRef.close();
   }
+
+   deleteNote(note){
+   console.log(note)
+    // const is_trashed: true
+    let data={"is_trashed":true}
+    this.dataService.updateNotesWithId(data,data)
+ 
+    .subscribe((response:any) => { 
+
+      console.log(response,"trash")
+      // this.sendDeleteData.emit(this.notes)
+      this._matSnackBar.open('Note Trashed ', 'close')
+              ._dismissAfter(2500);
+      
+     
+     }
+     )
+    
+    // this.notesService.deleteNoteWithId(this.notes.id)
+    // .subscribe((response:any) => { 
+    //   this.sendDeleteData.emit(this.notes)
+    //   this._matSnackBar.open('Note deleted ', 'close')
+    //           ._dismissAfter(2500);
+      
+    //    // data.push(response)
+     
+    //    console.log(response)
+    //  }
+    //  )
+  }
 }

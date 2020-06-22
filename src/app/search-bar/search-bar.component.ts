@@ -29,7 +29,7 @@ export class SearchBarComponent implements OnInit,DoCheck {
  ngDoCheck() {
 
   this.searchText = this.notesService.searchInputData;
-  console.log( this.notesService.searchInputData,"status1")
+  // console.log( this.notesService.searchInputData,"status1")
 
 
 }
@@ -42,7 +42,7 @@ export class SearchBarComponent implements OnInit,DoCheck {
      
       this.notes = response['data']
 
-      console.log('searched note data:',response['data'])
+      // console.log('searched note data:',response['data'])
 
 
     })

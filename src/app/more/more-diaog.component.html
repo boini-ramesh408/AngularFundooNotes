@@ -1,8 +1,10 @@
 
 <div *ngIf="showLabelsSignal === false;else showLabelList">
     <button mat-menu-item (click)="deleteNote()">Delete Note</button>
+    
     <br>
-    <button (click)="showLabels()">Add Label</button>
+
+    <button mat-menu-item (click)="showLabels()">Add Label</button>
 </div>
 
 

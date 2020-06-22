@@ -40,6 +40,19 @@ fxLayoutAlign="space-between center">
   </mat-card-content>
 
 </div>
+<mat-card-footer style="display: flex;"  *ngIf="note.reminder != null">
+            
+  <div (click)=openReminder()  *ngIf="note.reminder != null">
+
+      <mat-chip-list >
+      <mat-chip>{{note.reminder}}</mat-chip>
+      
+    </mat-chip-list>
+    <!-- {{notesData.reminder}} -->
+  </div>
+  
+
+</mat-card-footer>
 
 
 

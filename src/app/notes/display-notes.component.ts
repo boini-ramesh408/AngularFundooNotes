@@ -48,7 +48,7 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
   ngOnInit() {
 
 
-
+    console.log(this.reminder)
     this.displayAllNotes()
 
 
@@ -178,13 +178,12 @@ setLabels($event){
     //  console.log(response)
     })
   }
+
   submitData(){
-   
+  console.log(this.reminder)
     let reminder  = new Date(this.reminder)
    
 
-  
-  
   let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
   
   let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
@@ -214,4 +213,39 @@ setLabels($event){
     return this.showCard = false
   }
   }
+  onSave(){
+    console.log(this.reminder)
+    let reminder  = new Date(this.reminder)
+   
+
+  let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
+  
+  let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
+  let finalReminder = date + ' ' + time 
+
+  console.log('reminder event recorded  :', finalReminder);
+  // this.reminder = finalReminder;
+  
+  let data= {"reminder":finalReminder}
+  
+ 
+    console.log("data2",data)
+ 
+    this.notesService.updateNotesWithId(this.note.id,data)
+    
+   
+    .subscribe((response) => { 
+      // console.log(response,"res")
+   
+      this._matSnackBar.open('Reminder successfully added', 'close')
+            ._dismissAfter(2500);
+     
+    }
+    )
+    
+    
+    
+  }
+   
+  
 }

@@ -50,7 +50,7 @@
         
         [opened]="true"  fixedTopGap="65">
          
-            <button class="sidenav-element-button"  style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/notes']">
+            <button  mat-button class="sidenav-element-button"  style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/notes']">
               <mat-icon matPrefix style="float: left;">lightbulb_outline</mat-icon>
               <!-- <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon> -->
               Notes
@@ -58,7 +58,7 @@
           
           <br>
           
-          <button class="sidenav-element-button" style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/reminders']" >
+          <button  mat-button class="sidenav-element-button" style="border-color: transparent; background-color: transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/reminders']" >
             <mat-icon matPrefix style="float: left;">notifications_none</mat-icon>
             <!-- <mat-icon class="remind" id="sidenav-icon">notifications_none</mat-icon> -->
             Reminders</button>
@@ -79,8 +79,8 @@
     
         <br>
         <br>
-        <br>
-        <button  style="border-color: transparent; background-color: 
+      
+        <button  mat-button style="border-color: transparent; background-color: 
         transparent; width: 100%; font-size: 1rem; align-self: center;" [routerLink]="['/dashboard/trash']"> 
           <mat-icon matPrefix style="float: left;">delete</mat-icon>
           Trash

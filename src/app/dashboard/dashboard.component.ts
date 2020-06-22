@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit,DoCheck {
   }
   ngDoCheck() {
     this.notesService.searchInputData = this.searchText;
-    console.log(this.searchText,"update")
+    // console.log(this.searchText,"update")
     if ( window.innerWidth < 600) {
         this.viewListGridMessage = false;
         this.notesService.gridListView = true;
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit,DoCheck {
 
 
   ngOnInit() {
-    console.log(this.searchText)
+    // console.log(this.searchText)
     
     this.toggleList = false; 
     this.notesService.gridListView = this.viewListGridMessage;

@@ -69,7 +69,7 @@
                             <mat-icon>access_time</mat-icon>
                
                             <mat-form-field>
-                                <input matInput [matDatepicker]="dp" placeholder=" datepicker" [(ngModel)]="reminder" (click)="submitData()">
+                                <input matInput [matDatepicker]="dp" placeholder=" datepicker" [(ngModel)]="reminder" (click)="submitData($event)">
                                 <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                                 <mat-datepicker #dp></mat-datepicker>
                                 

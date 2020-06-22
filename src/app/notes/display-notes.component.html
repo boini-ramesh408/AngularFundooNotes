@@ -74,10 +74,10 @@
         </div>
           <mat-card-footer style="display: flex;"  *ngIf="note.reminder != null">
             
-          <div (click)=openReminder()  *ngIf="note.reminder != null">
+          <div  (click)=openReminder()   *ngIf="note.reminder != null">
 
-              <mat-chip-list >
-              <mat-chip>{{note.reminder}}</mat-chip>
+              <mat-chip-list [ngStyle]="{ 'background-color': note.color }" >
+              <mat-chip >{{note.reminder}}</mat-chip>
               
             </mat-chip-list>
             <!-- {{notesData.reminder}} -->
@@ -115,13 +115,16 @@
                     <mat-icon>access_time</mat-icon>
        
                     <mat-form-field>
-                        <input matInput [matDatepicker]="dp" placeholder=" datepicker" [(ngModel)]="reminder" (click)="submitData()">
+
+                        <input matInput [matDatepicker]="dp" placeholder=" datepicker" [(ngModel)]="reminder" >
                         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                        <mat-datepicker #dp></mat-datepicker>
+                        <mat-datepicker #dp (click)="submitData()"></mat-datepicker>
                         
                       </mat-form-field>
+
                     
                 </button>
+                <button mat-button (click)=onSave()>Save</button>
                
             </div>
         </mat-menu>
