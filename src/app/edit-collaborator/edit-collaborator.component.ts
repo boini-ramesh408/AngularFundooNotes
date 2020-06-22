@@ -56,6 +56,8 @@ export class EditCollaboratorDialogComponent implements OnInit {
   addColab=[]
   filteredOptions : Observable<any>;
   owner = localStorage.getItem('email').split(',')
+  username = localStorage.getItem('name')
+  
   constructor(private dialog: MatDialog, public dialogRef : MatDialogRef<EditCollaboratorDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data : any,
     private Http:HttpClient, private ns : NotesServiceService) {

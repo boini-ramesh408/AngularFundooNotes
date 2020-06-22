@@ -19,6 +19,7 @@ export class CollabDialgBoxComponent implements OnInit {
   addColab=[]
   filteredOptions : Observable<any>;
   owner = localStorage.getItem('email').split(',')
+  username = localStorage.getItem('name')
   constructor(private ns : NotesServiceService,
     public dialogRef : MatDialogRef<CollabDialgBoxComponent>,
     @Inject(MAT_DIALOG_DATA) public data : any,
