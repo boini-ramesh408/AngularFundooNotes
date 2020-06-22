@@ -36,7 +36,11 @@ export class EditCollaboratorComponent implements OnInit {
   }
 }
 
-
+@Component({
+  // selector: "app-more-dialog.component",
+  templateUrl:'./edit-collab-dialog.component.html',
+  // styleUrls: ['./more-dialog.component.scss']
+})
 export class EditCollaboratorDialogComponent implements OnInit {
   
   constructor(private dialog: MatDialog, private ns : NotesServiceService) { }
