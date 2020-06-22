@@ -77,8 +77,8 @@ export class CollabDialgBoxComponent implements OnInit {
   //   this.dialogRef.close(this.listOfCollaborators);
   // }
 
-  // deletePerson(email) {
-  //   this.listOfCollaborators.splice( this.listOfCollaborators.indexOf(email), 1 );
-  // }
+  deletePerson(email) {
+    this.listOfCollaborators.splice( this.listOfCollaborators.indexOf(email), 1 );
+  }
   
 }
