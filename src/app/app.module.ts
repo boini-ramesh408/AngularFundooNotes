@@ -68,6 +68,7 @@ import { SearchFilterPipe } from './model/search-filter.pipe';
 import { DisplaySearchComponent } from './display-search/display-search.component';
 import { FilterPipe } from './model/filter.pipe';
 import { EditCollaboratorComponent, EditCollaboratorDialogComponent } from './edit-collaborator/edit-collaborator.component';
+import { EditReminderComponent } from './edit-reminder/edit-reminder.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { EditCollaboratorComponent, EditCollaboratorDialogComponent } from './ed
     MoreDialogComponent,
     EditCollaboratorComponent,
     EditCollaboratorDialogComponent,
+    EditReminderComponent,
   ],
 
   entryComponents: [EditNotesComponent,LabelDialogComponent,
