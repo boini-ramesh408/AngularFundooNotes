@@ -1,6 +1,7 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Output,EventEmitter, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-collaborator',
@@ -43,7 +44,9 @@ export class EditCollaboratorComponent implements OnInit {
 })
 export class EditCollaboratorDialogComponent implements OnInit {
   
-  constructor(private dialog: MatDialog, private ns : NotesServiceService) { }
+  constructor(private dialog: MatDialog, public dialogRef : MatDialogRef<EditCollaboratorDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data : any,
+    private Http:HttpClient, private ns : NotesServiceService) { }
 
   ngOnInit() {
   }

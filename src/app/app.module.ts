@@ -67,7 +67,7 @@ import { AllNotesGridComponent } from './all-notes-grid/all-notes-grid.component
 import { SearchFilterPipe } from './model/search-filter.pipe';
 import { DisplaySearchComponent } from './display-search/display-search.component';
 import { FilterPipe } from './model/filter.pipe';
-import { EditCollaboratorComponent } from './edit-collaborator/edit-collaborator.component';
+import { EditCollaboratorComponent, EditCollaboratorDialogComponent } from './edit-collaborator/edit-collaborator.component';
 
 @NgModule({
   declarations: [
@@ -109,10 +109,12 @@ import { EditCollaboratorComponent } from './edit-collaborator/edit-collaborator
     FilterPipe,
     MoreDialogComponent,
     EditCollaboratorComponent,
+    EditCollaboratorDialogComponent,
   ],
 
   entryComponents: [EditNotesComponent,LabelDialogComponent,
-    MoreDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
+    MoreDialogComponent,CollabDialgBoxComponent,
+    EditCollaboratorDialogComponent,NoteSettingDialogComponent,AddLabelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
