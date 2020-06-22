@@ -40,7 +40,7 @@ export class NoteSettingComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       this.sendLabels.emit(result)
-      this.sendUpdteLabels.emit(result)
+      
       
       console.log('emitting event')
       console.log("More Note Options Dialog Box Closed")
@@ -96,6 +96,7 @@ this.dataService.noteDeleteStatus.subscribe(result=>{
       console.log($event.source.value['name'],"toggle");
       this.listOfLabels.push($event.source.value['name'])
       this.dataService.NoteLabelSource.next($event.source.value['id']
+
       )
     }
   }

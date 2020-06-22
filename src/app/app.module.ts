@@ -109,7 +109,8 @@ import { FilterPipe } from './model/filter.pipe';
     MoreDialogComponent,
   ],
 
-  entryComponents: [EditNotesComponent,LabelDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
+  entryComponents: [EditNotesComponent,LabelDialogComponent,
+    MoreDialogComponent,CollabDialgBoxComponent,NoteSettingDialogComponent,AddLabelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

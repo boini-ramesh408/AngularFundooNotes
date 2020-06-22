@@ -41,6 +41,7 @@ export class AddNotesComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.notesService.NoteLabelList.subscribe(result => {
     
      console.log(result,"hhd")

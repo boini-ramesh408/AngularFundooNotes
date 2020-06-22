@@ -1,5 +1,5 @@
 import { Component, OnInit, Output,EventEmitter, Input} from '@angular/core';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 import { NotesServiceService } from '../services/notesService/notes-service.service';
 import { Note_data } from '../model/Note_data';
 import { AddLabelComponent } from '../add-label/add-label.component';
@@ -18,7 +18,7 @@ export class MoreComponent implements OnInit {
   showLabelsSignal:Boolean
 
   @Output() sendMoreData = new EventEmitter(false);
-
+  @Output() sendUpdteLabels = new EventEmitter(false);
   @Output() sendDeleteData = new EventEmitter(false);
 
  
@@ -61,16 +61,27 @@ export class MoreComponent implements OnInit {
   }
 
 
-  addLabelToNoteDialog(notes) {
-    console.log("fetched Note on add label Click sending the data to add label component : ",notes);
-    const dialogReference = this._matDialog.open(AddLabelComponent, {
-      width: "280px",
-      height: "auto",
-      data: { notes }
-    });
-    dialogReference.afterClosed().subscribe(result => {
-      console.log("dialog closed with out any change");
-    });
+  openMore($event){
+    console.log($event,"evnt")
+    console.log($event)
+    let rect = $event.target.getBoundingClientRect()
+    console.log(rect)
+    let leftX = rect.x + 'px';
+    let topY = rect.y + 'px';
+    const dialogRef = this._matDialog.open(MoreDialogComponent,{
+      // width: "12.5em",
+      // height: "10.5em",
+      position: {left: leftX, top: topY}
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      // this.sendLabels.emit(result)
+      this.sendUpdteLabels.emit(result)
+      
+      console.log('emitting event')
+      console.log("More Note Options Dialog Box Closed")
+    })
   }
 
 }
@@ -82,6 +93,45 @@ export class MoreComponent implements OnInit {
   // styleUrls: ['./more-dialog.component.scss']
 })
 export class MoreDialogComponent implements OnInit {
+  listOfLabels = []
+  allLabels
+  showLabelsSignal:Boolean
+  constructor(private dataService : NotesServiceService,
+    private _matSnackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<MoreDialogComponent>){
+    this.showLabelsSignal = false
+  }
+
+
   ngOnInit() {
+
+    this.dataService.labelData.subscribe(result => {
+    
+      this.allLabels = result;
+    })
+  }
+  showLabels(){
+    if (this.showLabelsSignal === false){
+      this.showLabelsSignal = true;
+    }
+  }
+
+  toggle($event){
+    console.log($event,"toggle")
+    // console.log($event.source.value['name'],"toggle");
+    if ($event.source.checked ===true){
+      console.log($event.source.value['name'],"toggle");
+      this.listOfLabels.push($event.source.value['name'])
+      this.dataService.NoteLabelSource.next($event.source.value['id']
+      )
+    }
+  }
+  
+  submitLabels(){
+    this.dialogRef.close(this.listOfLabels)
+  }
+
+  onClose(){
+    this.dialogRef.close();
   }
 }
