@@ -21,6 +21,8 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
   @Input() note;
   showIcons=false
   color:string
+  reminder:string;
+  showCard: boolean;
   labelData=[]
   is_archive:false;
   expand: any = false;
@@ -33,7 +35,7 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
     private _matSnackBar: MatSnackBar,
    ) { 
 
-  
+  this.showCard=false
     
   }
   viewListGrid: boolean;
@@ -176,5 +178,40 @@ setLabels($event){
     //  console.log(response)
     })
   }
+  submitData(){
+   
+    let reminder  = new Date(this.reminder)
+   
 
+  
+  
+  let date =  reminder.getFullYear()+'-'+(reminder.getMonth()+1)+'-'+reminder.getDate();
+  
+  let time = reminder.getHours()+':'+reminder.getMinutes()+':'+reminder.getSeconds();
+  let finalReminder = date + ' ' + time 
+
+  console.log('reminder event recorded  :', finalReminder);
+  // this.reminder = finalReminder;
+  
+  let data= {"reminder":finalReminder}
+  
+  if (this.showCard === true){
+    console.log("data2",data)
+ 
+    this.notesService.updateNotesWithId(this.note.id,data)
+    
+    // this.http.post('http://127.0.0.1:8000/api/note/',data)
+    .subscribe((response) => { 
+      console.log(response,"res")
+      // this.receiveAddNotes.emit(data)
+      this._matSnackBar.open('Note successfully added', 'close')
+            ._dismissAfter(2500);
+      // this.receiveAddNotes.emit(response['data'])
+    }
+    )
+    
+    
+    return this.showCard = false
+  }
+  }
 }
