@@ -38,9 +38,9 @@ export class NoteSettingComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      
+      console.log(result,"labels")
       this.sendLabels.emit(result)
-      
+      // this.sendUpdteLabels.emit(result)
       
       console.log('emitting event')
       console.log("More Note Options Dialog Box Closed")

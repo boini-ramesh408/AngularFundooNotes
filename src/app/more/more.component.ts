@@ -12,14 +12,15 @@ import { AddLabelComponent } from '../add-label/add-label.component';
 })
 export class MoreComponent implements OnInit {
   // notes:Note_data[];
+  @Output() sendLabels = new EventEmitter(false);
   @Input() notes;
 
   is_trashed:boolean;
   showLabelsSignal:Boolean
 
-  @Output() sendMoreData = new EventEmitter(false);
-  @Output() sendUpdteLabels = new EventEmitter(false);
-  @Output() sendDeleteData = new EventEmitter(false);
+  // @Output() sendMoreData = new EventEmitter(false);
+ 
+  // @Output() sendDeleteData = new EventEmitter(false);
 
  
   
@@ -30,8 +31,7 @@ export class MoreComponent implements OnInit {
   ngOnInit() {
   }
   deleteNote(){
-    console.log("datatatat")
-    console.log("datatatat")
+    
     // const is_trashed: true
     let data={"is_trashed":true}
     this.notesService.updateNotesWithId(this.notes.id,data)
@@ -75,9 +75,9 @@ export class MoreComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      
-      // this.sendLabels.emit(result)
-      this.sendUpdteLabels.emit(result)
+      console.log(result,"labelArray")
+      this.sendLabels.emit(result)
+      // this.sendLabel.emit(result)
       
       console.log('emitting event')
       console.log("More Note Options Dialog Box Closed")

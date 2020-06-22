@@ -125,7 +125,7 @@
             <button mat-icon-button matTooltip="Archive" (click)="archive()">
               <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
             </button>
-             <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+            <app-more [notes]="note" (sendLabels)="setLabels($event)"></app-more>
             <!-- <app-note-setting [notes]="note" (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
 
         </div>
@@ -272,7 +272,11 @@
       <button mat-icon-button matTooltip="Archive" (click)="archive()">
         <app-archive-notes (sendArchive)="updateArchive($event)"></app-archive-notes>
       </button>
-       <app-more [notes]="note" (sendDeleteData)="deleteNote($event)"></app-more>
+
+      <button mat-icon-button matTooltip="more">
+        <app-more (sendLabels)="setLabels($event)"></app-more>
+      </button>
+      
       <!-- <app-note-setting (sendUpdteLabels)="UpdateLabels($event)"></app-note-setting> -->
 
   </div>

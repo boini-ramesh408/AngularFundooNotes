@@ -63,29 +63,14 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
       return this.showIcons = false
     }
   }
-  
-  // deleteNote(){
-  //   console.log(this.note.id)
+ 
 
-  //   // return this.http.delete(`http://localhost:8000/notes/api/`, {headers:{
-  //   //   'token': token
-
-  //   this.notesService.deleteNoteWithId(this.note.id)
-  //   .subscribe((response:any) => { 
-     
-  //     this._matSnackBar.open('Note deleted added', 'close')
-  //             ._dismissAfter(2500);
-      
-  //      // data.push(response)
-     
-  //      console.log(response)
-  //    }
-  //    )
+  // deleteNote($event){
+  //   // console.log($event,"event")
+  //   this.displayAllNotes()
   // }
-  deleteNote($event){
-    // console.log($event,"event")
-    this.displayAllNotes()
-  }
+
+
   openDialog(note) {
 
     console.log("catched note at simple note ", note);
@@ -110,7 +95,8 @@ export class DisplayNotesComponent implements OnInit, DoCheck{
   
 // }
 
-UpdateLabels($event){
+setLabels($event){
+  console.log($event,"labelss")
   this.note.label=$event
 }
  updateColor($event){
