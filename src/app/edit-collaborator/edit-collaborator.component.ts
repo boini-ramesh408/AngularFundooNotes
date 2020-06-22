@@ -16,7 +16,7 @@ export class EditCollaboratorComponent implements OnInit {
   }
 
   openCollaboratorDialog(): void{
-    const dialogRef = this.dialog.open(CollabDialgBoxComponent, {
+    const dialogRef = this.dialog.open(EditCollaboratorDialogComponent, {
       width: "40rem",
       // height: "2rem",
       data: this.listOfUsers,
@@ -33,5 +33,14 @@ export class EditCollaboratorComponent implements OnInit {
   } 
   setCollaborator($event){
     console.log($event,"cols")
+  }
+}
+
+
+export class EditCollaboratorDialogComponent implements OnInit {
+  
+  constructor(private dialog: MatDialog, private ns : NotesServiceService) { }
+
+  ngOnInit() {
   }
 }
